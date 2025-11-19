@@ -1,0 +1,39 @@
+%Race car development is an engineering challenge that requires an understanding of aerodynamics, vehicle dynamics, and powertrain performance. This project focuses on the  design and development of a high performance Formula 1 car using  AVL Vehicle Simulation Model (VSM). The objective is to build a competitive car setup for both qualifying and race scenarios, while complying with the 2026 FIA Formula 1 Technical and Sporting Regulations.
+
+%\vspace{3mm}
+
+%The  work will be carried out under established technical and regulatory constraints, in accordance with recent rule changes introduced in the FIA 2026 regulations. The permitted set-up parameters and their relevant regulatory references are summarised in the table~\ref{tab:regulation_changes}.
+
+%\vspace{3mm}
+
+%To simulate a real-world motorsport team environment, the project team was divided into three technical subgroups:
+%\begin{itemize}
+    %\item \textbf{Aerodynamics}: Focused on optimizing aerodynamic efficiency, downforce, and drag using straight-line simulations and component modifications such as wing angles and diffuser design.
+    %\item \textbf{Vehicle Dynamics}: Responsible for suspension, ride height, camber, toe, and handling balance using skid-pad simulation data.
+   % \item \textbf{Powertrain}: Addressed performance mapping, gear ratios, MGU-K torque delivery, and thermal management using lap-time and energy deployment analysis.
+%\end{itemize}
+
+%Each team carried out iterative simulations and subsystem level optimisations using AVL VSM to assess the impact of their changes on vehicle performance. The final car set-up was selected based on the simulation data that showed the best balance between lap time reduction, regulatory compliance, and system integration
+
+%%%%%%%%%%%%%%%%
+
+
+In Formula 1, the importance of qualifying performance cannot be overestimated. Historical data consistently shows a strong correlation between grid position and final race result. For example, in the 2017 season more than 50\% of races were won from pole position, with the correlation between starting and finishing position being 76\% (\cite{salazar2019optimal}). Optimising vehicle performance for qualifying, where cars are driven on the limit of grip, powertrain performance and aerodynamic balance, remains a key engineering objective for all teams.
+
+\vspace{3mm}
+
+This report documents the design and optimisation of a Formula 2026 specification car using AVL's Vehicle Simulation Model (VSM). The project replicates a professional motorsport engineering environment with six team members divided into three specialist sub-groups:
+\begin{itemize}
+\vspace{-10pt}
+    \item \textbf{Aerodynamics (Aero)} - tasked with optimising downforce and drag through modifications of the front and rear wing settings.  
+    \vspace{-10pt}
+    \item \textbf{Vehicle Dynamics (VD)} - responsible for optimising tyre performance and drivability through suspension tuning, spring/damper rates, anti-roll bars and toe/camber settings.
+    \vspace{-10pt}
+    \item \textbf{Powertrain (PT)} - focusing on gear ratios, rear differential set-up and energy use strategy.
+\end{itemize}
+
+Set-up modifications were limited by the FIA technical regulations, with specific constraints on mass distribution, aerodynamic configuration, power unit layout, and ERS deployment strategies (\cite{fia2026tech}). These parameters summarised in Table~\ref{tab:2026parameters}  form the allowable design space within which the car set-up was developed.
+
+\vspace{3mm}
+
+Each sub-group (Aero, VD, and PT) used AVL VSM to iteratively optimise their domain-specific parameters under qualifying conditions, using straight-line, skid-pad, and full-circuit simulations to inform their set-up decisions. These independently developed subsystems were then integrated into a complete vehicle set-up for qualifying lap time simulation and analysis. The report presents the methodology behind this process, as well as the final performance outcomes. It also briefly discusses potential race set-up adjustments, primarily in the PT subsystem. Overall, the results demonstrate how integrated simulation and targeted engineering can effectively reduce lap times while remaining within regulatory constraints.

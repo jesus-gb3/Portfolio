@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>F1 2026 Lap Time Simulation — Jesus Gimeno Baquero</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        article.project-content h2 {
+            color: #0b57a4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e0ecf8;
+            position: relative;
+        }
+        article.project-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0b57a4 0%, #4a9eff 100%);
+        }
+        article.project-content h2:first-of-type {
+            margin-top: 0;
+        }
+        article.project-content h3 {
+            color: #083761;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4a9eff;
+        }
+        .info-box {
+            background: linear-gradient(135deg, rgba(11,87,164,0.08) 0%, rgba(74,158,255,0.05) 100%);
+            border-left: 4px solid #0b57a4;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .info-box h4 {
+            color: #0b57a4;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(74,158,255,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .stat-card h4 {
+            color: #4a9eff;
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-card .value {
+            color: #e8eef5;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        figure figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 80px; padding-bottom: 60px;">
+        <article class="project-content" style="max-width: 900px; margin: 0 auto;">
+            <h1 style="color: #e8eef5; margin-bottom: 10px;">F1 2026 Lap Time Simulation</h1>
+            <p style="color: var(--muted); font-size: 1rem; margin-bottom: 35px;">
+                AVL VSM · Vehicle Dynamics · Aerodynamics · Powertrain | Mar 2025 – May 2025
+            </p>
+
+            <div class="info-box">
+                <h4>Project Context</h4>
+                <p style="margin: 0;">MSc Motorsport Engineering coursework (ENGR7008 - Lap Time Simulation and Race Engineering) at Oxford Brookes University. Team-based project developing a complete 2026 FIA-compliant F1 car setup using professional simulation software.</p>
+            </div>
+
+            <h2>Project Overview</h2>
+            
+            <p>This project involved developing and optimizing a Formula 1 car setup for the 2026 FIA technical regulations using AVL's Vehicle Simulation Model (VSM). Working as part of a six-member engineering team divided into three specialist domains — <strong>Aerodynamics</strong>, <strong>Vehicle Dynamics</strong>, and <strong>Powertrain</strong> — we replicated a professional motorsport environment to optimize qualifying and race performance at the Red Bull Ring in Austria.</p>
+
+            <div class="info-box">
+                <h4>Performance Summary</h4>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>Final Qualifying Lap Time:</strong> 62.611 seconds at Red Bull Ring</li>
+                    <li><strong>Performance Improvement:</strong> 2.903 seconds faster than 2026 baseline (65.514s)</li>
+                    <li><strong>Lap Time Reduction:</strong> 4.4% improvement through integrated optimization</li>
+                    <li><strong>Regulatory Compliance:</strong> Fully compliant with 2026 FIA technical regulations</li>
+                </ul>
+            </div>
+
+            <p>The project began with a baseline 2024 F1 model that was updated to meet the dramatically different 2026 regulations:</p>
+            <ul>
+                <li>30% downforce reduction</li>
+                <li>55% drag reduction</li>
+                <li>Removal of MGU-H (Motor Generator Unit - Heat)</li>
+                <li>Nearly tripled MGU-K output (120kW → 350kW)</li>
+            </ul>
+            <p>Each subsystem was independently optimized before integration into a complete vehicle setup.</p>
+
+            <h2>My Role: Vehicle Dynamics</h2>
+
+            <p>Working as part of the two-person Vehicle Dynamics team, we were responsible for optimizing suspension, ride height, weight distribution, and alignment parameters. The initial baseline car exhibited significant understeer and suboptimal handling balance, requiring systematic setup development to improve cornering performance while maintaining driveability.</p>
+
+            <h3>Key Responsibilities</h3>
+
+            <div class="info-box">
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>Ride Height Optimization:</strong> Lowered static ride heights while preventing bottoming through heave springs and spring rate adjustments</li>
+                    <li><strong>Weight Distribution:</strong> Optimized front/rear bias within the 44-46% regulatory window through systematic lap time testing</li>
+                    <li><strong>Mechanical Balance:</strong> Adjusted roll stiffness distribution via anti-roll bars and springs to reduce front load transfer and improve turn-in</li>
+                    <li><strong>Camber & Toe Setup:</strong> Implemented asymmetric camber for the Red Bull Ring's right-hand dominant layout and optimized toe for stability</li>
+                    <li><strong>Data Analysis:</strong> Post-processed telemetry data to validate setup changes through tire saturation, slip angles, lateral acceleration, and stability metrics</li>
+                </ul>
+            </div>
+
+            <h3>Methodology</h3>
+
+            <p>The vehicle dynamics development followed a structured, iterative process based on established motorsport engineering principles:</p>
+            <ul>
+                <li>Updated baseline model to 2026 regulations (wheelbase, track width, weight distribution per FIA Appendix C)</li>
+                <li>Initial full-lap simulations revealed problematic understeer requiring correction</li>
+                <li>Systematic parameter adjustments validated through telemetry analysis</li>
+            </ul>
+
+            <p><strong>Ride Height Correction:</strong></p>
+            <ul>
+                <li>Lowered ride height to reduce center of gravity and improve aerodynamic performance</li>
+                <li>Coordinated initialization ride heights, heave spring rates, and corner spring rates</li>
+                <li>Prevented bottoming under high downforce or during pitch/roll events</li>
+            </ul>
+
+            <p><strong>Balance Adjustment Strategy:</strong> To address understeer, we systematically adjusted parameters known to influence handling balance:</p>
+
+            <ul>
+                <li><strong>Weight Distribution:</strong> Evaluated 44%, 45%, and 46% front bias through combined jobs. Results showed the car benefited from maximum rear weight (44% front), providing better traction and rotation.</li>
+                <li><strong>Mechanical Balance:</strong> Reduced front roll stiffness by softening front anti-roll bars and springs, decreasing front lateral load transfer distribution (LLTD) from 48.8% to 46.2% in key corners. This increased front grip without compromising rear stability.</li>
+                <li><strong>Asymmetric Camber:</strong> Implemented higher negative camber on right-side tires to optimize grip for the Red Bull Ring's predominantly right-hand corner layout.</li>
+                <li><strong>Toe Settings:</strong> Applied slight front toe-out to enhance turn-in response while maintaining rear toe-in for corner exit stability.</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/VD/Post-processing/RH-1.png" alt="Ride height comparison between baseline and optimized setup" style="max-width: 700px;">
+                <figcaption>Ride height comparison showing consistently lower platform throughout the lap without bottoming</figcaption>
+            </figure>
+
+            <h3>Results and Performance Gains</h3>
+
+            <p>The vehicle dynamics setup changes delivered significant performance improvements validated through comprehensive telemetry analysis:</p>
+
+            <p><strong>Lateral Performance:</strong></p>
+            <ul>
+                <li>Maximum lateral acceleration: 4.75g → 5.48g (15% improvement)</li>
+                <li>Yaw rate: 38.8°/s → 46.0°/s (19% improvement)</li>
+                <li>Target yaw rates achieved more quickly, indicating improved responsiveness and cornering capability</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/VD/Post-processing/acce-3.png" alt="Lateral acceleration, roll angle, and yaw rate comparison" style="max-width: 800px;">
+                <figcaption>Improved lateral dynamics: higher peak acceleration and yaw rate with controlled roll behavior</figcaption>
+            </figure>
+
+            <p><strong>Tire Utilization:</strong></p>
+            <ul>
+                <li>Higher overall tire saturation throughout the lap</li>
+                <li>Both front and rear tires operated closer to their grip limit</li>
+                <li>Improved performance particularly under cornering loads</li>
+                <li>Confirmed effectiveness of balance and camber adjustments</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/VD/Post-processing/tyre-sat-4.png" alt="Tire saturation comparison" style="max-width: 900px;">
+                <figcaption>Tire saturation showing improved grip utilization across all four corners</figcaption>
+            </figure>
+
+            <p><strong>Reduced Understeer:</strong></p>
+            <ul>
+                <li>Handling balance improved significantly</li>
+                <li>Understeer/oversteer tendencies greatly reduced</li>
+                <li>Tradeoff: Softer roll stiffness resulted in increased roll angles</li>
+                <li>Slightly less predictable transient behavior in quick direction changes</li>
+                <li>Future improvement: Higher-rated dampers could address transient behavior</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/VD/Post-processing/stability-6.png" alt="Stability analysis showing steering angle and handling balance" style="max-width: 950px;">
+                <figcaption>Stability metrics showing reduced understeer tendency and improved handling balance</figcaption>
+            </figure>
+
+            <p><strong>Skidpad Validation:</strong></p>
+            <ul>
+                <li><strong>50m radius test:</strong> Strong low-speed rotation with rear slip angles over 12° and front around 6-7°, demonstrating good turn-in</li>
+                <li><strong>200m radius test:</strong> Stable, linear behavior at higher speeds with moderate understeer and balanced slip angles</li>
+                <li>Validated setup performance across different load regimes</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/VD/Post-processing/50-skidpad.png" alt="50m skidpad test results" style="max-width: 900px;">
+                <figcaption>50m skidpad showing aggressive low-speed cornering capability</figcaption>
+            </figure>
+
+            <h2>Aerodynamics Development</h2>
+
+            <p>The Aerodynamics team adapted the vehicle to meet the 2026 regulations' revised downforce and drag targets. Physical changes like the removal of the beam wing and simplified floor geometry were replicated by scaling aeromaps: 0.70 for downforce and 0.45 for drag.</p>
+
+            <h3>DRS Strategy</h3>
+
+            <p>A custom DRS (Drag Reduction System) strategy was implemented:</p>
+            <ul>
+                <li>Applied to both front and rear wings using switching tables</li>
+                <li>Synchronized activation to DRS zones for optimal performance</li>
+                <li>Explicitly permitted under Article B7.1.1 of the 2026 Sporting Regulations</li>
+                <li>Maximized straight-line speed while maintaining braking stability</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/Aero/DRS.png" alt="DRS activation zones" style="max-width: 500px;">
+                <figcaption>DRS zones configured for maximum straight-line efficiency</figcaption>
+            </figure>
+
+            <h3>Aero Balance Optimization</h3>
+
+            <p>The team targeted an ideal aero balance range of 44-46% to maximize performance and stability:</p>
+            <ul>
+                <li>Positive rake: 38mm front, 59mm rear</li>
+                <li>Supports diffuser performance in high-speed corners</li>
+                <li>Prevents bottoming in low-speed sections</li>
+                <li>Combined job sets evaluated various ride height and wing angle combinations</li>
+                <li>Maintained optimal balance throughout the lap</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/Aero/GG.png" alt="G-G diagram comparison" style="max-width: 700px;">
+                <figcaption>G-G diagram showing improved cornering capability with 2026 setup (red) vs baseline (green)</figcaption>
+            </figure>
+
+            <h3>Results</h3>
+
+            <p>The aerodynamic development delivered measurable improvements:</p>
+            <ul>
+                <li>Higher lateral acceleration values consistently achieved</li>
+                <li>Improved aerodynamic grip and load distribution confirmed</li>
+                <li>Significantly lower average ride heights maintained throughout lap</li>
+                <li>Safely avoided bottoming under all conditions</li>
+                <li>Improved aero balance from 36% (baseline) to 45% (optimized)</li>
+            </ul>
+
+            <figure>
+                <img src="CW2___LTS/Aero/aerochannel.png" alt="Telemetry comparison" style="max-width: 900px;">
+                <figcaption>Telemetry comparison showing improved aero balance (45% vs 36%), higher downforce, and reduced drag</figcaption>
+            </figure>
+
+            <p>Skidpad testing validated the setup across different speed regimes:</p>
+            <ul>
+                <li><strong>R200 test:</strong> Strong aero efficiency with forward balance (~45%) and effective rear compression under load</li>
+                <li><strong>R50 test:</strong> Maintained front grip even without significant rake, providing precise response in tight corners</li>
+                <li>Confirmed optimal performance at both high and low speeds</li>
+            </ul>
+
+            <h2>Powertrain Development</h2>
+
+            <p>The Powertrain team addressed the dramatic regulatory changes for 2026, including removal of the MGU-H (Motor Generator Unit - Heat), a power cap on the ICE (Internal Combustion Engine), and significantly increased MGU-K (Motor Generator Unit - Kinetic) output from 120kW to 350kW.</p>
+
+            <h3>Key Changes</h3>
+
+            <div class="info-box">
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>MGU-H Removal:</strong> Deactivated in AVL simulation to deliver zero power across all throttle and engine speed ranges</li>
+                    <li><strong>ICE Power Limiting:</strong> Implemented 350kW power cap compliance through torque map validation</li>
+                    <li><strong>MGU-K Recalibration:</strong> Developed new torque maps using power-torque-speed relationships for the tripled output</li>
+                    <li><strong>Energy Management:</strong> Created sector-based deployment strategy optimizing energy use throughout the lap</li>
+                    <li><strong>Gearbox Optimization:</strong> Revised gear ratios to match new power delivery characteristics and circuit demands</li>
+                    <li><strong>Differential Setup:</strong> Simplified rear differential configuration for improved traction and driveability</li>
+                </ul>
+            </div>
+
+            <p>The powertrain changes were critical to achieving competitive lap times under the new regulations, which fundamentally alter the power unit architecture and energy deployment strategies compared to current F1 cars.</p>
+
+            <h2>Final Integration and Results</h2>
+
+            <p>The three subsystems were integrated into a complete vehicle setup:</p>
+            <ul>
+                <li><strong>Final qualifying lap time:</strong> 62.611 seconds at Red Bull Ring</li>
+                <li><strong>Improvement:</strong> 2.903 seconds faster than updated 2026 baseline (65.514s)</li>
+                <li>Slightly faster than typical real F1 qualifying times (63.5-65.5s)</li>
+                <li>Performance reflects idealized simulation environment: optimal tire grip, minimal fuel load, perfect ambient conditions, and consistent driver precision</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Qualifying vs Race Setup Philosophy</h4>
+                <p style="margin: 0;">The qualifying setup prioritized outright performance with lower ride heights, aggressive wing angles, and high-output torque maps. In contrast, the race setup used higher ride heights, more conservative aero balance, and reduced powertrain maps to manage tire degradation and improve energy efficiency over full race distance — essential for balancing peak performance with long-term reliability.</p>
+            </div>
+
+            <h3>Key Achievements</h3>
+
+            <ul>
+                <li>Successfully adapted baseline 2024 model to meet all 2026 FIA technical regulations</li>
+                <li>Reduced lap time by 4.4% through integrated subsystem optimization</li>
+                <li>Improved cornering performance with 15% higher lateral acceleration and 19% increased yaw rate</li>
+                <li>Maintained aero balance in optimal 44-46% window throughout the lap</li>
+                <li>Eliminated significant baseline understeer through systematic VD development</li>
+                <li>Achieved compliant energy management under new hybrid system regulations</li>
+                <li>Validated performance through comprehensive telemetry and skidpad analysis</li>
+            </ul>
+
+            <h2>Technical Learnings</h2>
+
+            <p>This project deepened my understanding of integrated vehicle development and the critical importance of subsystem coordination. Key technical insights included:</p>
+
+            <ul>
+                <li><strong>Systems Integration:</strong> Aerodynamic targets directly influence suspension setup requirements (ride height windows, roll stiffness for aero platform control). VD changes affect aero balance. Powertrain maps must match the drag profile and gearing needs.</li>
+                <li><strong>Regulatory Constraints:</strong> Working within FIA technical regulations requires creative engineering solutions to optimize performance within strictly defined boundaries.</li>
+                <li><strong>Data-Driven Validation:</strong> Post-processing telemetry is essential to confirm that setup changes produce the intended physical effects on vehicle behavior.</li>
+                <li><strong>Iterative Development:</strong> Motorsport setup optimization requires methodical iteration with clear performance metrics to guide decision-making.</li>
+                <li><strong>Professional Simulation Tools:</strong> Advanced proficiency with AVL VSM and Drive for full-vehicle modeling, combined job analysis, and laptime simulation.</li>
+            </ul>
+
+            <h2>Areas for Future Development</h2>
+
+            <p>Reflecting on the work, several areas offer potential for enhancement:</p>
+
+            <ul>
+                <li><strong>Damper Optimization:</strong> The softer roll stiffness setup would benefit from higher-rated dampers to control transient roll behavior in fast direction changes</li>
+                <li><strong>Differential Mapping:</strong> Incorporating correction maps and clamping in the rear differential for more accurate simulation of modern F1 adjustable differentials</li>
+                <li><strong>Cross-Domain Analysis:</strong> Increasing the depth of comparison between iterative setups by examining how individual parameter changes impact metrics beyond their typical domain</li>
+                <li><strong>Driver Configuration:</strong> Adjusting driver aggressiveness settings for qualifying simulation to further optimize single-lap performance</li>
+                <li><strong>Team Synchronization:</strong> Greater integration across subgroups after each iteration to assess full-vehicle impact, rather than parallel development that can miss optimization opportunities</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+
+            <p>The F1 2026 Lap Time Simulation project successfully demonstrated the principles of modern Formula 1 engineering: systematic subsystem optimization, regulatory compliance, strategic performance-reliability tradeoffs, and data-driven validation. The final setup achieved a strong balance between aerodynamics, vehicle dynamics, and powertrain performance, delivering competitive lap times while meeting all FIA constraints.</p>
+
+            <p>Beyond the technical results, this project provided invaluable experience in collaborative motorsport engineering, professional simulation tools, and the iterative development processes used by real F1 teams. It reinforced the critical importance of communication and integration in complex engineering environments where every subsystem influences overall vehicle performance.</p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <a href="../index.html#projects" style="color: #4a9eff; text-decoration: none; font-weight: 600;">← Back to Projects</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navList.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

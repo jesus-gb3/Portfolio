@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GT3 Aerodynamic Package Design — Jesus Gimeno Baquero</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        article.project-content h2 {
+            color: #0b57a4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e0ecf8;
+            position: relative;
+        }
+        article.project-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0b57a4 0%, #4a9eff 100%);
+        }
+        article.project-content h2:first-of-type {
+            margin-top: 0;
+        }
+        article.project-content h3 {
+            color: #083761;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4a9eff;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="mailto:gimeno.jesus0010@gmail.com" title="Email" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener" title="LinkedIn" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener" title="GitHub" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="project-hero container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+            <h1>GT3 Aerodynamic Package Design</h1>
+            <div class="project-meta">
+                <span class="tag">SolidWorks</span>
+                <span class="tag">Aerodynamics</span>
+                <span class="tag">Vehicle Integration</span>
+            </div>
+        </section>
+
+        <section id="project-viewer" class="project-viewer container">
+            <style>
+                .project-viewer { max-width:1000px; margin:0 auto; position:relative; }
+                .pv-nav { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:16px; }
+                .pv-index { display:flex; gap:8px; flex-wrap:wrap; }
+                .pv-index button { background:#e6f0ff; border:1px solid #cfe4ff; color:#0b57a4; padding:6px 10px; border-radius:6px; cursor:pointer; font-size:0.9rem; }
+                .pv-index button.active { background:#0b57a4; color:#fff; box-shadow:0 4px 12px rgba(11,87,164,0.12); }
+                .pv-btn { background:#0b57a4; color:#fff; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; }
+                .pv-container { position:relative; background:transparent; border-radius:10px; box-shadow:0 6px 18px rgba(8,55,97,0.06); padding:18px; min-height:220px; overflow:hidden; }
+                .pv-section { position:absolute; inset:18px 18px 18px 18px; opacity:0; visibility:hidden; transition:opacity 600ms ease, visibility 600ms; overflow:auto; padding-right:12px; }
+                .pv-section.active { position:relative; opacity:1; visibility:visible; inset:auto; }
+                @media (max-width:720px){ .pv-nav { flex-direction:column; align-items:flex-start; gap:10px; } .pv-index { width:100%; overflow:auto; } .pv-section { padding-right:6px; } }
+            </style>
+
+            <div class="pv-nav">
+                <button id="pv-prev" class="pv-btn" aria-label="Previous section">‹ Prev</button>
+
+                <div class="pv-index" role="tablist" aria-label="Project sections">
+                    <button data-index="0" class="active">Overview</button>
+                    <button data-index="1">Challenge</button>
+                    <button data-index="2">Solution</button>
+                    <button data-index="3">Results</button>
+                    <button data-index="4">Technical</button>
+                    <button data-index="5">Key Learnings</button>
+                </div>
+
+                <button id="pv-next" class="pv-btn" aria-label="Next section">Next ›</button>
+            </div>
+
+            <div class="pv-container" id="pv-container">
+                <section class="pv-section active" data-index="0" aria-hidden="false">
+                    <h3>Overview</h3>
+                    <p>Complete aerodynamic wing design and integration project for a GT3 motorsport application. Designed optimized aerodynamic components with proper mounting integration while meeting packaging and structural constraints.</p>
+                </section>
+
+                <section class="pv-section" data-index="1" aria-hidden="true">
+                    <h3>Challenge</h3>
+                    <p>Racing aerodynamic packages must balance multiple competing requirements:</p>
+                    <ul>
+                        <li>Aerodynamic efficiency while respecting racing regulations</li>
+                        <li>Physical mounting integration with existing vehicle structure</li>
+                        <li>Weight optimization for competitive performance</li>
+                        <li>Manufacturing feasibility (carbon fibre composites)</li>
+                        <li>Structural integrity under high-speed loads</li>
+                        <li>Installation and maintenance accessibility</li>
+                    </ul>
+                </section>
+
+                <section class="pv-section" data-index="2" aria-hidden="true">
+                    <h3>Solution</h3>
+                    <p>Comprehensive CAD and engineering approach:</p>
+                    <ul>
+                        <li><strong>Aerodynamic Design:</strong> Modeled wing profiles using SolidWorks with aerodynamic data integration and optimization</li>
+                        <li><strong>Vehicle Integration:</strong> Full vehicle assembly modeling to ensure seamless fit with existing components</li>
+                        <li><strong>Structural Analysis:</strong> Designed carbon fibre mounting brackets with proper load paths</li>
+                        <li><strong>Manufacturing Design:</strong> Created tooling-ready drawings accounting for composite layup and assembly requirements</li>
+                        <li><strong>Documentation:</strong> Comprehensive technical documentation for fabrication and installation</li>
+                    </ul>
+                </section>
+
+                <section class="pv-section" data-index="3" aria-hidden="true">
+                    <h3>Results</h3>
+                    <ul>
+                        <li>Delivered production-ready aerodynamic package design</li>
+                        <li>Achieved seamless vehicle integration with zero clearance conflicts</li>
+                        <li>Designed structural components meeting load requirements with <strong>15% weight margin</strong></li>
+                        <li>Demonstrated proficiency in professional CAD practices</li>
+                        <li>Created documentation suitable for manufacturing partner handoff</li>
+                    </ul>
+                </section>
+
+                <section class="pv-section" data-index="4" aria-hidden="true">
+                    <h3>Technical</h3>
+                    <ul>
+                        <li><strong>CAD Software:</strong> SolidWorks (full modeling and assembly)</li>
+                        <li><strong>Materials:</strong> Carbon fibre reinforced polymer (CFRP) composites</li>
+                        <li><strong>Analysis:</strong> FEA validation of mounting structures</li>
+                        <li><strong>Manufacturing Process:</strong> Wet layup composite fabrication</li>
+                    </ul>
+                </section>
+
+                <section class="pv-section" data-index="5" aria-hidden="true">
+                    <h3>Key Learnings</h3>
+                    <ul>
+                        <li>Aerodynamic performance must be balanced with practical engineering constraints</li>
+                        <li>Early integration planning prevents expensive redesigns late in the project</li>
+                        <li>Clear manufacturing documentation is essential for successful product realization</li>
+                        <li>Regulatory compliance requires detailed knowledge of racing technical regulations</li>
+                    </ul>
+                </section>
+            </div>
+
+            <script>
+                (function(){
+                    const root = document.getElementById('project-viewer');
+                    const sections = Array.from(root.querySelectorAll('.pv-section'));
+                    const indexBtns = Array.from(root.querySelectorAll('.pv-index button'));
+                    const prevBtn = root.querySelector('#pv-prev');
+                    const nextBtn = root.querySelector('#pv-next');
+                    let cur = 0;
+                    function show(i){
+                        if(i < 0) i = 0;
+                        if(i >= sections.length) i = sections.length - 1;
+                        if(i === cur) return;
+                        sections[cur].classList.remove('active');
+                        sections[cur].setAttribute('aria-hidden','true');
+                        indexBtns[cur].classList.remove('active');
+                        sections[i].classList.add('active');
+                        sections[i].setAttribute('aria-hidden','false');
+                        indexBtns[i].classList.add('active');
+                        cur = i;
+                    }
+                    indexBtns.forEach((b, idx) => b.addEventListener('click', () => show(idx)));
+                    prevBtn.addEventListener('click', () => show(cur-1));
+                    nextBtn.addEventListener('click', () => show(cur+1));
+                    document.addEventListener('keydown', e => { if(e.key==='ArrowLeft') show(cur-1); if(e.key==='ArrowRight') show(cur+1); });
+                    sections.forEach((s, idx) => { if(idx!==0){ s.classList.remove('active'); s.setAttribute('aria-hidden','true'); } else { s.classList.add('active'); s.setAttribute('aria-hidden','false'); } });
+                })();
+            </script>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navList.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

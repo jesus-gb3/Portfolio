@@ -1,0 +1,120 @@
+In motorsport vehicle development, setup modifications must be validated not only through driver feedback or lap times, but also through data analysis. According to Segers (2014), data acquisition from the race car is essential to evaluate how setup changes affect dynamic behaviour and aerodynamic performance. Although the post processing data has been looked at during the setup adjustment process to check the validity of the changes, only the final data will be presented in this section. In all of the following graphs, the green lines refer to our setup and red line to the baseline for the 2026 regulations. 
+
+\vspace{5mm}
+\textbf{Ride Height Comparison}
+\vspace{1mm}
+
+One of the most significant set-up changes was a reduction in ride height across all four corners. This is a common strategy in motorsport as it improves both aerodynamics and handling.\
+The final setup runs with a lower CG height across the lap, which makes the car more stable. It rolls and pitches less when accelerating, braking and cornering, which helps keep the tyres in better contact with the road (\cite{milliken1995race},\cite{gillespie1992fundamentals}).
+
+\vspace{-10pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{VD/Post-processing/RH-1.png}
+    \caption{Ride Heights comparison}
+    \label{fig:RH}
+\end{figure}
+\vspace{-10pt}
+
+Too low, however, can be risky. If the car bottoms out and hits the floor, it can throw off balance and cause damage. In our case, the setup was lower than the baseline throughout the lap, but the car never touched the skidplates. This meant we were able to get all the benefits of extra downforce and a lower centre of gravity without any of the drawbacks.
+
+\vspace{3mm}
+\textbf{Mechanical Balance}
+\vspace{1mm}
+
+To improve mechanical balance, front roll stiffness was reduced by softening springs and anti-roll bars. As seen in Table \ref{fig:weight-distribution}, in turns 7 and 9 this change reduced the front load transfer distribution ($LLTD_{f}$) from 48.8\% to 46.2\% and 47.1\% to 44.9\% respectively.
+
+\vspace{-10pt}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{VD/Post-processing/acce-3.png}
+    \caption{(1)Lateral acceleration, (2)Roll Angle (3)Yaw rate}
+    \label{fig:acc}
+\end{figure}
+\vspace{-10pt}
+
+As a result, maximum lateral acceleration increased from 4.75g to 5.48g (although some of it may come from aerodynamic effects), while yaw rate increased from 38.8deg/s to 46.0deg/s. Despite the softer setup, the car seems to achieve the desired yaw rate in the same amount of time. This came at the cost of stability, which seems to be an issue in quick direction changes.
+
+\vspace{3mm}
+
+Asymmetric camber also contributed to improved yaw response, particularly in right-hand turns, in line with the layout of the Red Bull Ring. This behaviour is consistent with \cite{segers2014analysis} view that camber tuning can create a targeted balance advantage depending on the orientation of the track.
+
+
+\clearpage
+\textbf{Tyre Saturation}
+\vspace{1mm}
+
+Tyre saturation refers to how much of the available grip is being used at any given point on the track. In figure \ref{fig:tyre-sat}, it can be seen that tyre saturation remains within acceptable limits throughout most of the corners. However, in Turn 3, both rear tyres briefly exceed 100\% saturation in both the initial and final set-ups. This spike is likely due to a bump or irregularity in the track surface, which temporarily reduces the vertical load and increases the slip ratio (\cite{segers2014analysis}).
+
+\vspace{-10pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{VD/Post-processing/tyre-sat-4.png}
+    \caption{Tyre Saturation}
+    \label{fig:tyre-sat}
+\end{figure}
+\vspace{-10pt}
+
+Across the lap, the final setup shows a slightly higher overall saturation, indicating that the tyres are working closer to their grip limit, a sign of improved dynamic load utilisation and cornering performance. To be able to quantify this, we created a new channel for total front and total rear lateral energy (figure \ref{fig:Tyre_energy}). These confirm that the rear tyres are operating closer to the limit more often, especially under cornering loads, which is consistent with the balance and camber adjustments made earlier.
+
+\vspace{3mm}
+\textbf{Tyre Energy}
+\vspace{1mm}
+
+The slip angles found in the data are within reasonable values after the setup has been modified. They look highly similar to those found in the baseline during almost the entirety of the lap, but a difference can be found in the way they are achieved (yaw moment difference). Since the elastic load transfer has been slowed down due to the reduction in overall roll stiffness (\cite{gillespie1992fundamentals}), the tyres take more time to load and show a spike in slip angle in the very first part of the corner. This is clearly pictured in the graph below and it is specially notable in high speed corners (6 through 9).
+
+\vspace{-10pt}
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{VD/Post-processing/tyre-energy-5.png}
+    \caption{Tyre Energy and Slip Angles}
+    \label{fig:Tyre_energy}
+\end{figure}
+\vspace{-10pt}
+
+As a result of the increased saturation explained in the previous section, the tyres show a greater amount of energy throughout the lap, which is an indicator of enlarged wear and temperature.
+
+\vspace{3mm}
+\textbf{Stability}
+\vspace{1mm}
+
+Stability is evaluated through the handling channels, which help visualize the behaviour of the vehicle. A math channel has been created to record the amount of under/oversteer the car is subject to (Figure \ref{fig:stability}). A clear reduction in these tendencies is appreciated, but different concerns arise from the changes proposed. As previously mentioned, the stiffness to roll has been decreased, this results in increased roll angles, a less controlled transient roll behaviour and a presumably less predictable car. Ideally, this setup would use higher rated dampers to stop the chassis from having an underdamped roll response in fast corners.
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.96\linewidth]{VD/Post-processing/stability-6.png}
+    \caption{Stability (1)Steer Angle (2) Instability (3) Over/Understeer}
+    \label{fig:stability}
+\end{figure}
+\vspace{-10pt}
+
+
+\subsubsection{Skidpad performance}
+Skidpad testing is a fundamental vehicle dynamics evaluation tool used to measure a car's steady-state cornering performance under controlled conditions. By driving the car in a constant radius circle, engineers can isolate lateral acceleration characteristics and assess the effectiveness of suspension, weight distribution, and tyre set-up without the influence of braking or power delivery (\cite{rajamani2009semi}).
+
+\vspace{3mm}
+
+The 50m and 200m radius tests allow analysis over low and medium speed lateral loads. This helps to confirm whether the setup produces consistent balance and grip across a range of cornering conditions, which is essential for overall race performance (\cite{checheliski2024data} , \cite{ensbury2019virtual}).
+
+\vspace{-5pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{VD/Post-processing/50-skidpad.png}
+    \caption{Skidpad 50m}
+    \label{fig:50-skidpad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{VD/Post-processing/200-skidpad.png}
+    \caption{Skidpad 200m}
+    \label{fig:200-skidpad}
+\end{figure}
+\vspace{-10pt}
+
+The 50m skidpad test showed higher slip angles, with the rear tyres reaching over 12° and the front tyres around 6-7°, along with a lateral acceleration peak of ~2º. Steering input was more aggressive, with understeer peaking at ~13°, indicating a slight oversteer balance early on, followed by stable behaviour. This test highlighted the car's ability to turn well in tight corners.
+
+\vspace{3mm}
+
+In contrast, the 200m test showed lower slip angles overall under 2° at the rear and under 1° at the front, with lateral acceleration stabilising around 1.1 g. Understeer remained present but moderate, confirming a more linear, stable response at higher speeds. The smoother steering trace and more balanced slip suggest the car is well suited to both low and high-speed cornering.

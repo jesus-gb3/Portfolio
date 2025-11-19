@@ -1,0 +1,53 @@
+\subsubsection{Drag and downforce}
+To adapt the 2024 Formula 1 car model to the 2026 FIA technical regulations, a structured aerodynamic development process was implemented in AVL VSM and Drive. The regulations introduce a 30\% downforce and 55\% drag reduction (\cite{f12024aero}), largely due to the removal of the beam wing, simplified floor geometry, and reduced rear wing elements (\cite{fia2026tech}). While these physical changes could not be implemented directly in AVL, their aerodynamic impact was replicated by scaling the baseline aeromaps using factors of 0.70 for downforce and 0.45 for drag. These changes were applied in the Drag and Downforce section of VSM (Figure~\ref{fig:aeromaps}), following methods similar to those in (\cite{shaalan2024floorflow}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Aero/aeromaps.png}
+    \caption{Comparison Between 2024 (top) \& 2026 (bottom) Drag and Downforce}
+    \label{fig:aeromaps}
+\end{figure}
+\vspace{-10pt}
+
+\subsubsection{DRS}
+\vspace{-10pt}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.57\textwidth}
+        \vspace{0pt}
+        {\raggedright
+        \hyphenpenalty=10000
+        \exhyphenpenalty=10000
+        \tolerance=1000
+        To maximise straight-line speed while maintaining braking stability, a custom DRS strategy was applied to both front and rear wings. Activation was based on predefined track segments using a switching table, synchronising flap positions to reduce drag only on DRS zones (Figure \ref{fig:DRS}). This approach aligns with studies supporting active aero use in low-load zones (\cite{shaalan2024floorflow}) and is explicitly permitted under Article B7.1.1 of the 2026 Sporting Regulations, which authorises simultaneous activation of the Front Wing Rotation System and Rear Wing Rotation System (\cite{fia2026tech}).
+        }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.4\textwidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=\linewidth]{Aero/DRS.png}
+        \caption{DRS zones}
+        \label{fig:DRS}
+    \end{minipage}
+\end{figure}
+\vspace{-10pt}
+
+Ride height, wing position, and aero balance were optimised in parallel to ensure aerodynamic consistency across varied track conditions. A positive rake (38 mm front, 59 mm rear) was selected to support diffuser performance in high-speed corners while preventing bottoming in low-speed sections (\cite{zhang2018pitching} and \cite{shaalan2024floorflow}). An ideal aero balance range of 44–46\% was targeted to maximise performance and stability throughout the lap (\cite{newbon2015wake}). Combined Job Sets varying both ride heights and wing positions were used to evaluate aero balance at all times. Final configurations will be validated through Skidpad testing, comparing aerodynamic behaviour under lateral and longitudinal load in table \ref{tab:RH}.
+\vspace{-8pt}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{c|c|c|c|c|c}
+\textbf{Run} & \textbf{RH Front [mm]} & \textbf{RH Rear [mm]} & \textbf{FW Angle} & \textbf{RW Angle} & \textbf{Aero Balance [\%]} \\
+\hline
+108 & 30 & 60 & 2 & 3 & 44.825 \\
+109 & 35 & 60 & 2 & 3 & 44.227 \\
+110 & 40 & 60 & 2 & 3 & 43.696 \\
+113 & 30 & 60 & 3 & 3 & 44.825 \\
+114 & 35 & 60 & 3 & 3 & 44.227 \\
+\end{tabular}
+\caption{Wing and Ride Height Setup with AeroBalance Values}
+\label{tab:RH}
+\end{table}
+\vspace{-15pt}

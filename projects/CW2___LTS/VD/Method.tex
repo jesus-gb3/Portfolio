@@ -1,0 +1,106 @@
+In order to comply with the revised 2026 FIA regulations, the first step was to update the vehicle model physical parameters. This included changes to the wheelbase, front and rear track widths and static weight distribution found in appendix C of the 2026 Technical Regulations (\cite{fia2026tech}). These basic changes will ensure that all subsequent set-up changes reflect the latest regulatory requirements.
+
+\vspace{3mm}
+
+With the modified baseline model in place, initial full-lap simulations were performed to evaluate handling characteristics and establish reference metrics. The first thing to look at is the understeer/oversteer behaviour of the car after the ride height (RH) has been set as low as possible for performance reasons. As expected, the car showed a general tendency to understeer.
+
+\vspace{3mm}
+
+All the adjustments made to correct the ride heights and the understeering behaviour are addressed in the next subsections.The parameters and their observed outcomes are explained first, to then list the values used for each variable and compare them to those found in the baseline model.
+
+\subsubsection{Ride heights correction}
+The ride height adjustment is achieved by changing the following parameters:
+    \begin{itemize}
+    \vspace{-10pt}
+        \item \textbf{Initialization Ride Heights:} This value alters the ride height of the car in static conditions without driver or fuel mass, as it would be done in a practical situation.
+        \vspace{-10pt}
+        \item \textbf{Heave Spring Rates:} The heave springs are used to prevent the car from bottoming out when subjected to high downforce or pure braking/acceleration. It has little or no effect on the lateral dynamics of the vehicle, but it highly influences the ride height stiffness in the straights.
+        \vspace{-10pt}
+        \item \textbf{Spring rates:} Spring rates also have an influence in the same sections as the heave springs, but also make a difference in lateral dynamics and roll. Roll angle has a direct relationship to roll stiffness, which is mainly determined by spring rates and ARBs. Under extreme conditions, the car could touch the ground due to roll, and this must be avoided.
+    \vspace{-22pt}
+        \item \textbf{Comments on preload:} Adjusting the preload on the springs in the car is a commonly used technique to modify static ride heights. This has not been considered in the changes as it did not make much difference for the amount of damper travel that is found in this kind of vehicles.
+    \end{itemize}
+    
+As expected, these values will need to be adjusted if the ride height is affected by other setup parameters, or if these are changed for performance reasons. 
+
+\subsubsection{Balance adjustment}
+To address this imbalance, a structured set-up development process was followed, focusing on parameters known to influence the balance of the vehicle (\cite{milliken1995race}).
+
+\begin{itemize}
+\vspace{-10pt}
+    \item \textbf{Weight Distribution:} Front weight distribution has a significant influence on the handling balance of a race car for the given tyres (\cite{milliken1995race}). Shifting mass toward the front makes the car prone to understeer, while rear-biased setups will favour oversteer. The regulations allow a 2 percent margin on the weight distribution, from 44\% to 46\% front bias (\cite{fia2026tech}).
+    \vspace{-10pt}
+    \item \textbf{Mechanical Balance:} Roll stiffness distribution, primarily controlled by spring and anti-roll bar settings, determines how lateral load is distributed between the axles. Reducing front roll stiffness reduces load transfer to the front axle, improving front grip and reducing understeer (\cite{gillespie1992fundamentals}).
+    \vspace{-10pt}
+    \item \textbf{Camber:} Camber angle it may be limited by the tyre manufacturer, and influences the maximum grip a specific tyre can provide for each wheel. The angle must be negative, as it improves cornering grip due to tyre mechanics.(\cite{smith2004engineer}, \cite{gillespie1992fundamentals}). 
+\vspace{-10pt}
+        \begin{itemize}
+            \item When a tyre is cambered, it keeps producing lateral force when it is run in a straight line, which increases temperature and wear (\cite{katz2016aero}).This lateral force can reduce the reaction time of the car because the tyres are already loaded laterally before the turn in.
+            \vspace{-5pt}
+            \item Uneven tyre wear increases with camber, this could result in a safety concern if the tyres need to be used for long stints.
+            \vspace{-5pt}
+            \item Longitudinal acceleration is also limited when camber angles become too high, so a compromise between lateral and longitudinal performance must be found.
+        \end{itemize}
+    \vspace{-10pt}
+    \item \textbf{Toe:} Although toe has a limited effect on mid-corner grip, it significantly affects corner entry and exit stability. Slight toe out at the front enhances turn-in response, while rear toe in improves corner exit stability. However, aggressive toe settings can accelerate tyre wear and degrade straight-line stability (\cite{smith2004engineer}).
+\end{itemize}
+
+\subsubsection{Setup Iterations}
+
+As everything is dependent of the rest of the parameters, it has been decided to stablish the ideal weight distribution for the vehicle first, based on the fastest lap time with the default setup. As shown in Figure \ref{fig:weight-distribution}, the car benefits from as much weight on the rear as legally possible.
+\vspace{-10pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{VD/Post-processing/deltavsweight.png}
+    \caption{Weight distribution on lap time}
+    \label{fig:weight-distribution}
+\end{figure}
+\vspace{-10pt}
+
+Compared to the previous setup, the car became much more stable but, even though the lap time improved, there is too much tendency to understeer. In an effort to correct this behaviour, the rolling stiffness front/rear ratio of the vehicle was changed through ARBs and spring rates. Since this can be modified using different parameters, a job was run to test which one offered the best overall performance improvement.
+
+\vspace{3mm}
+
+For this reason, the mechanical balance was mainly altered by modifying the ARBs to avoid altering the RH. In the following figure it can be seen how the mechanical balance has been modified due to ARBs stiffness.
+
+\vspace{3mm}
+
+The final vehicle dynamics related adjustments to the setup are made through changes in the camber and toe angles for each wheel. Combined jobs are run for each value, and then addressed in two different simulations to observe their effect. Firstly, camber adds overall lateral grip and stability to the vehicle, while toe out in the front wheels help turn in and responsiveness.\
+
+Additionally, asymmetrical camber was implemented to the model due to the greater amount of right hand corners.
+
+\vspace{-10pt}
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Metrics} & \multicolumn{2}{c}{\textbf{Baseline}}  & \multicolumn{2}{c}{\textbf{2026 Car}}\\
+
+ & \textbf{Turn 7} & \textbf{Turn 9} & \textbf{Turn 7} & \textbf{Turn 9} \\
+\hline
+WHL\_Load\_FL & 2901.67 & 11343.77 & 3699.82 & 12097.5 \\
+\hline
+WHL\_Load\_FR & 9706.24 & 3767.98 & 11120.87 & 4959.51 \\
+\hline
+WHL\_Load\_RL & 5388.49 & 15247.62 & 4395.17 & 14729.92 \\
+\hline
+WHL\_Load\_RR & 12518.23 & 6732.59 & 13016.91 & 5959.49 \\
+\hline
+WHL\_Load\_F (L-R) & -6804.57 & 7575.79 & -7421.05 & 7137.99 \\
+\hline
+WHL\_Load\_R (L-R) & -7129.74 & 8515.03 & -8621.74 & 8770.43 \\
+\hline
+$LLTD_f$ & 48.83 & 47.1 & 46.25 & 44.9 \\
+\hline
+$LLTD_r$ & 51.16 & 52.9 & 53.75 & 55.15 \\
+\hline
+\end{tabular}
+\label{tab:Wheel-load-comparison}
+\caption{Load transfer distribution (a) Turn 7 (b) Turn 9
+}
+\end{table}
+\vspace{-20pt}
+
+\subsubsection{Final Values} \label{Final Values}
+\input{VD/Parameters table}

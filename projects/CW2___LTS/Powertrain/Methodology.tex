@@ -1,0 +1,226 @@
+\subsubsection{MGU-H}
+    One of the most significant changes was the removal of the MGU-H, a component that previously recovered energy from exhaust gases (\cite{f1engines2026}). Accordingly, the MGU-H was deactivated in the AVL simulation (Figure \ref{fig:MGU-H2}) so it delivers no power across all throttle and engine speed ranges.
+    \vspace{-10pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{Powertrain/Pictures/MGU-H2.png}
+        \caption{Active 2024 MGU-H (left) and Inactive 2026 MGU-H (right)}
+        \label{fig:MGU-H2}
+    \end{figure}
+    \vspace{-10pt}
+    
+\subsubsection{Rechargeable Energy Storage System (RESS)}
+\vspace{-10pt}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.47\textwidth}
+        \vspace{0pt}
+        {\raggedright
+        \hyphenpenalty=10000
+        \exhyphenpenalty=10000
+        \tolerance=1000
+        \vspace{3em}
+        The energy storage maximum charge and discharge power values were increased significantly to 350 kW, as well as the max recuperation and release per lap set to 8500 kJ to comply with the 2026 regulations for the MGU-K power and regen (Figure \ref{fig:RESS}).
+        }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.5\textwidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=\linewidth]{Powertrain/Pictures/RESS.png}
+        \caption{Summary of RESS Regulations}
+        \label{fig:RESS}
+    \end{minipage}
+\end{figure}
+\vspace{-10pt}
+
+\subsubsection{MGU-K}
+    To construct the torque maps for both the MGU-K motor and generator units, the torque at each speed (RPM) point was calculated using Equation 1 with the 2026 power of 350 kW.
+    \begin{equation}
+    \tau = \frac{P}{\omega}
+    \label{eq:power}
+    \end{equation}
+    
+    \begin{center}
+    $P$ is the power (in watts, W) \\
+    $\tau$ is the torque (in newton-meters, Nm) \\
+    $\omega$ is the angular velocity (in radians per second, rad/s)
+    \end{center} 
+    \vspace{-10pt}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.27\textwidth}
+        \vspace{0pt}
+        {\raggedright
+        \hyphenpenalty=10000
+        \exhyphenpenalty=10000
+        \tolerance=1000
+        \vspace{3em}
+        Figure \ref{fig:TorqueMotorGenerator} summarizes the torque map designed for qualifying and overtaking scenarios. It maintains 500 Nm of torque from 1500 to 6000 RPM, after which torque decreases as the MGU-K reaches its 350 kW power limit.
+        }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.7\textwidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=\linewidth]{Powertrain/Pictures/Torque_Motor_3.1.png}
+        \caption{MGU-K Torque Across Various Speeds}
+        \label{fig:TorqueMotorGenerator}
+    \end{minipage}
+\end{figure}
+\vspace{-10pt}
+
+   % For \textbf{race conditions}, a second torque map was implemented by scaling the \textbf{qualifying} profile to 60\%, reflecting a more conservative strategy aimed at balancing performance with energy endurance throughout the lap (\cite{bopaiah2020f1}). In Figure \ref{fig:Torque_maps}, various torque maps are shown, including an example of a configuration that exceeds 500 Nm over a longer RPM range. Although this map initially appeared beneficial in terms of raw output, it wasn’t compliant with the 350 kW power regulation limit, and thus not viable. The figure also highlights the clear difference in torque delivery between the qualifying and race maps.
+    %In addition to improve the race strategy, a sector-based energy deployment strategy was introduced for race conditions. Following the FIA's official circuit segmentation (\cite{fia2024tyres}), Sector 1 uses the Qualifying torque map to ensure strong launch and acceleration; Sector 2, which includes several slow and medium-speed corners, switches to the Race map to enable energy recovery and reduce power consumption; while in Sector 3, the Qualifying map is reactivated to maximise performance on straights and fast corners.
+
+    For race conditions a second torque map was created by scaling the qualifying map to 60\%, offering a more conservative strategy to balance performance and energy endurance (\cite{bopaiah2020f1}). Figure \ref{fig:Torque_maps} compares various torque maps, including a scaled version of the 2024 map which maintains 500 Nm over a broader RPM range. Although effective in improving performance, it exceeds the 350 kW limit and is therefore non-compliant. This is why equation \ref{eq:power} was used to create a valid torque map as mentioned above. Figure \ref{fig:Torque_maps} also highlights the distinct torque delivery between qualifying and race maps. To further optimise energy use, a sector-based deployment strategy was implemented. Based on FIA circuit segmentation (\cite{fia2024tyres}), Sector 1 uses the Qualifying map for strong launches, Sector 2 shifts to the Race map for energy recovery in slower corners, and Sector 3 returns to the Qualifying map for maximum performance in fast sections.
+    \vspace{-10pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Powertrain/Pictures/TorqueMaps3.png}
+        \caption{Comparison of Torque Maps}
+        \label{fig:Torque_maps}
+    \end{figure}
+    \vspace{-10pt}
+
+\subsubsection{MGU Controller}
+\vspace{-10pt}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.56\textwidth}
+        \vspace{0pt}
+        {\raggedright
+        \hyphenpenalty=10000
+        \exhyphenpenalty=10000
+        \tolerance=1000
+        The MGU Controller was configured using a sector-based mapping strategy, dividing the track by distance in metres. As shown in Table \ref{tab:track_sectors}, the lap was segmented into six subsections, allowing the controller to switch between predefined torque maps during a lap. Although this initial configuration broadly follows the three official FIA sectors, the additional splits were included to enable greater future flexibility. This structure allows for more granular control of where torque deployment and recovery could be refined on a per corner basis. Such adaptability is essential for real-time strategy adjustments during a race.
+        }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.42\textwidth}
+        \vspace{0pt}
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \captionof{table}{Track Sectors by Distance}
+        \label{tab:track_sectors}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Distance (m)} & \textbf{Map Number} \\
+            \hline
+            0     & 2 \\
+            900   & 3 \\
+            1900  & 3 \\
+            2900  & 3 \\
+            3900  & 3 \\
+            4318  & 2 \\
+            \hline
+        \end{tabular}
+    \end{minipage}
+\end{figure}
+\vspace{-10pt}
+
+    
+\subsubsection{Gearbox}
+    The gearbox configuration was improved to better match the updated torque characteristics and energy deployment strategy. The final drive ratio was modified by reducing the number of gear teeth. Table ~\ref{tab:gear_teeth} shows this change allowed for a steeper torque multiplication for delivering more force to the rear wheels and enhancing traction, particularly during initial acceleration and low-speed corners. These new values were selected after running an AVL Job. Additionally, gear ratios 7 and 8 were adjusted to optimise performance. The first six ratios were preserved from the 2024 configuration, ensuring a consistent baseline for initial acceleration phases (Table ~\ref{tab:gear_ratios}). Then the final two gears were slightly shortened to allow the vehicle to remain in the optimal powerband at higher speeds.
+    \vspace{-10pt}
+    \begin{table}[H]
+        \begin{minipage}{0.45\textwidth}
+            \captionsetup{justification=raggedright,singlelinecheck=false}
+            \caption{Final Gear teeth IN/OUT}
+            \label{tab:gear_teeth}
+            \renewcommand{\arraystretch}{1.2}
+                \begin{tabular}{|l|c|c|}
+                    \hline
+                     \textbf{Component} & \textbf{2024} & \textbf{2026} \\
+                    \hline
+                    Final gear teeth in & 15 & 10 \\
+                    \hline
+                    Final gear teeth out & 53 & 49 \\
+                    \hline
+                \end{tabular}
+        \end{minipage}
+            \hfill
+        \begin{minipage}{0.45\textwidth}
+            \captionsetup{justification=raggedright,singlelinecheck=false}
+            \caption{Gear Ratios}
+            \label{tab:gear_ratios}
+            \label{tab:finalgear}
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabular}{|l|c|c|}
+                \hline
+                \textbf{Gears} & \textbf{2024} & \textbf{2026} \\
+                \hline
+                1 & 2.75 & 2.75 \\
+                \hline
+                2 & 2.133333333 & 2.133333333 \\
+                \hline
+                3 & 1.684210526 & 1.684210526 \\
+                \hline
+                4 & 1.4 & 1.4 \\
+                \hline
+                5 & 1.19047619 & 1.19047619 \\
+                \hline
+                6 & 1.041666667 & 1.041666667 \\
+                \hline
+                7 & \textbf{0.923076923} & \textbf{0.95064} \\
+                \hline
+                8 & \textbf{0.827586207} & \textbf{0.85556} \\
+                \hline
+            \end{tabular}
+        \end{minipage}
+    \end{table}
+    \vspace{-10pt}
+    
+\subsubsection{Rear Differential}
+%Regulations on the differential allowed greater flexibility in testing a broader range of setups than other PT sections. The simple calculation mode, with direct input of power and brake locking values, was initially used to quickly identify optimal settings. The trials showed that 54\% power locking and 75\% brake locking produced the fastest lap times. These values were then adopted as a baseline for optimisation by the other sub-groups.
+
+%\vspace{3mm}
+
+The rear differential was optimised in the VSM3 calculation mode, which allows for four input parameters. This mode more accurately simulates physical components of the vehicle that influence locking characteristics, rather than adjusting the locking values directly. The input parameters are:
+\vspace{-10pt}
+\begin{center}
+$\alpha_{\text{PowerRamp}}$: power ramp angle \\
+$\alpha_{\text{BrakeRamp}}$: brake ramp angle \\
+${N_{\text{max,fr}}}$: the max number of faces  \\
+${N_{\text{use,fr}}}$: the actual number of faces  \\
+\end{center}
+These are used to calculate the locking values by the following formula (\cite{avl2024vsm}):
+\begin{equation}
+\%\text{lock} = \left( \frac{38}{\tan(\alpha_{\text{Ramp}})} + 34 \right) \cdot \frac{N_{\text{use,fr}}}{N_{\text{max,fr}}}
+\end{equation}
+
+After incorporating changes from VD and Aero, an AVL job was run using this model. The optimised values that were used in the final set-up resulted in a power locking value of 50.4\% and a brake locking value of 72.5\%.
+\begin{center}
+\begin{tabular}{ll ll}
+Power ramp angle: 50° &&&
+Max number of faces: 17 \\
+Brake ramp angle: 32° &&&
+Actual number of faces: 13 \\
+\end{tabular}
+\end{center}
+\vspace{-10pt}
+
+\subsubsection{Internal Combustion Engine (ICE)}
+    The ICE torque map was reconfigured to limit the maximum power output to 400 kW, lower than the 2024 set-up, to meet the FIA goals of simplifying power units, reducing fuel dependency, and improving sustainability (\cite{fia2023explained}). Torque was scaled down across the RPM range, particularly at high throttle and engine speeds, enhancing energy efficiency and thermal management. Figure ~\ref{fig:ICE_maps} compares the 2024 and 2026 maps, showing reduced peak output across the operating range.
+    
+    %The torque map of the Internal Combustion Engine (ICE) was reconfigured so the maximum power output is 400 kW, which is lower compared to the 2024 configuration. This adjustment was introduced to align with the power unit simplification goals set by the FIA, aimed at reducing fuel dependency, controlling performance output, and promoting more sustainable and competitive racing (\cite{fia2023explained}).
+    %To meet these requirements, the torque values were scaled down throughout the RPM range, especially at high throttle openings and engine speeds. This recalibration not only satisfies the new power limit but also aids in energy efficiency and thermal management. Figure ~\ref{fig:ICE_maps} compares the torque maps between the 2024 and 2026 setups, highlighting the reduction in peak output across the operating range.
+    \vspace{-10pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Powertrain/Pictures/ICE_maps2.png}
+        \caption{ICE Torque Maps}
+        \label{fig:ICE_maps}
+    \end{figure}
+    \vspace{-10pt}
+
+    \subsubsection{Cooling}
+    The cooling remained unchanged as telemetry data confirms that the motor temperatures remained well below critical thresholds, staying consistently under 85°C (Figure ~\ref{fig:Cooling}). This indicates that the existing cooling set-up (radiator inlet and surface areas) is able to manage the thermal load. As a result development efforts were focused on other subsystems.
+    \vspace{-10pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{Powertrain/Pictures/Cooling2.png}
+        \caption{ERS Temperatures Over Five Consecutive Laps}
+        \label{fig:Cooling}
+    \end{figure}
+    \vspace{-10pt}

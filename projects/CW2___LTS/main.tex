@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENGR7008 - Race Car Setup Template (Oxford Brookes)
+% Title: Development and Validation of a F1 Race Car Setup Using AVL VSM
+% Authors: [Student IDs]
+% Track: [Insert track name]
+% Date: [dd/mm/yyyy]
+%
+% �� Word limit: Max 2000 words per team member
+% �� Report limit: Max 20 pages total
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt]{article}
+
+%----------------------%
+%     Packages         %
+%----------------------%
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{caption}
+\captionsetup[figure]{skip=1pt}
+\captionsetup[table]{skip=5pt}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{makecell}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{2pt}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{subcaption}
+\setlength{\parindent}{0pt}
+\setcounter{tocdepth}{1}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+\titlespacing*{\subsubsection}{0pt}{5pt}{2pt}
+\setcounter{tocdepth}{3}
+
+
+%----------------------%
+%     Header Setup     %
+%----------------------%
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{ENGR7008 - Laptime Simulation and Race Engineering}
+\fancyhead[R]{Oxford Brookes University}
+\cfoot{\thepage}
+
+%----------------------%
+%     Title & Author   %
+%----------------------%
+\title{Development and Validation of a F1 Car Set-up Using AVL VSM\\Under FIA Constraints on the Red Bull Ring}
+\date{}
+%----------------------%
+\begin{document}
+\maketitle
+\vspace{-40pt}
+\begin{center}
+    \today
+\end{center}
+\vspace{-25pt}
+\tableofcontents
+
+%----------------------%
+% Abstract
+%----------------------%
+\clearpage
+\section{Abstract}
+\input{Abstract}
+\clearpage
+%----------------------%
+\section{Introduction}
+\input{Introducction}
+%----------------------%
+
+\section{Regulations and Baseline Update}
+To modify the 2024 base model to align with the technical requirements for the 2026 season, a range of regulatory-driven updates were implemented. These included adjustments to mass distribution, vehicle dimensions, power unit parameters, and system limitations as defined by the FIA. Table \ref{tab:2026parameters} summarises the key parameter changes made to achieve compliance, along with references to the relevant articles from the 2026 FIA regulations.
+
+
+\input{Baseline/New-regulations-table}
+
+%----------------------%
+\section{Aerodynamics Development}
+\subsection{Methodology}
+\input{Aero/method}
+\subsection{Results and Discussion}
+\input{Aero/Results}
+
+%----------------------%
+\section{Vehicle Dynamics Development}
+\subsection{Methodology}
+\input{VD/Method}
+\subsection{Results and Discussion}
+\input{VD/Results}
+
+%----------------------%
+\section{Powertrain Development}
+\subsection{Methodology}
+\input{Powertrain/Methodology}
+\subsection{Results and Discussion}
+\input{Powertrain/Results and Discussion}
+
+
+%----------------------%
+
+\section{Conclusion}
+\input{conclusion}
+
+%----------------------%
+\section{Group Reflection}
+Reflecting on the work done, several areas offer potential for enhancement of the 2026 set-up. The first of which is incorporating correction maps and clamping in the rear differential to allow for a more accurate simulation of a current F1 adjustable differential. Additionally, while the dampers were left untouched in this analysis due to the sheer complexity and volume of adjustable parameters within VD, a focused study on damper optimisation could offer significant performance benefits. Another area for development lies in increasing the depth of comparison between each iterative set-up. Specifically by examining how individual parameter changes impact performance metrics outside the umbrella of those normally associated with the parameter(s) being changed. Finally, adjusting driver configurations, such as increasing aggressiveness during qualifying, could further enhance laptime optimisation.
+
+\vspace{1em}
+
+In terms of how the team functioned, while we were productive within our sub-groups, overall performance could have been improved by greater integration across the whole group. The approach we took often led to parallel development, where each sub-group iterated changes without fully considering the latest configurations made by others. This sometimes resulted in a lack of cohesion in the development process, meaning opportunities were missed to optimise the overall car set-up. A more synchronized approach, where sub-groups regrouped after each iteration to assess the full-vehicle impact, would likely lead to better performance outcomes.
+
+\vspace{1em}
+
+Concerning personal learning, this project offer the opportunity to deepen our understanding of AVL VSM and DriveRace, building on prior experience with these tools from Assignment 1 and seminar.  From a collaborative perspective, we gained a clearer understanding of the importance of communication and integration in group work, particularly when working within a highly modular and iterative engineering environment.
+\clearpage
+%----------------------%
+\printbibliography
+
+\end{document}

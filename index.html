@@ -1,37 +1,561 @@
-<!DOCTYPE html>
+<!-- File: index.html -->
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jesús – Engineering Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jesus Gimeno Baquero — Motorsport Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="Engineering portfolio with interactive projects, images and contact section." />
 </head>
 <body>
-  <header>
-    <h1>Jesús – Motorsport Engineering Portfolio</h1>
-    <p>Exploring suspension geometry, vehicle dynamics, and solver design.</p>
-  </header>
 
-  <section>
-    <h2>3D Suspension Solver</h2>
-    <p>
-      I developed a Python-based solver to model upright kinematics with 6 degrees of freedom.
-      This project demonstrates my ability to combine mechanical engineering principles with
-      modular code design.
-    </p>
-    <img src="images/suspension_plot.png" alt="Suspension geometry plot" width="500">
-  </section>
 
-  <section>
-    <h2>Other Projects</h2>
-    <p>
-      I am expanding into dynamic simulations, camber gain analysis, and visualization frameworks.
-      Each project highlights my focus on clarity, extensibility, and physical realism.
-    </p>
-    <img src="images/visualization_example.png" alt="Visualization example" width="500">
-  </section>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#about">About Me</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="mailto:gimeno.jesus0010@gmail.com" title="Email" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener" title="LinkedIn" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener" title="GitHub" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
 
-  <footer>
-    <p>Contact: jesus@example.com | GitHub: github.com/your-username</p>
-  </footer>
+    <main id="top">
+        <section id="hero" class="hero container">
+            <div class="hero-left">
+                <h1>Jesus Gimeno Baquero — Motorsport Engineer</h1>
+                <p>Welcome to my professional portfolio. Here you will find a comprehensive showcase of my engineering projects, technical expertise, and professional background. Should you require additional information or wish to discuss potential opportunities, please do not hesitate to contact me via email using the address provided in the top right corner.</p>
+            </div>
+        </section>
+
+        <!-- Accordion-style sections in the requested order: Education, Projects, Experience -->
+        <div class="container">
+            <details id="education" class="accordion" open>
+                <summary>Education</summary>
+                <div class="panel timeline">
+                    <div class="timeline-item education-item">
+                        <button class="timeline-toggle" aria-expanded="false">MSc Motorsport Engineering</button>
+                        <time>Sept 2024 – Sept 2025</time>
+                        <p>Oxford Brookes University</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Degree:</strong> MSc Motorsport Engineering</li>
+                                <li><strong>Institution:</strong> Oxford Brookes University</li>
+                                <li><strong>Dates:</strong> Sept 2024 – Sept 2025</li>
+                            </ul>
+                            <strong>Modules:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Vehicle Dynamics</li>
+                                <li>Advanced Aerodynamics</li>
+                                <li>Engineering Business Management</li>
+                                <li>Electric Vehicles</li>
+                                <li>Composite Structures and Impact Modelling</li>
+                                <li>Race Engineering</li>
+                                <li>Data Analysis Techniques</li>
+                            </ul>
+                            <strong>Dissertation:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Vehicle Sideslip Estimator Based on GPS and IMS Measurements</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item education-item">
+                        <button class="timeline-toggle" aria-expanded="false">BEng Mechanical Engineering</button>
+                        <time>Sept 2019 – Sept 2023 (2:1)</time>
+                        <p>University of Zaragoza</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Degree:</strong> BEng Mechanical Engineering</li>
+                                <li><strong>Institution:</strong> University of Zaragoza</li>
+                                <li><strong>Dates:</strong> Sept 2019 – Sept 2023</li>
+                            </ul>
+                            <strong>Modules:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Dynamics</li>
+                                <li>Structure Analysis</li>
+                                <li>Kinematics</li>
+                                <li>Internal Combustion Engines</li>
+                                <li>Thermodynamics</li>
+                                <li>Thermal Engineering</li>
+                                <li>Fluid Dynamics</li>
+                                <li>Mechanical Design</li>
+                                <li>Manufacturing Methods</li>
+                            </ul>
+                            <strong>Dissertation:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Parametric Study of a Four-Stroke Engine Model Using 4stsoft Software</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details id="projects" class="accordion">
+                <summary>Projects</summary>
+                <div class="panel timeline">
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">Physics-Based Sideslip Angle Estimation</button>
+                        <time style="color: #0b57a4;">Python • Sensor Fusion • Signal Processing | May 2025 – Sept 2025</time>
+                        <p>MSc dissertation project with Hitech GP racing team. Developed accurate body sideslip angle estimation using real-time sensor fusion.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> Physics-Based Sideslip Angle Estimation</li>
+                                <li><strong>Tools:</strong> Python • Sensor Fusion • Signal Processing</li>
+                                <li><strong>Context:</strong> MSc Dissertation with Hitech GP</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Developed accurate body sideslip angle estimation using real-time sensor fusion</li>
+                                <li>Integrated GPS, IMU, and wheel speed sensor data for robust estimation</li>
+                                <li>Implemented signal processing techniques to handle sensor noise and latency</li>
+                                <li>Collaborated with professional racing team on real-world application</li>
+                            </ul>
+                            <a href="projects/sideslip-angle-estimation.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">iRacing Data Analysis</button>
+                        <time style="color: #0b57a4;">Python • Data Analysis • Telemetry | Nov 2025</time>
+                        <p>Comprehensive telemetry analysis framework for driver performance and setup optimization in iRacing simulation.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> iRacing Data Analysis</li>
+                                <li><strong>Tools:</strong> Python • Data Analysis • Telemetry</li>
+                                <li><strong>Context:</strong> Personal Development Project</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Developed comprehensive telemetry analysis framework for iRacing</li>
+                                <li>Created tools for driver performance comparison and lap analysis</li>
+                                <li>Implemented setup optimization algorithms based on telemetry data</li>
+                                <li>Built visualization dashboards for quick performance insights</li>
+                            </ul>
+                            <a href="projects/iracing-data-analysis.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">F1 Vehicle Dynamics Simulation</button>
+                        <time style="color: #0b57a4;">AVL VSM • Vehicle Dynamics • Lap Time Simulation | Mar 2025 – May 2025</time>
+                        <p>Comprehensive F1 vehicle model with laptime simulation and track-specific optimization using professional-grade tools.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> F1 Vehicle Dynamics Simulation</li>
+                                <li><strong>Tools:</strong> AVL VSM • Vehicle Dynamics • Lap Time Simulation</li>
+                                <li><strong>Context:</strong> MSc Motorsport Engineering Module</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Developed complete 2026 FIA-compliant F1 car setup using AVL Vehicle Simulation Model</li>
+                                <li>Worked in two-person Vehicle Dynamics team optimizing suspension, ride height, and mechanical balance</li>
+                                <li>Achieved 62.611s qualifying lap time with 4.4% performance improvement over baseline</li>
+                                <li>Integrated aerodynamics, vehicle dynamics, and powertrain subsystems for team-based development</li>
+                            </ul>
+                            <a href="projects/f1-simulation.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">3D Kinematic Solver</button>
+                        <time style="color: #0b57a4;">Python • Kinematics • 3D Geometry | Nov 2025</time>
+                        <p>Fully functional solver for analyzing complex suspension linkage behavior through computational geometry methods.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> 3D Kinematic Solver</li>
+                                <li><strong>Tools:</strong> Python • Kinematics • 3D Geometry</li>
+                                <li><strong>Context:</strong> Personal Development Project</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Built fully functional 3D kinematic solver from scratch in Python</li>
+                                <li>Analyzes complex suspension linkage behavior through travel</li>
+                                <li>Calculates key parameters: camber, toe, caster, scrub, dive/squat</li>
+                                <li>Provides visualization and analysis tools for suspension optimization</li>
+                            </ul>
+                            <a href="projects/3d-kinematic-solver.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">Motostudent Suspension Design</button>
+                        <time style="color: #0b57a4;">Excel • MATLAB • SolidWorks | Sept 2021 – Oct 2023</time>
+                        <p>Progressive rear suspension system design for MotoStudent Competition VII Edition prototype motorcycles.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> Motostudent Suspension Design</li>
+                                <li><strong>Tools:</strong> Excel • MATLAB • SolidWorks</li>
+                                <li><strong>Context:</strong> MotoStudent Competition VII Edition</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Developed Excel-based rigid bike model for vehicle dynamics analysis</li>
+                                <li>Calculated component forces for structural design and FEA validation</li>
+                                <li>Designed progressive suspension with 50% motion ratio increase target</li>
+                                <li>Created MATLAB script for automated kinematic optimization</li>
+                                <li>Completed mechanical design in SolidWorks for manufacturing</li>
+                            </ul>
+                            <a href="projects/motostudent-suspension.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" style="display: none;">
+                        <button class="timeline-toggle" aria-expanded="false">GT3 Aerodynamic Package Design</button>
+                        <time style="color: #0b57a4;">SolidWorks • Aerodynamics • Integration | Sept 2024 – Dec 2024</time>
+                        <p>Complete aerodynamic wing design with carbon fibre mounting integration for motorsport application.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> GT3 Aerodynamic Package Design</li>
+                                <li><strong>Tools:</strong> SolidWorks • Aerodynamics • Integration</li>
+                                <li><strong>Context:</strong> Motorsport Engineering Project</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Designed complete rear wing assembly with endplates and mounting structure</li>
+                                <li>Integrated carbon fibre mounting brackets with existing chassis</li>
+                                <li>Optimized aerodynamic balance for GT3 racing application</li>
+                                <li>Created detailed manufacturing drawings and assembly instructions</li>
+                            </ul>
+                            <a href="projects/gt3-aerodynamics.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">Parametric Study of Four-Stroke Engine</button>
+                        <time style="color: #0b57a4;">4STSOFT • Engine Modeling • Thermodynamics | Feb 2023 – Sept 2023</time>
+                        <p>BEng dissertation project analyzing engine performance through comprehensive parametric study using simulation software.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Project:</strong> Parametric Study of Four-Stroke Engine</li>
+                                <li><strong>Tools:</strong> 4STSOFT • Engine Modeling • Thermodynamics</li>
+                                <li><strong>Context:</strong> BEng Dissertation Project</li>
+                            </ul>
+                            <strong>Overview:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Conducted comprehensive parametric study of four-stroke engine performance</li>
+                                <li>Analyzed effects of compression ratio, valve timing, and intake/exhaust design</li>
+                                <li>Used 4STSOFT simulation software for thermodynamic modeling</li>
+                                <li>Identified optimal configurations for power and efficiency targets</li>
+                            </ul>
+                            <a href="projects/engine-parametric-study.html" style="display: inline-block; margin-top: 10px; color: #0b57a4; font-weight: 600; text-decoration: none;">View Full Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details id="experience" class="accordion">
+                <summary>Experience</summary>
+                <div class="panel timeline">
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">Team Member — Oxford Brookes Racing</button>
+                        <time>Sept 2024 – May 2025</time>
+                        <p>Motorsport engineering team designing and building a Formula Student race car.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Role:</strong> Team Member — Oxford Brookes Racing</li>
+                                <li><strong>Dates:</strong> Sept 2024 – May 2025</li>
+                                <li><strong>Team:</strong> Oxford Brookes Racing</li>
+                            </ul>
+                            <strong>Responsibilities:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Developed kinematic optimization tools for suspension geometry</li>
+                                <li>Designed carbon fibre steering mount assembly from concept to fabrication</li>
+                                <li>Integrated simulation tools for performance validation</li>
+                            </ul>
+                            <strong>Key achievements:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Created Excel-based kinematic tool reducing design iteration time</li>
+                                <li>Delivered structural components meeting weight and performance targets</li>
+                                <li>Validated designs against lap-time simulations and vehicle dynamics models</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">Chief Dynamics Engineer & Team Leader — Motostudent Unizar</button>
+                        <time>Sept 2021 – Oct 2023</time>
+                        <p>International student racing competition team (Formula Student electric vehicle category).</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Role:</strong> Chief Dynamics Engineer & Team Leader — Motostudent Unizar</li>
+                                <li><strong>Dates:</strong> Sept 2021 – Oct 2023</li>
+                                <li><strong>Team:</strong> Motostudent Unizar</li>
+                            </ul>
+                            <strong>Responsibilities:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Led team during main competition event</li>
+                                <li>Designed and simulated progressive rear suspension linkage using SolidWorks and ADAMS</li>
+                                <li>Integrated sensors with electrical team</li>
+                                <li>Conducted track data analysis for suspension tuning and driver coaching</li>
+                            </ul>
+                            <strong>Key achievements:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Successfully led team through design phase with cross-functional collaboration</li>
+                                <li>Delivered competition-proven suspension system with real-world validation</li>
+                                <li>Optimized vehicle setup based on track-specific data analysis</li>
+                                <li>Mentored junior team members in vehicle dynamics principles</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <button class="timeline-toggle" aria-expanded="false">Higher National Diploma Teacher — IES Gallicum High School</button>
+                        <time>Sept 2023 – June 2024</time>
+                        <p>Taught technical modules to upper secondary and post-secondary students.</p>
+                        <div class="timeline-details hidden">
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li><strong>Role:</strong> Higher National Diploma Teacher — IES Gallicum High School</li>
+                                <li><strong>Dates:</strong> Sept 2023 – June 2024</li>
+                                <li><strong>Focus:</strong> Technical modules for upper secondary and post-secondary students</li>
+                            </ul>
+                            <strong>Responsibilities:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Delivered lectures in electronics, energy systems, and sensor technology</li>
+                                <li>Created curriculum and practical exercises</li>
+                                <li>Assessed student understanding and provided feedback</li>
+                            </ul>
+                            <strong>Key achievements:</strong>
+                            <ul style="margin:0 0 12px 0; padding-left:20px;">
+                                <li>Developed engaging technical content for diverse learner backgrounds</li>
+                                <li>Demonstrated ability to communicate complex engineering concepts clearly</li>
+                                <li>Built practical labs for hands-on learning</li>
+                                <li>Introduced practical lab modules and project-based assessments that improved student engagement and hands-on skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details id="about" class="accordion">
+                <summary>About Me</summary>
+                <div class="panel">
+                    <details class="sub-accordion">
+                        <summary>Skills</summary>
+                        <div class="sub-panel">
+                            <ul>
+                                <li><strong>CAD & Design:</strong> SolidWorks, Inventor, AutoCAD</li>
+                                <li><strong>Simulation & Modelling:</strong> ADAMS, AVL VSM, MATLAB, Excel-based tools</li>
+                                <li><strong>Programming:</strong> Python, MATLAB, C++</li>
+                                <li><strong>Vehicle Dynamics:</strong> Multibody systems, suspension design, tire modelling, aerodynamics</li>
+                                <li><strong>Data Analysis:</strong> Sensor fusion, signal processing, real-world track data correlation</li>
+                                <li><strong>FEA & Analysis:</strong> Structural analysis, component optimization</li>
+                                <li><strong>Languages:</strong> English (IELTS Band 8 / C1 Advanced), Spanish (Native)</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="sub-accordion">
+                        <summary>Hobbies</summary>
+                        <div class="sub-panel">
+                            <ul>
+                                <li><strong>Motorsport & Cars:</strong> Interest in motorsport and practical vehicle work — maintenance, mechanical troubleshooting, tuning, and hands-on improvements for road and track use.</li>
+                                <li><strong>Simracing & videogames:</strong> Competitive simracing, lap analysis, and setup experimentation to sharpen track and engineering skills.</li>
+                                <li><strong>Sports & fitness:</strong> Tennis, basketball, and regular gym training to build endurance, coordination, and focus.</li>
+                                <li><strong>Music:</strong> Play electric guitar and bass — enjoy performing, recording, and listening across genres.</li>
+                                <li><strong>Watchmaking & precision crafts:</strong> Interest in mechanical movements, assembly, and the fine-detail work of horology.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </details>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic interactive behavior: menu toggle, filtering, search, modal, form stub
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set year
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Accordion behaviour: only allow one open at a time
+            const accordions = Array.from(document.querySelectorAll('details.accordion'));
+            accordions.forEach(acc => {
+                acc.addEventListener('click', (e) => {
+                    // Only handle summary clicks
+                    if (e.target.tagName !== 'SUMMARY') return;
+
+                    // If the clicked summary belongs to a nested sub-accordion (e.g. About Me), ignore
+                    if (e.target.closest('#about .sub-accordion')) return;
+
+                    if (acc.open) {
+                        // Closing animation
+                        e.preventDefault();
+                        const panel = acc.querySelector('.panel');
+                        if (panel) panel.style.animation = 'slideUp 0.6s ease forwards';
+                        setTimeout(() => {
+                            acc.open = false;
+                            if (panel) panel.style.animation = '';
+                        }, 600);
+                    } else {
+                        // Opening - close other accordions smoothly
+                        e.preventDefault();
+                        accordions.forEach(other => {
+                            if (other !== acc && other.open) {
+                                const otherPanel = other.querySelector('.panel');
+                                if (otherPanel) otherPanel.style.animation = 'slideUp 0.6s ease forwards';
+                                setTimeout(() => {
+                                    other.open = false;
+                                    if (otherPanel) otherPanel.style.animation = '';
+                                }, 600);
+                            }
+                        });
+                        // Open the clicked accordion
+                        acc.open = true;
+                        const panel = acc.querySelector('.panel');
+                        if (panel) panel.style.animation = 'slideDown 0.6s ease forwards';
+                    }
+                });
+            });
+
+            // Menu toggle for small screens
+            const menuToggle = document.getElementById('menu-toggle');
+            const navList = document.getElementById('nav-list');
+            menuToggle.addEventListener('click', () => {
+                const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', String(!expanded));
+                navList.classList.toggle('open');
+            });
+
+            // Smooth scroll for internal links — also open an accordion if target is one
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const href = a.getAttribute('href');
+                    if (href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // If target is a <details>, open it and close others
+                            if (target.tagName && target.tagName.toLowerCase() === 'details') {
+                                accordions.forEach(other => { if (other !== target) other.open = false; });
+                                target.open = true;
+                            }
+                            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                        }
+                        navList.classList.remove('open');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Handle hash on page load to open appropriate accordion
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+                    accordions.forEach(other => { if (other !== target) other.open = false; });
+                    target.open = true;
+                    setTimeout(() => target.scrollIntoView({behavior: 'smooth', block: 'start'}), 0);
+                }
+            }
+
+            // Only one education subsection open at a time
+            document.querySelectorAll('.timeline-item.education-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') return;
+                    const details = item.querySelector('.timeline-details');
+                    const btn = item.querySelector('.timeline-toggle');
+                    if (details && btn) {
+                        // Close all other education subsections
+                        document.querySelectorAll('.timeline-item.education-item .timeline-details').forEach(d => {
+                            if (d !== details) d.classList.add('hidden');
+                        });
+                        document.querySelectorAll('.timeline-item.education-item .timeline-toggle').forEach(b => {
+                            if (b !== btn) b.setAttribute('aria-expanded', 'false');
+                        });
+                        // Toggle current
+                        const nowOpen = details.classList.contains('hidden');
+                        details.classList.toggle('hidden');
+                        btn.setAttribute('aria-expanded', String(nowOpen));
+                    }
+                });
+            });
+
+            // Only one project subsection open at a time
+            document.querySelectorAll('#projects .timeline-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') return;
+                    const details = item.querySelector('.timeline-details');
+                    const btn = item.querySelector('.timeline-toggle');
+                    if (details && btn) {
+                        // Close all other project subsections
+                        document.querySelectorAll('#projects .timeline-item .timeline-details').forEach(d => {
+                            if (d !== details) d.classList.add('hidden');
+                        });
+                        document.querySelectorAll('#projects .timeline-item .timeline-toggle').forEach(b => {
+                            if (b !== btn) b.setAttribute('aria-expanded', 'false');
+                        });
+                        // Toggle current
+                        const nowOpen = details.classList.contains('hidden');
+                        details.classList.toggle('hidden');
+                        btn.setAttribute('aria-expanded', String(nowOpen));
+                    }
+                });
+            });
+                // Only one experience subsection open at a time
+                document.querySelectorAll('#experience .timeline-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        if (e.target.tagName === 'A') return;
+                        const details = item.querySelector('.timeline-details');
+                        const btn = item.querySelector('.timeline-toggle');
+                        if (details && btn) {
+                            // Close all other experience subsections
+                            document.querySelectorAll('#experience .timeline-item .timeline-details').forEach(d => {
+                                if (d !== details) d.classList.add('hidden');
+                            });
+                            document.querySelectorAll('#experience .timeline-item .timeline-toggle').forEach(b => {
+                                if (b !== btn) b.setAttribute('aria-expanded', 'false');
+                            });
+                            // Toggle current
+                            const nowOpen = details.classList.contains('hidden');
+                            details.classList.toggle('hidden');
+                            btn.setAttribute('aria-expanded', String(nowOpen));
+                        }
+                    });
+                });
+
+                // About Me sub-accordion toggling (Skills, Hobbies)
+                document.querySelectorAll('#about .sub-accordion').forEach(subAcc => {
+                    const summary = subAcc.querySelector('summary');
+                    if (summary) {
+                        summary.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            // Prevent click from bubbling to parent accordion (which would close it)
+                            e.stopPropagation();
+                            // Toggle only this sub-accordion
+                            subAcc.open = !subAcc.open;
+                        });
+                    }
+                });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MotoStudent Suspension Design — Jesus Gimeno Baquero</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        article.project-content h2 {
+            color: #0b57a4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e0ecf8;
+            position: relative;
+        }
+        article.project-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0b57a4 0%, #4a9eff 100%);
+        }
+        article.project-content h2:first-of-type {
+            margin-top: 0;
+        }
+        article.project-content h3 {
+            color: #083761;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4a9eff;
+        }
+        .info-box {
+            background: linear-gradient(135deg, rgba(11,87,164,0.08) 0%, rgba(74,158,255,0.05) 100%);
+            border-left: 4px solid #0b57a4;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .info-box h4 {
+            color: #0b57a4;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        figure figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="mailto:gimeno.jesus0010@gmail.com" title="Email" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener" title="LinkedIn" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener" title="GitHub" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 80px; padding-bottom: 60px;">
+        <article class="project-content" style="max-width: 900px; margin: 0 auto;">
+            <h1 style="color: #1a1a1a; margin-bottom: 10px;">MotoStudent Suspension Design</h1>
+            <p style="color: var(--muted); font-size: 1rem; margin-bottom: 35px;">
+                Excel · MATLAB · SolidWorks | Sept 2021 – Oct 2023
+            </p>
+
+            <div class="info-box">
+                <h4>Project Context</h4>
+                <p style="margin: 0;">Progressive rear suspension system design and optimization for MotoStudent Competition VII Edition. Designed the rear suspension system for two prototype motorcycles built by MotoStudent Unizar Racing Team.</p>
+            </div>
+
+            <h2>Project Overview</h2>
+
+            <p>This project focused on the complete design and development of a rear suspension system for two prototype motorcycles competing in MotoStudent Competition VII Edition. The work encompassed initial vehicle dynamics modeling, suspension kinematics optimization, and final mechanical design for manufacturing.</p>
+
+            <p>The design process began with a comprehensive analysis of the motorcycle's dynamic behavior using Excel-based modeling, followed by iterative suspension linkage optimization using MATLAB automation. The final suspension assembly was designed in SolidWorks and manufactured using machining processes combined with commercial components.</p>
+
+            <h2>Initial Vehicle Dynamics Analysis</h2>
+
+            <p>The foundation of the suspension design started with developing a fully rigid bike model in Excel. This spreadsheet-based model allowed for systematic exploration of fundamental vehicle dynamics parameters and their effects on motorcycle behavior.</p>
+
+            <h3>Rigid Bike Model Parameters</h3>
+
+            <p>The Excel model investigated the relationship between key design variables:</p>
+            <ul>
+                <li><strong>Weight distribution:</strong> Total mass and center of gravity location</li>
+                <li><strong>Geometric constraints:</strong> Wheelbase, rake angle, and trail dimensions</li>
+                <li><strong>Performance envelope:</strong> Grip ellipse behavior under combined acceleration and cornering</li>
+                <li><strong>Stability limits:</strong> Wheelie cases and loss of grip scenarios</li>
+            </ul>
+
+            <h3>Component Load Calculations</h3>
+
+            <p>Beyond vehicle dynamics, the Excel spreadsheet served as a comprehensive force calculation tool. By analyzing various loading scenarios, the model calculated forces acting on all components throughout the motorcycle chassis. These force calculations became essential input data for:</p>
+            <ul>
+                <li>Structural design of suspension components</li>
+                <li>Finite Element Analysis (FEA) validation</li>
+                <li>Material selection and safety factor determination</li>
+                <li>Mounting point design and reinforcement requirements</li>
+            </ul>
+
+            <h2>Progressive Suspension Design</h2>
+
+            <p>With the vehicle dynamics constraints established, the focus shifted to designing a progressive rear suspension linkage that would deliver predictable and controlled movement throughout its travel range.</p>
+
+            <h3>Design Objectives</h3>
+
+            <div class="info-box">
+                <h4>Key Design Targets</h4>
+                <ul style="margin: 0;">
+                    <li><strong>Motion Ratio Progression:</strong> 50% increase over suspension travel for progressive spring characteristics</li>
+                    <li><strong>Force Minimization:</strong> Reduce loads on linkage components through optimized geometry</li>
+                    <li><strong>Predictable Behavior:</strong> Ensure consistent and controllable rear suspension response</li>
+                </ul>
+            </div>
+
+            <p>The 50% motion ratio increase ensures the suspension becomes progressively stiffer as it compresses. This characteristic provides excellent small bump sensitivity at the beginning of the travel while preventing bottoming on large impacts. The progressive nature also contributes to improved traction management during acceleration and braking.</p>
+
+            <h3>Kinematic Analysis Evolution</h3>
+
+            <p>The suspension kinematics analysis progressed through multiple iterations using different tools:</p>
+
+            <p><strong>Initial Design Phase:</strong> Early suspension geometry designs were developed using Tony Foale's specialized motorcycle suspension software. This established the baseline linkage configurations and identified feasible design directions.</p>
+
+            <p><strong>MATLAB Automation:</strong> To accelerate the iteration process and enable more sophisticated optimization, a custom MATLAB script was developed. This script replicated the kinematic calculations while adding significant capabilities:</p>
+            <ul>
+                <li><strong>Automated iteration:</strong> Rapid exploration of design variations without manual recalculation</li>
+                <li><strong>Target-based optimization:</strong> Set specific progressiveness objectives and automatically converge to optimal solutions</li>
+                <li><strong>Component dimension optimization:</strong> Automatically size linkage members to achieve force minimization goals</li>
+                <li><strong>Batch analysis:</strong> Evaluate multiple design candidates simultaneously for comparative assessment</li>
+            </ul>
+
+            <p>The MATLAB automation dramatically reduced design cycle time, allowing the team to explore a much wider design space and achieve better optimization of the competing objectives: progressiveness, component forces, and packaging constraints.</p>
+
+            <h2>Mechanical Design and Manufacturing</h2>
+
+            <p>Following kinematic optimization, the suspension assembly was designed in detail using SolidWorks CAD software. The design balanced performance requirements with manufacturing feasibility and cost constraints typical of student competition teams.</p>
+
+            <h3>Manufacturing Approach</h3>
+
+            <p>The suspension system combined custom-machined components with commercial off-the-shelf parts:</p>
+            <ul>
+                <li><strong>Custom components:</strong> Linkage members, pivot mounts, and brackets manufactured using CNC machining processes</li>
+                <li><strong>Commercial components:</strong> Bearings, fasteners, shock absorber, and standard hardware</li>
+                <li><strong>Manufacturing methods:</strong> Milling and turning operations on aluminum and steel materials</li>
+            </ul>
+
+            <p>This hybrid approach optimized the trade-off between custom performance-optimized geometry and the practical constraints of budget, lead time, and available manufacturing capabilities.</p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <a href="../index.html#projects" style="color: #4a9eff; text-decoration: none; font-weight: 600;">← Back to Projects</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navList.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

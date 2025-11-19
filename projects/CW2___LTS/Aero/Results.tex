@@ -1,0 +1,109 @@
+\subsubsection{G-G diagram}
+The enhanced aerodynamic setup of the 2026 configuration showed measurable improvements in performance when evaluated through dynamic simulation.
+Figure 4 illustrates the G-G diagram, comparing lateral and longitudinal accelerations. The 2026 configuration (red) consistently achieves higher lateral acceleration values compared to the 2024 baseline (green), confirming improved cornering capability. This gain is primarily attributed to increased aerodynamic grip due to better load distribution and ride height control as shown by \cite{gadola2002nonlinear}. In motorsport, elevated lateral acceleration is a direct indicator of improved tyre loading and higher potential cornering speed according to \cite{segers2014analysis}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Aero/GG.png}
+    \caption{Aero G-G diagram comparison}
+    \label{fig:GG}
+\end{figure}
+\vspace{-10pt}
+
+\subsubsection{Ride heights}
+Figure \ref{fig:RH} presents a dynamic ride height scatter plot. The 2026 car maintains a significantly lower average ride height (shown in red) throughout the lap, particularly at the front, while remaining safely above the critical 0\,mm threshold to avoid bottoming. Maintaining this balance is essential, as excessive compression may trigger flow separation or cause the floor to contact the ground, compromising both vehicle control and component integrity according to \cite{milliken1995race}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Aero/RH.png}
+    \caption{Dynamic ride heights comparison}
+    \label{fig:RH}
+\end{figure}
+\vspace{-10pt}
+
+Reduced ride height improves underbody airflow and ground effect efficiency by increasing the aerodynamic suction beneath the car. This phenomenon becomes most significant at high speeds, with the lowest ride heights typically reached at the end of the straights. As shown in Figure~\ref{fig:rh_graph}, the ride height drops by up to 50\,mm at the rear. The higher the speed, the greater the suction effect, which further compresses the suspension and lowers the chassis.
+
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Aero/RHgraph.png}
+    \caption{Ride height variation in cornering}
+    \label{fig:rh_graph}
+\end{figure}
+
+\subsubsection{Drag and downforce changes effects}
+Figure \ref{fig:aerochannel} compares five key telemetry channels: speed, front and rear downforce, aero balance, and drag force. The optimised 2026 setup (red) achieves higher peak downforce on both axles while simultaneously reducing drag, confirming the effectiveness of the regulation-compliant aerodynamic package. The measured aero balance stabilises around 45\%, which lies close to the ideal window of 46–48\% recommended by \cite{newbon2015wake}, ensuring predictable behaviour at high speeds. In contrast, the 2024 baseline car operates at 36\%, a rear-heavy distribution that compromises turn-in responsiveness. Moreover, the reduced drag force directly enhances straight-line performance without sacrificing stability, demonstrating the success of the 2026 development strategy under the updated regulatory constraints (\cite{fia2022powerunit}).
+
+\vspace{-10pt}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Aero/aerochannel.png}
+    \caption{Aerobalance, downforce and drag force comparison }
+    \label{fig:aerochannel}
+\end{figure}
+\vspace{-10pt}
+
+These results validate the importance of integrated aero design, where aerodynamic surfaces, ride height behaviour, and flap positions are co-optimised to achieve a competitive and regulation-compliant setup.
+
+\subsubsection{Skidpads}
+
+TThe R200 and R50 skidpad tests show how each setup handles lateral load at different speeds. In R200, where aero forces are stronger, the optimised car has a more forward aero balance (~45\%) and more rear compression under load. Pitch becomes more negative on the straights, showing how the platform adjusts dynamically. The faster acceleration in the corner confirms better grip and stability at high speed.
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Aero/R200.png}
+    \caption{Skidpad R200}
+    \label{fig:R200}
+\end{figure}
+
+In R50, where speeds are lower, aero load is weaker and ride heights remain close between both setups. The optimised car runs with a flatter pitch (less negative), which avoids too much rake. Despite this, it keeps a more forward aero balance than the baseline, thanks to local gains on the front (e.g. front wing). This setup improves front grip without relying on rake, giving more precise response in tight corners.
+Together, the two tests confirm that the improved car keeps a good balance at both high and low speeds. R200 shows aero efficiency and stable load at high speed, while R50 shows the front remains loaded even without much pitch.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Aero/R50.png}
+    \caption{Skidpad R50}
+    \label{fig:R50}
+\end{figure}
+\vspace{-10pt}
+
+Overall, compared to the baseline, the optimised car has a better aerodynamic performance in both low-speed cornering and high-speed cornering or straights, with a more forward aero balance and better platform control. It results in increased front grip and stability.
+
+\subsubsection{Race vs Qualifying Set-up}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{>{\centering\arraybackslash}p{2.2cm}|cccccccc}
+\textbf{Rear Ride Height [mm]} $\downarrow$ & \multicolumn{8}{c}{\textbf{Front Ride Height [mm]} $\rightarrow$} \\
+ & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 \\
+\hline
+5 & \cellcolor{green!60} 44.808 & \cellcolor{green!50} 44.081 & \cellcolor{green!40} 43.541 & \cellcolor{yellow!30} 42.969 & \cellcolor{yellow!30} 42.269 & \cellcolor{red!50} 41.676 & \cellcolor{red!50} 41.152 & \cellcolor{red!70} 40.362 \\
+10 & \cellcolor{yellow!40} 45.139 & \cellcolor{green!50} 44.421 & \cellcolor{green!40} 43.816 & \cellcolor{green!30} 43.252 & \cellcolor{yellow!30} 42.522 & \cellcolor{red!50} 41.933 & \cellcolor{red!50} 41.348 & \cellcolor{red!70} 40.739 \\
+15 & \cellcolor{yellow!40} 45.480 & \cellcolor{green!60} 44.751 & \cellcolor{green!50} 44.096 & \cellcolor{green!40} 43.505 & \cellcolor{yellow!30} 42.781 & \cellcolor{yellow!30} 42.175 & \cellcolor{red!50} 41.547 & \cellcolor{red!50} 41.016 \\
+20 & \cellcolor{yellow!40} 45.817 & \cellcolor{yellow!40} 45.089 & \cellcolor{green!50} 44.422 & \cellcolor{green!40} 43.763 & \cellcolor{green!30} 43.063 & \cellcolor{yellow!30} 42.421 & \cellcolor{red!50} 41.817 & \cellcolor{red!50} 41.299 \\
+25 & \cellcolor{yellow!60} 46.161 & \cellcolor{yellow!40} 45.389 & \cellcolor{green!60} 44.696 & \cellcolor{green!50} 44.036 & \cellcolor{green!30} 43.350 & \cellcolor{yellow!30} 42.709 & \cellcolor{yellow!30} 42.092 & \cellcolor{red!50} 41.571 \\
+30 & \cellcolor{yellow!60} 46.449 & \cellcolor{yellow!40} 45.695 & \cellcolor{green!60} 44.968 & \cellcolor{green!50} 44.315 & \cellcolor{green!40} 43.629 & \cellcolor{green!30} 43.003 & \cellcolor{yellow!30} 42.375 & \cellcolor{red!50} 41.846 \\
+35 & \cellcolor{yellow!60} 46.741 & \cellcolor{yellow!60} 46.005 & \cellcolor{yellow!40} 45.246 & \cellcolor{green!60} 44.615 & \cellcolor{green!40} 43.914 & \cellcolor{green!30} 43.304 & \cellcolor{yellow!30} 42.663 & \cellcolor{yellow!30} 42.138 \\
+40 & \cellcolor{red!40} 47.062 & \cellcolor{yellow!60} 46.321 & \cellcolor{yellow!40} 45.551 & \cellcolor{green!60} 44.920 & \cellcolor{green!50} 44.211 & \cellcolor{green!40} 43.609 & \cellcolor{yellow!30} 42.966 & \cellcolor{yellow!30} 42.434 \\
+45 & \cellcolor{red!40} 47.388 & \cellcolor{yellow!60} 46.625 & \cellcolor{yellow!40} 45.860 & \cellcolor{yellow!40} 45.207 & \cellcolor{green!60} 44.514 & \cellcolor{green!40} 43.903 & \cellcolor{green!30} 43.274 & \cellcolor{yellow!30} 42.744 \\
+50 & \cellcolor{red!40} 47.719 & \cellcolor{yellow!60} 46.933 & \cellcolor{yellow!60} 46.177 & \cellcolor{yellow!40} 45.499 & \cellcolor{green!60} 44.821 & \cellcolor{green!50} 44.201 & \cellcolor{green!40} 43.587 & \cellcolor{green!30} 43.060 \\
+55 & \cellcolor{red!60} 48.054 & \cellcolor{red!40} 47.246 & \cellcolor{yellow!60} 46.498 & \cellcolor{yellow!40} 45.794 & \cellcolor{yellow!40} 45.134 & \cellcolor{green!60} 44.511 & \cellcolor{green!40} 43.904 & \cellcolor{green!30} 43.376 \\
+60 & \cellcolor{red!60} 48.395 & \cellcolor{red!40} 47.564 & \cellcolor{yellow!60} 46.824 & \cellcolor{yellow!60} 46.095 & \cellcolor{yellow!40} 45.451 & \cellcolor{green!60} 44.825 & \cellcolor{green!50} 44.227 & \cellcolor{green!40} 43.696 \\
+65 & \cellcolor{red!60} 48.741 & \cellcolor{red!40} 47.886 & \cellcolor{red!40} 47.154 & \cellcolor{yellow!60} 46.399 & \cellcolor{yellow!40} 45.773 & \cellcolor{yellow!40} 45.144 & \cellcolor{green!60} 44.554 & \cellcolor{green!50} 44.021 \\
+70 & \cellcolor{red!60} 49.092 & \cellcolor{red!60} 48.212 & \cellcolor{red!40} 47.488 & \cellcolor{yellow!60} 46.709 & \cellcolor{yellow!60} 46.101 & \cellcolor{yellow!40} 45.468 & \cellcolor{green!60} 44.887 & \cellcolor{green!50} 44.351 \\
+\end{tabular}
+\caption{Ride height influence map with user-defined colour bands.}
+\label{tab:rideheight-map}
+\end{table}
+\vspace{-10pt}
+
+Two setups were defined to reflect typical qualifying and race conditions under the 2026 regulations. The qualifying setup runs 40 mm front and 60 mm rear ride height to maximise downforce and reduce drag. This combination sits in a region of the map where both axles generate strong load, improving front grip and giving the platform what it needs for single-lap performance.
+
+The race setup is slightly higher, with 40 mm front and 70 mm rear ride height. It keeps the platform stable over long runs as fuel burns off, maintains the aero balance around 44\%, and offers more margin against bottoming. It’s also better for thermal control and tyre consistency over a stint (\cite{fia2024tyres}). 
+
+\subsubsection{Integration to the other domains}
+Each domain worked toward shared targets. Aero aimed for a stable balance around 44–45\%, which guided chassis setup with the pitch control and platform stiffness in order to stay in the aero window under load.
+
+Vehicle dynamics used this to tune ride heights and dampers. Powertrain maps and gearing were adjusted to match the new drag profile and keep the engine efficient, which is key under 2026 rules with reduced downforce and more drag sensitivity.
+

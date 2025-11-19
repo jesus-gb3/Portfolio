@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Engine Parametric Study — Jesus Gimeno Baquero</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        /* Title styling */
+        article.project-content h2 {
+            color: #0b57a4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e0ecf8;
+            position: relative;
+        }
+        article.project-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0b57a4 0%, #4a9eff 100%);
+        }
+        article.project-content h2:first-of-type {
+            margin-top: 0;
+        }
+        article.project-content h3 {
+            color: #083761;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4a9eff;
+        }
+
+        /* Revert to original table design */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid #ddd; /* Light gray borders */
+            padding: 0.75rem;
+        }
+
+        .data-table tr {
+            background-color: #ffffff; /* Default white for all rows */
+        }
+
+        .data-table tr:first-child {
+            font-weight: bold; /* Bold text for the first row */
+        }
+
+        /* Side-by-side images */
+        .pv-compare {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .pv-compare-item {
+            flex: 1;
+            text-align: center;
+        }
+        .pv-compare-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="mailto:gimeno.jesus0010@gmail.com" title="Email" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener" title="LinkedIn" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener" title="GitHub" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="project-hero container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+            <h1>Parametric Study of a Four-Stroke Engine Model</h1>
+            <div class="project-meta">
+                <span class="tag">4STSOFT</span>
+                <span class="tag">Engine Modeling</span>
+                <span class="tag">Thermodynamics</span>
+            </div>
+        </section>
+
+        <article class="project-content container">
+            <section class="project-section">
+                <h2>Overview</h2>
+                <p>This project is the author's BEng dissertation performed within the MotoStudent context, focused on a KTM SX‑F 250 single‑cylinder four‑stroke engine. The objective was to build a calibrated 4stsoft model reproducing the measured high‑rpm behaviour and to perform a structured parametric study to inform intake and exhaust design decisions targeted at improving power around 12–13 kRPM for competition use.</p>
+                <p>The work combined measured geometry, lab valve lift checks, literature combustion models (Vibe), and systematic sweeps of ignition timing, valve timing/lift and intake/exhaust diameters to evaluate sensitivity and recommended setups for race deployable configurations.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Challenge</h2>
+                <p>Limited direct dyno data and partial access to the physical engine meant the model had to be calibrated using available bench measurements, photos and a small set of rotor dyno reference points. The 4stsoft software is steady‑state per rpm point, so transient effects and full 3D flow features are approximated; resonance and ducting interactions are modelled with idealised lumped elements. This combination makes the model sensitive to geometric inputs (port cross sections, manifold lengths) and to combustion parametrisation (Vibe parameters, combustion efficiency).</p>
+                <ul>
+                    <li>Measurement gaps: incomplete port maps and only approximate surface temperatures.</li>
+                    <li>Software limits: steady‑rpm simulations (no full transient), limited duct segmentation.</li>
+                    <li>Uncertainty sources: combustion efficiency, residual gas fraction, and valve seating characteristics.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Methodology</h2>
+                <p>Model building followed an iterative calibration loop: enter best‑known geometry and material/surface temperatures, tune Vibe combustion parameters and ignition timing to match reference torque/peak pressure, then run parametric sweeps changing one variable at a time to quantify sensitivity. Each steady rpm point used multiple cycles (6 cycles) to ensure numerical convergence of averaged outputs.</p>
+
+                <table class="data-table">
+                    <thead><tr><td>Parameter</td><td>Value / Notes</td></tr></thead>
+                    <tbody>
+                        <tr><td>Displacement</td><td>249.92 cc</td></tr>
+                        <tr><td>Bore × Stroke</td><td>81 × 48.5 mm</td></tr>
+                        <tr><td>Compression ratio</td><td>14.5 (geometric)</td></tr>
+                        <tr><td>Reference max revs</td><td>14,000 rpm (software sweep limit)</td></tr>
+                        <tr><td>Convergence cycles</td><td>6 cycles per rpm point (steady average)</td></tr>
+                    </tbody>
+                </table>
+
+                <h4>Representative inputs measured / assumed</h4>
+                <table class="data-table">
+                    <thead><tr><td>Item</td><td>Value / Source</td></tr></thead>
+                    <tbody>
+                        <tr><td>Valve diameters</td><td>Measured from engine photos and parts list</td></tr>
+                        <tr><td>Connecting rod length</td><td>From service manual</td></tr>
+                        <tr><td>Port throat diameters</td><td>Measured where possible, otherwise estimated</td></tr>
+                        <tr><td>Surface temps</td><td>Estimated based on steady running assumptions (sensitivity tested)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="project-section">
+                <h2>Key Findings</h2>
+                <p>The parametric study shows that intake geometry (trumpet length/diameter) and valve lift profiles produce the largest shifts in peak torque at high rpm. Combustion efficiency behaves as a near‑global scale factor on torque amplitude but does not shift resonant peaks significantly. Resonant tuning of the intake/exhaust system shifts the rpm of the peak torque and can trade peak torque for a broader usable band.</p>
+
+                <table class="data-table">
+                    <thead><tr><td>Combustion efficiency</td><td>Peak pressure (bar)</td><td>Peak torque (Nm)</td></tr></thead>
+                    <tbody>
+                        <tr><td>75%</td><td>98.9</td><td>23.41</td></tr>
+                        <tr><td>85%</td><td>104.9</td><td>26.98</td></tr>
+                        <tr><td>95%</td><td>114.3</td><td>30.77</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Example sensitivity snapshots (selected):</p>
+                <table class="data-table">
+                    <thead><tr><td>Test</td><td>Delta peak rpm</td><td>Delta peak torque</td></tr></thead>
+                    <tbody>
+                        <tr><td>Increase intake trumpet dia +5mm</td><td>-400 rpm</td><td>+0.8 Nm</td></tr>
+                        <tr><td>Reduce exhaust tailpipe length -30 mm</td><td>+600 rpm</td><td>-0.6 Nm</td></tr>
+                        <tr><td>Valve lift +0.5 mm</td><td>no shift</td><td>+1.2 Nm</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="project-section">
+                <h2>Results</h2>
+                <p>After calibration the model reproduces the qualitative high‑rpm torque peak and allows quantifying relative effects of intake/exhaust geometry. Using the model, a theoretical exhaust configuration with a bifurcation and tuned lengths pushes the peak above 12k rpm while keeping acceptable midrange torque.</p>
+
+                <h4>Intake / Exhaust parametric table (excerpt)</h4>
+                <table class="data-table">
+                    <thead><tr><td>Parameter</td><td>Min</td><td>Nominal</td><td>Max</td></tr></thead>
+                    <tbody>
+                        <tr><td>Intake trumpet dia (mm)</td><td>18</td><td>20</td><td>24</td></tr>
+                        <tr><td>Intake length (mm)</td><td>60</td><td>90</td><td>130</td></tr>
+                        <tr><td>Exhaust primary length (mm)</td><td>300</td><td>420</td><td>560</td></tr>
+                    </tbody>
+                </table>
+
+                <p>All results include notes on numerical convergence; points with instability were repeated with higher cycle counts and slightly different initial conditions to check robustness.</p>
+
+                <h4>Model vs Stock — Powercurve Comparison</h4>
+                <p class="muted">Left: measured stock engine curve. Right: extracted model curve.</p>
+                <figure class="pv-compare">
+                    <div class="pv-compare-item">
+                        <img src="assets/engine-actual.png" alt="Measured stock engine powercurve (torque & hp)" />
+                        <figcaption>Measured stock engine (actual)</figcaption>
+                    </div>
+                    <div class="pv-compare-item">
+                        <img src="assets/engine-model.png" alt="Model extracted powercurve (torque & hp)" />
+                        <figcaption>Model output (extracted)</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <section class="project-section">
+                <h2>Technical Details</h2>
+                <p>Software: 4stsoft (steady‑state per rpm). Simulation strategy: sweeps from 5,000 to 14,000 rpm in 500 rpm increments, with 6 cycles per point as default. For selected sensitivity points cycles were increased to 12 to confirm convergence. Combustion model used: Vibe; parameters (m, a, b) tuned to match measured peak pressures where available.</p>
+
+                <h4>Representative simulation settings</h4>
+                <table class="data-table">
+                    <thead><tr><td>Setting</td><td>Value</td></tr></thead>
+                    <tbody>
+                        <tr><td>RPM sweep</td><td>5k–14k, step 500 rpm</td></tr>
+                        <tr><td>Cycles per point</td><td>6 (default), 12 (validation)</td></tr>
+                        <tr><td>Combustion model</td><td>Vibe (m/b/a tuned)</td></tr>
+                        <tr><td>Ambient</td><td>Standard test conditions</td></tr>
+                    </tbody>
+                </table>
+
+                <h4>Port & valve data (measured / estimated)</h4>
+                <table class="data-table">
+                    <thead><tr><td>Item</td><td>Value / Notes</td></tr></thead>
+                    <tbody>
+                        <tr><td>Intake port throat</td><td>20 mm (measured)</td></tr>
+                        <tr><td>Exhaust port throat</td><td>16 mm (measured)</td></tr>
+                        <tr><td>Valve lift (max)</td><td>9.2 mm intake / 8.0 mm exhaust</td></tr>
+                        <tr><td>Valve dwell</td><td>varied 0.5–1.5 ms in sweeps</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="project-section">
+                <h2>Conclusions</h2>
+                <p>The calibrated model is a useful tool to explore relative effects and inform hardware changes. Key recommendations: prioritise intake trumpet tuning for high rpm, target combustion efficiency improvements (fuel/ignition), and carefully test exhaust geometries that shift resonant peaks. The model limitations (steady‑state assumptions, simplified duct geometry) are documented and further work could include transient CFD or bench dyno validation for candidate configurations.</p>
+                <p>Full dissertation (figures, derivations and extended tables) is available on request.</p>
+            </section>
+        </article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navList.classList.toggle('open');
+        });
+
+        // Carousel functionality - simplified (guarded)
+        (function(){
+            const carousel = document.querySelector('.project-carousel');
+            if (!carousel) return; // no legacy carousel present — skip
+
+            const sections = document.querySelectorAll('.carousel-section');
+            const indexBtns = document.querySelectorAll('.index-btn');
+            const prevBtn = document.querySelector('.carousel-nav.prev');
+            const nextBtn = document.querySelector('.carousel-nav.next');
+            const currentCounter = document.querySelector('.carousel-counter .current');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                // Move carousel
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update button states
+                indexBtns.forEach((btn, i) => {
+                    if (i === currentIndex) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Update counter
+                if (currentCounter) currentCounter.textContent = currentIndex + 1;
+            }
+
+            // Navigation (guard individual elements)
+            if (prevBtn) prevBtn.onclick = () => { currentIndex = (currentIndex - 1 + sections.length) % sections.length; updateCarousel(); };
+            if (nextBtn) nextBtn.onclick = () => { currentIndex = (currentIndex + 1) % sections.length; updateCarousel(); };
+            indexBtns.forEach((btn, index) => { btn.onclick = () => { currentIndex = index; updateCarousel(); }; });
+
+            // Keyboard navigation
+            document.onkeydown = (e) => {
+                if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + sections.length) % sections.length; updateCarousel(); }
+                if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % sections.length; updateCarousel(); }
+            };
+        })();
+    </script>
+</body>
+</html>

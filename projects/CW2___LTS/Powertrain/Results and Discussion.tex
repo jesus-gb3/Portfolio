@@ -1,0 +1,59 @@
+\subsubsection{MGU-K}
+    
+    
+    Performance was improved through the new MGU-K torque map (\ref{fig:TorqueMotorGenerator}). These adjustments led to a 191.6\% increase in peak power, significantly enhancing both acceleration and energy deployment across the lap. This effect is illustrated in Figure ~\ref{fig:MGUK_Telemetry}, which presents telemetry from a complete lap. In the 2026 set-up, the top speed increased due to the fact that ERS deployment is now allowed from 50 kph, rather than 100 kph in 2024, improving performance particularly during corner exits. There is also a notable rise in torque delivery from the motor units, as well as a more effective energy recovery during braking phases.
+    \vspace{-10pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Powertrain/Pictures/MGU-K_Telemetry.png}
+        \caption{MGU-K Telemetry: Released Energy, Motor Torques, Recuperated Energy}
+        \label{fig:MGUK_Telemetry}
+    \end{figure}
+    \vspace{-10pt}
+
+\subsubsection{Internal Combustion Engine (ICE)}
+    In addition to the power limitations, telemetry data supports the observation that limiting ICE power to 400 kW contributed positively to traction control (Shown in Figure ~\ref{fig:ICE_power_torque}). As illustrated in Figure ~\ref{fig:slip_ratios_Telemetry}, the rear tyre slip ratios shows a noticeable decrease in peak values. Although slip spikes are still present, their magnitude is reduced, particularly in low-speed acceleration zones. 
+    Improved traction not only enhances vehicle stability when exiting corners but also helps reduce tyre wear and energy losses. Nevertheless, the data suggests that further optimisation is still possible especially in high-slip areas.
+    \vspace{-10pt}
+    \begin{figure}[H]
+    \centering
+        \begin{minipage}[t]{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Powertrain/Pictures/ICE_Power_Torque2.png}
+            \caption{ICE Power and Torque}
+            \label{fig:ICE_power_torque}
+        \end{minipage}
+        \hspace{0.06\textwidth} % Espacio entre figuras (ajustable)
+        \begin{minipage}[t]{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Powertrain/Pictures/Slip_Ratios2.png}
+            \caption{Rear Tyre Slip Ratios}
+            \label{fig:slip_ratios_Telemetry}
+        \end{minipage}
+    \end{figure}
+    \vspace{-20pt}
+    
+\subsubsection{Gearbox}
+    Telemetry indicates that the first gear is unused in the 2026 set-up (Figure \ref{fig:GBX_Positions}), reflecting the circuit's high-speed profile where short gears are unnecessary and can limit corner exit speed. The improved gear ratios enable quicker upshifts, helping the car reach top speed faster. Figure \ref{fig:GBX_Positions} also shows sustained use of higher gears, which supports exploitation of the MGU-K and ICE combined output in acceleration zones while reducing unnecessary gear changes.
+    \vspace{-10pt}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.63\textwidth]{Powertrain/Pictures/GBX_Position2.png}
+        \caption{Gearbox Positions}
+        \label{fig:GBX_Positions}
+    \end{figure}
+    \vspace{-10pt}
+    
+\subsubsection{Rear Differential}
+The incorporation of the optimised rear differential resulted in a lap time improvement of 0.052 seconds. The influence of brake and power ramp angles, with 13 actual faces and 17 max faces, on lap time is illustrated in {Figure \ref{fig:RearDiff}}, where green regions indicate performance gains (reduced lap time) and red regions represent performance losses. The optimal settings are identified in the circle.
+\vspace{-10pt}
+     \begin{figure}[H]
+        \centering
+    \includegraphics[width=0.9\textwidth]{Powertrain/Pictures/RearDiff.png}
+        \caption{Brake and Power Ramp Angles Effect on Delta Lap Time (s)}
+        \label{fig:RearDiff}
+    \end{figure}
+    \vspace{-10pt}
+
+\subsubsection{Fuel Efficiency}
+    The 2024 car consumed 1.35 kg per lap, while our proposed 2026 set-up uses only 0.96 kg per lap. The simulations are conducted on the Red Bull Ring, where an F1 race comprises of 71 laps (\cite{redbullring2025}). Meaning these consumption per lap values work out to a total race fuel consumption of 95.85 kg for the 2024 and just 68.16 kg for the 2026 configuration. These values are consistent with the expected fuel consumption trend in F1 (\cite{f1engines2026}): since 2020, cars have been consuming \(\sim \)100 kg of fuel per race, with the 2026 regulations targeting a reduction to 70 kg.

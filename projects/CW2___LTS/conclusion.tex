@@ -1,0 +1,21 @@
+The final qualifying set-up for the 2026 achieved a best lap time of 62.611 seconds at the Red Bull Ring, showing a significant performance improvement over the initial baseline model, which had a 65.514 laptime. While this lap time is slightly faster than real F1 qualifying laps at the Red Bull Ring (typically in the 63.5-65.5s range (\cite{f1austria2024qualifying})), it remains realistic in the context of a controlled AVL VSM simulation environment. Even though the time is faster than what we could expect in reality, there is no way of knowing what the correct time would be since 2026 cars have not yet raced on this track. Factors such as optimal tyre grip, minimal fuel load, ideal ambient and track temperatures, and a driver performing with consistent precision every lap all contribute to an idealized lap time in simulation conditions that are difficult to replicate exactly in real-world scenarios. 
+
+\vspace{3mm}
+
+The project began by updating the vehicle parameters to match the 2026 FIA technical regulations (Table \ref{tab:2026parameters}). From there, the team iteratively developed the set-up through subsystem specific tuning in vehicle dynamics, aerodynamics and powertrain groups. All changes with the goal of optimising performance while meeting the key regulations in Table \ref{tab:2026parameters}. Each team contributed targeted performance improvements:
+
+\begin{itemize}
+\vspace{-10pt}
+    \item  Vehicle Dynamics team reduced ride height, adjusted spring rates and roll bars for balance, and implemented asymmetric camber and toe settings to optimise grip for the Red Bull Ring’s predominantly right-hand corners.
+    \vspace{-10pt}
+    \item  Aerodynamics team modified wing angles and ride heights to maximise downforce and reduce drag, tuning the aero balance to favour high-speed stability while maintaining strong cornering performance.
+    \vspace{-10pt}
+    \item  Powertrain focused on optimising torque maps, gear ratios, rear differential settings, and energy management strategies. All aimed at maximising performance under the very different 2026 regulations, which almost triple the MGU-K output while eliminating the MGU-H.
+\end{itemize}
+
+Finally, to represent the entire vehicle development process, distinct set-ups between qualifying and race conditions were considered. Unlike qualifying, where outright performance is key, race conditions also need to balance endurance and reliability. The qualifying set-up is configured for peak performance over just one lap, so it includes lower ride heights, aggressive wing angles, and a high-output torque map. This set-up allows for aerodynamic efficiency and grip, as well as acceleration, to be maximised over the single lap. In contrast, race set-up includes higher ride heights, a more conservative aero balance, and a reduced PT map. All working together to manage tyre degradation and improve energy efficiency over the entire race distance.
+
+ \vspace{3mm}
+ 
+ In summary, the final set-up achieved a good balance between all three sub-systems and outperformed the 2026 baseline in terms of lap times and driveability. While the qualifying set-up delivered a best lap of 62.611 seconds, the race configuration would aim for slightly slower but more sustainable performance over a full race distance. The project shows the importance of subsystem integration, regulatory compliance, and strategic trade-offs between peak performance and long-term reliability - essential principles of modern Formula 1 engineering.
+

@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>iRacing Data Analysis — Jesus Gimeno Baquero</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        article.project-content h2 {
+            color: #0b57a4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e0ecf8;
+            position: relative;
+        }
+        article.project-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0b57a4 0%, #4a9eff 100%);
+        }
+        article.project-content h2:first-of-type {
+            margin-top: 0;
+        }
+        article.project-content h3 {
+            color: #083761;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4a9eff;
+        }
+        .info-box {
+            background: linear-gradient(135deg, rgba(11,87,164,0.08) 0%, rgba(74,158,255,0.05) 100%);
+            border-left: 4px solid #0b57a4;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .info-box h4 {
+            color: #0b57a4;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        figure figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 80px; padding-bottom: 60px;">
+        <article class="project-content" style="max-width: 900px; margin: 0 auto;">
+            <h1 style="color: #1a1a1a; margin-bottom: 10px;">iRacing Data Analysis</h1>
+            <p style="color: var(--muted); font-size: 1rem; margin-bottom: 35px;">
+                Python · MoTeC i2 · Data Analysis · Telemetry · Performance Optimization | Nov 2025
+            </p>
+
+            <div class="info-box">
+                <h4>Project Context</h4>
+                <p style="margin: 0;">Personal development project analyzing telemetry data from 8 stints (7-8 laps each) of Ferrari 296 GT3 at Laguna Seca in iRacing. Two-part analysis: driver performance comparison with consistent setup, and setup optimization analysis with consistent driving. Data analyzed using MoTeC i2 Standard and custom Python scripts.</p>
+            </div>
+
+            <!-- Navigation tabs -->
+            <div style="display: flex; gap: 10px; margin: 30px 0; border-bottom: 2px solid rgba(74,158,255,0.2);">
+                <button class="analysis-tab active" data-section="overview" style="background: transparent; border: none; padding: 12px 20px; color: #4a9eff; font-weight: 600; cursor: pointer; border-bottom: 3px solid #4a9eff; transition: all 0.3s;">Overview</button>
+                <button class="analysis-tab" data-section="driver" style="background: transparent; border: none; padding: 12px 20px; color: var(--muted); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s;">Driver Analysis</button>
+                <button class="analysis-tab" data-section="setup" style="background: transparent; border: none; padding: 12px 20px; color: var(--muted); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s;">Setup Analysis</button>
+            </div>
+
+            <!-- Overview Section -->
+            <div class="analysis-section active" data-section="overview">
+                <h2>Project Overview</h2>
+
+                <p>This project demonstrates two complementary approaches to performance optimization in sim racing through systematic telemetry analysis:</p>
+                <ul>
+                    <li><strong>Driver Performance Analysis:</strong> Comparing driving technique across multiple stints with identical setup and conditions</li>
+                    <li><strong>Setup Optimization Analysis:</strong> Evaluating vehicle setup changes with consistent driver inputs</li>
+                </ul>
+
+                <h3>Data Collection</h3>
+                <ul>
+                    <li><strong>Vehicle:</strong> Ferrari 296 GT3</li>
+                    <li><strong>Track:</strong> Laguna Seca</li>
+                    <li><strong>Sessions:</strong> 8 stints totaling 7-8 laps each</li>
+                    <li><strong>Platform:</strong> iRacing simulation</li>
+                    <li><strong>Data Source:</strong> iRacing telemetry API and exported session files</li>
+                </ul>
+
+                <h3>Analysis Tools</h3>
+                <ul>
+                    <li><strong>MoTeC i2 Standard:</strong> Professional-grade telemetry analysis software for visual comparison of data channels, overlay analysis, and detailed trace inspection</li>
+                    <li><strong>Python Scripts:</strong> Custom data processing pipelines for automated lap analysis, statistical comparisons, and batch processing of telemetry data</li>
+                    <li>Combined workflow leveraging MoTeC for detailed visual analysis and Python for programmatic data manipulation and metric extraction</li>
+                </ul>
+
+                <p>The dual-analysis approach isolates two critical variables in racing performance: driver behavior and vehicle setup. By controlling one variable while analyzing the other, this methodology provides actionable insights for both driver development and engineering optimization.</p>
+            </div>
+
+            <!-- Driver Analysis Section -->
+            <div class="analysis-section" data-section="driver" style="display: none;">
+                <h2>Driver Performance Analysis</h2>
+
+                <p>Analyzing driving technique variations across multiple stints with identical vehicle setup and track conditions. This analysis isolates driver behavior as the primary variable to identify performance patterns, consistency metrics, and improvement opportunities.</p>
+
+                <p>The comparison below examines performance evolution of the same driver after completing 50 laps of practice. Following systematic analysis of telemetry data and implementation of data-driven technique adjustments, measurable improvements were achieved while maintaining identical vehicle setup and conditions.</p>
+
+                <h3>Methodology</h3>
+                <ul>
+                    <li><strong>Controlled variable:</strong> Fixed vehicle setup</li>
+                    <li><strong>Analyzed variable:</strong> Driver inputs and technique</li>
+                    <li><strong>Tools:</strong> MoTeC i2 for visual overlay analysis</li>
+                </ul>
+
+                <h3>Corner-by-Corner Analysis</h3>
+                
+                <!-- Interactive track map -->
+                <div style="position: relative; margin: 30px auto; max-width: 800px;">
+                    <img src="assets/laguna-seca-map.png" alt="Laguna Seca track map" style="width: 100%; height: auto; border-radius: 8px;">
+                    <!-- Corner hotspots -->
+                    <button class="track-hotspot" data-corner="0" style="position: absolute; top: 80%; left: 60%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 1"></button>
+                    <button class="track-hotspot" data-corner="1" style="position: absolute; top: 73%; left: 46%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 2"></button>
+                    <button class="track-hotspot" data-corner="2" style="position: absolute; top: 53%; left: 49%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 3"></button>
+                    <button class="track-hotspot" data-corner="3" style="position: absolute; top: 55%; left: 73%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 4"></button>
+                    <button class="track-hotspot" data-corner="4" style="position: absolute; top: 23%; left: 72%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 5"></button>
+                    <button class="track-hotspot" data-corner="5" style="position: absolute; top: 16%; left: 47%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turns 6-7 (Corkscrew)"></button>
+                    <button class="track-hotspot" data-corner="6" style="position: absolute; top: 21%; left: 36%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 8"></button>
+                    <button class="track-hotspot" data-corner="7" style="position: absolute; top: 45%; left: 38%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 9"></button>
+                    <button class="track-hotspot" data-corner="8" style="position: absolute; top: 57%; left: 27%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 10"></button>
+                </div>
+
+                <div class="info-box" style="margin: 25px 0;">
+                    <h4>Trace Legend</h4>
+                    <p style="margin: 0;">In all telemetry overlays below: <strong>Colored trace = Fastest lap (1:22.964)</strong> | <strong>White trace = Slower lap (1:23.617)</strong> | <strong>Delta: 0.653s improvement (0.78%)</strong></p>
+                </div>
+                
+                <!-- Corner carousel navigation -->
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 20px 0;">
+                    <button id="prevCorner" style="background: linear-gradient(135deg, #1a4d8f, #2563a8); border: none; padding: 10px 20px; color: white; font-weight: 600; cursor: pointer; border-radius: 5px; transition: all 0.3s;">← Previous</button>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                        <button class="corner-dot active" data-corner="0" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: #4a9eff; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="1" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="2" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="3" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="4" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="5" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="6" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="7" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                        <button class="corner-dot" data-corner="8" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #4a9eff; background: transparent; cursor: pointer; transition: all 0.3s;"></button>
+                    </div>
+                    <button id="nextCorner" style="background: linear-gradient(135deg, #1a4d8f, #2563a8); border: none; padding: 10px 20px; color: white; font-weight: 600; cursor: pointer; border-radius: 5px; transition: all 0.3s;">Next →</button>
+                </div>
+
+                <!-- Corner content slides -->
+                <div class="corner-carousel">
+                    <!-- Turn 1 -->
+                    <div class="corner-slide active" data-corner="0">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 1</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn1driver.png" alt="Turn 1 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 1 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Technique:</strong></p>
+                        <ul>
+                            <li>Slower lap (white) brakes <strong>significantly later</strong> and reaches <strong>80% brake pedal position</strong></li>
+                            <li>Faster lap (colored) brakes <strong>earlier but at a slower pace</strong></li>
+                            <li>Earlier, gentler braking allows the faster lap to <strong>carry more speed into the corner</strong> with less abrupt deceleration</li>
+                        </ul>
+                        
+                        <p><strong>Mid-Corner Performance:</strong></p>
+                        <ul>
+                            <li><strong>Better trail braking control</strong> in the faster lap provides <strong>increased rotation</strong>, evident in the yaw rate trace at the cursor position</li>
+                            <li><strong>More rotation occurs under the same steering input</strong> on corner entry, which then allows maintaining a <strong>lower average steering angle throughout the entry phase</strong></li>
+                            <li>Both laps achieve <strong>similar minimum speed</strong>, but the faster lap reaches it <strong>later in the corner</strong>, maintaining momentum longer</li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit Understeer:</strong></p>
+                        <ul>
+                            <li>Both drivers experience <strong>understeer on exit</strong>, requiring them to <strong>ease off the throttle</strong></li>
+                            <li>Understeer confirmed by <strong>increasing steering angle</strong> while <strong>lateral G-force stalls at ~1.5G</strong></li>
+                            <li>Vehicle unable to generate additional lateral grip despite increased steering input</li>
+                        </ul>
+                        
+                        <p><strong>Potential Further Improvement:</strong></p>
+                        <ul>
+                            <li>A hypothetical case combining <strong>later, harder initial braking</strong> with <strong>better regressive braking control</strong> (progressive brake release) could yield additional performance gains</li>
+                            <li>This would optimize both entry speed and mid-corner rotation while maintaining stability</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 2 -->
+                    <div class="corner-slide" data-corner="1" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 2</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn2driver.png" alt="Turn 2 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 2 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Strategy Comparison:</strong></p>
+                        <ul>
+                            <li>Slower lap (white) brakes <strong>later and harder</strong>, but retains <strong>less speed on corner entry</strong></li>
+                            <li>Faster lap (colored) uses <strong>brake for longer duration</strong>, translating into a <strong>lower minimum speed</strong> and <strong>slightly faster exit</strong></li>
+                            <li>Both approaches achieve <strong>similar rotation</strong> and <strong>almost identical overall corner speed</strong></li>
+                        </ul>
+                        
+                        <p><strong>Apex Performance:</strong></p>
+                        <ul>
+                            <li>The <strong>lower minimum speed</strong> achieved by the faster lap enables <strong>better rotation at the apex</strong></li>
+                            <li>Enhanced apex rotation directly contributes to the <strong>superior corner exit performance</strong></li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit Technique:</strong></p>
+                        <ul>
+                            <li>Understeer still visible, but faster lap shows <strong>more confident turn exit</strong></li>
+                            <li><strong>Earlier full throttle application</strong> in the faster lap</li>
+                            <li><strong>Earlier return to neutral steering</strong> allows better traction management</li>
+                            <li>Faster lap gains advantage on the following straight with <strong>better acceleration</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 3 -->
+                    <div class="corner-slide" data-corner="2" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 3</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn3driver.png" alt="Turn 3 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 3 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking and Turn-In Timing:</strong></p>
+                        <ul>
+                            <li>Both laps show <strong>very similar braking technique</strong> on corner entry</li>
+                            <li>Slower lap (white) shows <strong>braking after turn-in</strong></li>
+                            <li>Faster lap (colored) demonstrates <strong>braking almost simultaneous with turn-in</strong></li>
+                            <li>This timing difference results in <strong>earlier and higher rotation</strong> in the faster lap</li>
+                        </ul>
+                        
+                        <p><strong>Apex Timing and Speed:</strong></p>
+                        <ul>
+                            <li>Faster lap achieves <strong>minimum speed much earlier</strong>, indicating an <strong>earlier apex</strong></li>
+                            <li>Turn 3 is followed by a <strong>relatively long straight</strong>, where the conventional approach would favor a <strong>later apex to maximize exit speed</strong></li>
+                            <li>Despite using an earlier apex strategy, the faster lap demonstrates that <strong>extracting the necessary rotation earlier in corner entry</strong> can overcome the traditional apex placement disadvantage</li>
+                            <li>Enhanced early rotation allows for a <strong>confident corner exit</strong> that still capitalizes on the straight ahead</li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit Performance:</strong></p>
+                        <ul>
+                            <li>Faster lap shows <strong>earlier throttle application</strong> as a result of the earlier braking strategy</li>
+                            <li><strong>Same signs of understeer</strong> present in both laps (stalling lateral G with increasing steering angle)</li>
+                            <li>Despite understeer, the faster lap maintains advantage through better overall corner execution</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 4 -->
+                    <div class="corner-slide" data-corner="3" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 4</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn4driver.png" alt="Turn 4 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 4 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Technique and Front Axle Saturation:</strong></p>
+                        <ul>
+                            <li>Both laps initiate braking at <strong>almost the same point</strong> with <strong>similar maximum intensity</strong></li>
+                            <li>Faster lap (colored) begins <strong>regressive braking earlier</strong>, resulting in <strong>much increased rotation</strong> at the cursor position</li>
+                            <li><strong>Higher brake pressure</strong> in the slower lap is believed to cause <strong>entry understeer</strong></li>
+                            <li>Critical observation: <strong>similar steering traces but vastly different lateral G and yaw rate</strong> between laps demonstrates how braking affects corner entry behavior</li>
+                            <li>Higher brake pressure at turn-in <strong>saturates the front axle</strong> rather than relieving rear load to achieve the desired trail braking effect</li>
+                        </ul>
+                        
+                        <p><strong>Apex Performance:</strong></p>
+                        <ul>
+                            <li>Following the same trend as previous corners, the <strong>improved braking technique and rotation</strong> enables <strong>much faster corner entry speed</strong></li>
+                            <li>Both laps maintain the <strong>same minimum apex speed</strong>, showing efficiency gain comes from entry phase</li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit Confidence:</strong></p>
+                        <ul>
+                            <li>Slower lap shows driver <strong>hesitation on throttle application timing</strong></li>
+                            <li>Faster lap applies throttle <strong>later but more confidently</strong></li>
+                            <li>Confidence stems from <strong>car already pointing in the correct direction</strong> due to superior rotation</li>
+                            <li>Advantage maintained <strong>despite the same understeering trend</strong> present in the setup</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 5 -->
+                    <div class="corner-slide" data-corner="4" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 5</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn5driver.png" alt="Turn 5 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 5 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Entry and Driver Error:</strong></p>
+                        <ul>
+                            <li>Faster lap (colored) shows <strong>much slower entry speed</strong> due to <strong>earlier and softer braking</strong></li>
+                            <li>At turn-in (<strong>marked by cursor</strong>, almost identical timing in both laps), faster lap has <strong>approximately half the brake pedal position</strong> and <strong>slower speed</strong></li>
+                            <li>Slower lap (white) exhibits a critical <strong>trail braking mistake</strong></li>
+                            <li><strong>Steering correction required during trail braking phase</strong> in the slower lap</li>
+                            <li>This error <strong>decreases apex speed considerably</strong> and <strong>compromises the following straight's speed</strong></li>
+                        </ul>
+                        
+                        <p><strong>Apex and Early Throttle Application:</strong></p>
+                        <ul>
+                            <li><strong>Early throttle application is crucial</strong> in this corner</li>
+                            <li>Faster lap <strong>benefits significantly from applying throttle early</strong></li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit Imperfection:</strong></p>
+                        <ul>
+                            <li>Faster lap <strong>attacks the curb too harshly</strong> on exit, visible in the <strong>lateral G-force trace</strong></li>
+                            <li>Requires <strong>slight steering and throttle corrections</strong> on corner exit</li>
+                            <li><strong>Neither lap shows a perfect corner</strong> – room for improvement exists in both</li>
+                            <li>However, the <strong>mistake on the slower lap results in much larger time loss</strong> compared to the minor exit correction needed in the faster lap</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 6-7 (Corkscrew) -->
+                    <div class="corner-slide" data-corner="5" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turns 6-7 (Corkscrew)</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn6.7driver.png" alt="Turns 6-7 Corkscrew telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turns 6-7 (Corkscrew) data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Strategy and Gear Selection:</strong></p>
+                        <ul>
+                            <li>Slower lap (white) shows <strong>later and more aggressive braking</strong></li>
+                            <li>After the difference in braking points, the <strong>traces look very similar</strong></li>
+                            <li>The <strong>increased deceleration in the early braking phase</strong> of the slower lap appears unnecessary, as the faster driver <strong>maintains higher speed</strong> with gentler braking</li>
+                            <li><strong>Later braking point appears possible</strong> for the faster driver</li>
+                            <li>Faster lap shows the <strong>last downshift happening much sooner</strong>, optimizing engine braking and gear selection</li>
+                            <li>Slower lap's <strong>downshift occurs too late</strong>, missing optimal braking assistance</li>
+                        </ul>
+                        
+                        <p><strong>Apex Performance Through Direction Changes:</strong></p>
+                        <ul>
+                            <li><strong>Minimum speed through the corners is identical</strong> in both laps</li>
+                            <li>The <strong>steering trace when changing directions looks almost the same</strong>, showing similar technique through the elevation changes</li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit and Acceleration:</strong></p>
+                        <ul>
+                            <li><strong>Earlier throttle application</strong> is the key differentiator in the faster lap</li>
+                            <li>Results in <strong>increased acceleration</strong> out of the Corkscrew</li>
+                            <li>Despite identical minimum speeds, the timing advantage on throttle creates measurable lap time gain</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 8 -->
+                    <div class="corner-slide" data-corner="6" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 8</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn8driver.png" alt="Turn 8 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 8 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Track Characteristics and Challenge:</strong></p>
+                        <ul>
+                            <li>This corner is <strong>all about feel in the front axle and racing line choices</strong></li>
+                            <li>Critical to <strong>maintain speed through the opposite camber section</strong>, which pushes the car wide and causes significant understeer</li>
+                        </ul>
+                        
+                        <p><strong>Racing Line and Entry Strategy:</strong></p>
+                        <ul>
+                            <li>Faster driver (colored) <strong>closes the racing line earlier in corner entry</strong></li>
+                            <li><strong>Similar turn-in point</strong> but with a <strong>more aggressive approach</strong></li>
+                            <li>This strategy allows <strong>staying on the gas for longer</strong> during corner entry</li>
+                            <li>Results in <strong>higher minimum speed</strong> through the apex</li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit and Setup Limitations:</strong></p>
+                        <ul>
+                            <li><strong>Maximum throttle application occurs later</strong> due to <strong>corner exit understeer</strong> at this point</li>
+                            <li>The <strong>G-force trace looks identical on corner exit</strong> between both laps, even as the faster lap's <strong>steering trace is much more aggressive</strong> – a clear sign of understeer</li>
+                            <li><strong>Differences between the two laps are minimal</strong>, indicating driver performance is close to the limit</li>
+                            <li>Performance would likely benefit from a <strong>setup change toward a more oversteering car</strong> to help rotate the vehicle</li>
+                            <li><strong>Increasing car responsiveness is the only way to improve time</strong> in this corner – driver technique is near optimal</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 9 -->
+                    <div class="corner-slide" data-corner="7" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 9</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn9driver.png" alt="Turn 9 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 9 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Technique and Banking Utilization:</strong></p>
+                        <ul>
+                            <li>Turn-in point (<strong>marked by cursor</strong>) is <strong>identical</strong> in both laps</li>
+                            <li>Faster lap (colored) uses <strong>later and softer braking</strong>, allowing <strong>much more speed into the corner</strong></li>
+                            <li><strong>Later downshifting</strong> also contributes to carrying more speed into the corner</li>
+                            <li>Faster driver aims to <strong>carry more speed into the apex</strong> and <strong>make use of the banking</strong> this corner has to rotate the car</li>
+                            <li>Slower lap shows <strong>more aggressive first phase of steering</strong>, translating into <strong>more early rotation</strong></li>
+                            <li>Faster driver achieves <strong>more rotation closer to the apex</strong> thanks to <strong>better braking technique</strong></li>
+                        </ul>
+                        
+                        <p><strong>Apex Performance Trade-off:</strong></p>
+                        <ul>
+                            <li>Faster driver achieves a <strong>higher minimum speed</strong> thanks to <strong>added responsiveness close to the apex</strong></li>
+                            <li>However, <strong>struggles to get on the gas early</strong> because of that extra speed carried through the apex</li>
+                        </ul>
+                        
+                        <p><strong>Corner Exit Understeer:</strong></p>
+                        <ul>
+                            <li><strong>Exit understeer visible on both laps</strong>, with <strong>steering increasing while lateral G-forces don't</strong></li>
+                            <li>Understeer is also influenced by the <strong>disappearing banking near the end of the corner</strong></li>
+                            <li>Track geometry change compounds the setup-related understeer tendency</li>
+                        </ul>
+                    </div>
+
+                    <!-- Turn 10 -->
+                    <div class="corner-slide" data-corner="8" style="display: none;">
+                        <h4 style="color: #4a9eff; margin-bottom: 15px;">Turn 10</h4>
+                        <figure style="text-align: center; margin: 20px 0;">
+                            <img src="assets/turn10driver.png" alt="Turn 10 telemetry analysis" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+                            <figcaption style="margin-top: 10px; color: var(--muted); font-size: 0.9rem;">Turn 10 data comparison</figcaption>
+                        </figure>
+                        
+                        <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
+                        
+                        <p><strong>Braking Technique Contrast:</strong></p>
+                        <ul>
+                            <li>Slower driver (white) brakes <strong>later and much more aggressively</strong>, decreasing speed too much</li>
+                            <li>The <strong>braking trace on the regressive phase is much less smooth</strong> in the slower lap</li>
+                            <li><strong>Steering is more aggressive</strong> in the slower lap</li>
+                        </ul>
+                        
+                        <p><strong>Corner Shape Strategy and Apex Speed:</strong></p>
+                        <ul>
+                            <li>Slower lap shows a <strong>more V-shaped corner approach</strong></li>
+                            <li>Faster lap (colored) focuses on <strong>maintaining apex speed</strong> with a U-shaped approach</li>
+                            <li>Faster lap achieves <strong>better entry rotation thanks to better trail braking technique</strong></li>
+                            <li>Faster lap achieves <strong>better speed through the corner itself</strong></li>
+                        </ul>
+                        
+                        <p><strong>Exit Strategy Trade-off:</strong></p>
+                        <ul>
+                            <li><strong>Corner exit is better for the slower lap</strong> due to the <strong>smaller minimum speed</strong> (<strong>marked by cursor</strong>)</li>
+                            <li>Lower minimum speed translates into <strong>earlier throttle application and faster exit</strong></li>
+                            <li>This is particularly <strong>beneficial in this corner as it precedes the longest straight of the track</strong></li>
+                            <li>The faster lap's <strong>U-shaped corner aim loses its advantage over the next straight</strong></li>
+                            <li>Critical lesson: <strong>V-shaped approach with lower minimum speed optimizes exit velocity for long straights</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Setup Analysis Section -->
+            <div class="analysis-section" data-section="setup" style="display: none;">
+                <h2>Setup Optimization Analysis</h2>
+
+                <p>Evaluating the impact of vehicle setup changes with consistent driver performance. This analysis isolates setup variables to quantify their effect on lap times, handling balance, and overall vehicle behavior.</p>
+
+                <h3>Methodology</h3>
+                <ul>
+                    <li>Controlled variable: Consistent driving inputs and technique</li>
+                    <li>Analyzed variable: Vehicle setup parameters (suspension, aerodynamics, differential)</li>
+                    <li>Key metrics: Lap time deltas, corner speed changes, stability indicators, tire performance</li>
+                    <li><strong>MoTeC i2:</strong> Direct comparison of identical corner entries with different setups, suspension travel and damping analysis, tire temperature distribution patterns</li>
+                    <li><strong>Python:</strong> Quantitative setup change correlation with lap time improvements, automated detection of setup-sensitive corners, statistical validation of setup effects</li>
+                </ul>
+
+                <p><em>Detailed setup analysis results to be added...</em></p>
+            </div>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <a href="../index.html#projects" style="color: #4a9eff; text-decoration: none; font-weight: 600;">← Back to Projects</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navList.classList.toggle('open');
+        });
+
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.analysis-tab');
+        const sections = document.querySelectorAll('.analysis-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetSection = tab.dataset.section;
+                
+                // Update active tab
+                tabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.style.color = 'var(--muted)';
+                    t.style.borderBottomColor = 'transparent';
+                });
+                tab.classList.add('active');
+                tab.style.color = '#4a9eff';
+                tab.style.borderBottomColor = '#4a9eff';
+                
+                // Update active section
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.display = 'none';
+                });
+                const activeSection = document.querySelector(`.analysis-section[data-section="${targetSection}"]`);
+                activeSection.classList.add('active');
+                activeSection.style.display = 'block';
+            });
+        });
+
+        // Corner carousel functionality
+        let currentCorner = 0;
+        const totalCorners = 9;
+        const cornerSlides = document.querySelectorAll('.corner-slide');
+        const cornerDots = document.querySelectorAll('.corner-dot');
+        const trackHotspots = document.querySelectorAll('.track-hotspot');
+        const prevBtn = document.getElementById('prevCorner');
+        const nextBtn = document.getElementById('nextCorner');
+
+        function showCorner(index) {
+            // Hide all slides
+            cornerSlides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.display = 'none';
+            });
+            
+            // Update dots
+            cornerDots.forEach(dot => {
+                dot.classList.remove('active');
+                dot.style.background = 'transparent';
+            });
+            
+            // Update track hotspots
+            trackHotspots.forEach(hotspot => {
+                hotspot.style.background = 'rgba(74, 158, 255, 0.8)';
+                hotspot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+            
+            // Show current slide
+            cornerSlides[index].classList.add('active');
+            cornerSlides[index].style.display = 'block';
+            cornerDots[index].classList.add('active');
+            cornerDots[index].style.background = '#4a9eff';
+            trackHotspots[index].style.background = '#4a9eff';
+            trackHotspots[index].style.transform = 'translate(-50%, -50%) scale(1.3)';
+            
+            currentCorner = index;
+        }
+
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            const newIndex = currentCorner > 0 ? currentCorner - 1 : totalCorners - 1;
+            showCorner(newIndex);
+        });
+
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            const newIndex = currentCorner < totalCorners - 1 ? currentCorner + 1 : 0;
+            showCorner(newIndex);
+        });
+
+        // Dot navigation
+        cornerDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const cornerIndex = parseInt(dot.dataset.corner);
+                showCorner(cornerIndex);
+            });
+        });
+
+        // Track hotspot navigation
+        trackHotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', () => {
+                const cornerIndex = parseInt(hotspot.dataset.corner);
+                showCorner(cornerIndex);
+            });
+            
+            // Hover effect
+            hotspot.addEventListener('mouseenter', () => {
+                if (parseInt(hotspot.dataset.corner) !== currentCorner) {
+                    hotspot.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                }
+            });
+            
+            hotspot.addEventListener('mouseleave', () => {
+                if (parseInt(hotspot.dataset.corner) !== currentCorner) {
+                    hotspot.style.transform = 'translate(-50%, -50%) scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sideslip Angle Estimation — Jesus Gimeno Baquero</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        article.project-content h2 {
+            color: #0b57a4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e0ecf8;
+            position: relative;
+        }
+        article.project-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0b57a4 0%, #4a9eff 100%);
+        }
+        article.project-content h2:first-of-type {
+            margin-top: 0;
+        }
+        article.project-content h3 {
+            color: #083761;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4a9eff;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html#top">Jesus Gimeno Baquero</a>
+            <nav class="nav" aria-label="Main">
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false">☰</button>
+                <ul id="nav-list" class="nav-list">
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="mailto:gimeno.jesus0010@gmail.com" title="Email" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener" title="LinkedIn" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener" title="GitHub" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="project-hero container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+            <h1>Physics-Based Sideslip Angle Estimation Model</h1>
+            <div class="project-meta">
+                <span class="tag">Python</span>
+                <span class="tag">Sensor Fusion</span>
+                <span class="tag">Signal Processing</span>
+                <span class="tag">May 2025 – Sept 2025</span>
+            </div>
+        </section>
+
+        <article class="project-content container">
+            <style>
+                .stats-grid {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    margin: 30px 0;
+                    clear: none;
+                    max-width: 400px;
+                }
+                .stat-card {
+                    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(8, 55, 97, 0.06);
+                    border: 1px solid #e0ecf8;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100px;
+                }
+                .hero-image {
+                    float: right;
+                    margin: 0 0 20px 20px;
+                    padding: 15px;
+                    background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+                    border-radius: 12px;
+                    box-shadow: 0 4px 16px rgba(8, 55, 97, 0.08);
+                    width: 350px;
+                }
+                .hero-image img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                    display: block;
+                }
+                .info-box {
+                    background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%);
+                    border-left: 4px solid #0b57a4;
+                    padding: 20px 24px;
+                    margin: 25px 0;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(11, 87, 164, 0.08);
+                    clear: both;
+                }
+                .info-box h3 {
+                    margin-top: 0;
+                    color: #0b57a4;
+                    font-size: 1.1rem;
+                    border-left: none;
+                    padding-left: 0;
+                }
+                .stat-value {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: #0b57a4;
+                    display: block;
+                    margin-bottom: 8px;
+                }
+                .stat-label {
+                    font-size: 0.9rem;
+                    color: #555;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+                @media (max-width: 768px) {
+                    .hero-image {
+                        float: none;
+                        width: 100%;
+                        margin: 20px 0;
+                    }
+                }
+            </style>
+
+            <h2>Overview</h2>
+            <ul>
+                <li><strong>Project Type:</strong> MSc Dissertation in collaboration with Hitech GP racing team</li>
+                <li><strong>Objective:</strong> Develop accurate sideslip angle estimator using only onboard sensors (gyroscope, GPS, accelerometer)</li>
+                <li><strong>Challenge:</strong> Professional racing regulations prohibit direct speed-over-ground measurements</li>
+                <li><strong>Application:</strong> Real-time vehicle dynamics feedback and driver coaching for F2 and F3 single-seater racing</li>
+                <li><strong>Innovation:</strong> Hybrid approach avoiding reliance on detailed tyre models or expensive observer filters</li>
+            </ul>
+
+            <h2>Understanding Sideslip Angle</h2>
+            
+            <p>Vehicle chassis sideslip angle is a <strong>critical parameter in motorsport vehicle dynamics</strong>, directly influencing performance optimization, handling analysis, and driver feedback. The sideslip angle, denoted as <strong>β</strong>, is defined as the angle between the vehicle's longitudinal axis and its actual velocity vector.</p>
+
+            <figure style="text-align: center; margin: 30px 0;">
+                <img src="assets/Sideslip-representation.png" alt="Sideslip angle definition and representation" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #555;">Sideslip angle (β) represents the difference between vehicle heading and velocity direction</figcaption>
+            </figure>
+
+            <p>Mathematically, sideslip angle is expressed as:</p>
+            
+            <div style="text-align: center; margin: 25px 0; font-size: 1.1rem; padding: 15px; background: #f8fbff; border-radius: 8px;">
+                <strong>β = arctan(v<sub>y</sub> / v<sub>x</sub>)</strong>
+            </div>
+
+            <p>where <strong>v<sub>x</sub></strong> and <strong>v<sub>y</sub></strong> are the longitudinal and lateral velocity components of the vehicle. This represents the difference between where the car is pointing and where it is actually traveling—a result of tyre slip necessary for generating lateral forces during cornering.</p>
+
+            <p>Although typically small in magnitude under normal driving, sideslip angle plays a decisive role in determining <strong>stability, handling balance, and overall vehicle performance</strong>. In motorsport, precise knowledge of β is especially important, as even small deviations can influence lap times and driver confidence.</p>
+
+            <div class="info-box">
+                <h3>Project Context</h3>
+                <p>This work was carried out in collaboration with <strong>Hitech GP</strong>, a professional motorsport team competing in FIA Formula 2 and Formula 3 championships. The estimator framework is intended for deployment in their race vehicles, providing a robust solution that balances interpretability, accuracy, and practical deployability under current technical restrictions.</p>
+            </div>
+
+            <h2>The Challenge</h2>
+            <p>Accurate sideslip angle estimation in professional single-seater racing presents several significant challenges:</p>
+            <ul>
+                <li><strong>Regulatory Constraints:</strong> Racing regulations often prohibit direct measurement tools like speed-over-ground sensors, requiring estimation-based approaches</li>
+                <li><strong>Sensor Limitations:</strong> Onboard sensors (gyroscope, accelerometer, GPS) contain noise, drift, bias, and offsets that can severely degrade estimation accuracy</li>
+                <li><strong>No Ground Truth:</strong> Unlike laboratory conditions, real racing environments provide no direct measurement for validation—the true sideslip angle is fundamentally unknown</li>
+                <li><strong>Dynamic Environment:</strong> High-speed cornering, elevation changes, track camber, and aggressive driver inputs create highly transient conditions</li>
+                <li><strong>Sensor Placement:</strong> IMU positioned away from vehicle center of gravity introduces additional rotational contributions to measurements</li>
+                <li><strong>Real-Time Requirements:</strong> System must operate in real-time for driver feedback and telemetry analysis during track sessions</li>
+                <li><strong>Model Limitations:</strong> Traditional methods rely on detailed tyre models and vehicle parameters that are often proprietary or unavailable</li>
+            </ul>
+
+            <h2>The Solution</h2>
+            <p>This project developed a <strong>hybrid physics-based estimator</strong> that avoids conventional Kalman or Luenberger observer frameworks, instead using systematic correction strategies and kinematic formulations:</p>
+
+            <h3>Core Estimation Methods</h3>
+            <ul>
+                <li><strong>Basic Kinematic Estimation:</strong> Integration of lateral acceleration and yaw rate to estimate slip angle rate, providing computational efficiency suitable for real-time applications</li>
+                <li><strong>Van Zanten Formulation:</strong> Dynamic model incorporating both lateral and longitudinal accelerations with slip angle feedback for improved tracking during cornering</li>
+                <li><strong>Hybrid Approach:</strong> Combines corrected kinematic output with Van Zanten equation, leveraging strengths of both methods with straight-line reset conditions</li>
+                <li><strong>Recursive Method:</strong> Uses previous timestep slip angle as input, assuming zero initial conditions and recursively estimating throughout the lap</li>
+            </ul>
+
+            <div style="margin: 30px 0; padding: 20px; background: #f8fbff; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                <h4 style="margin-top: 0; color: #083761;">Key Estimation Equations</h4>
+                
+                <p><strong>Basic Kinematic Method:</strong></p>
+                <div style="text-align: center; margin: 15px 0; font-size: 1.05rem;">
+                    β = ∫ (a<sub>y</sub>/v - ψ̇) dt
+                </div>
+                
+                <p><strong>Van Zanten Method:</strong></p>
+                <div style="text-align: center; margin: 15px 0; font-size: 1.05rem;">
+                    β = ∫ ((a<sub>y</sub> cos β - a<sub>x</sub> sin β)/v - ψ̇) dt
+                </div>
+                
+                <p style="margin-bottom: 0; font-size: 0.9rem; color: #555;">where a<sub>x</sub>, a<sub>y</sub> are longitudinal and lateral accelerations, ψ̇ is yaw rate, v is velocity, and β is sideslip angle</p>
+            </div>
+
+            <h3>Comprehensive Signal Preprocessing</h3>
+            <ul>
+                <li><strong>Low-Pass Filtering:</strong> Second-order Butterworth filter (6 Hz cutoff) to suppress high-frequency sensor noise while preserving vehicle dynamics</li>
+                <li><strong>Track Geometry Corrections:</strong> Lookup tables for track camber and computed track pitch from GPS altitude to correct gravitational components</li>
+                <li><strong>Sensor Alignment:</strong> Corrections for roll and pitch misalignment with global reference frame using vehicle orientation angles</li>
+                <li><strong>IMU Location Correction:</strong> Compensates for rotational contributions from sensor offset relative to vehicle center of gravity</li>
+                <li><strong>Offset Correction Methods:</strong> Three approaches tested—steering-based, length-based, and linear fit—to remove systematic sensor bias</li>
+            </ul>
+
+            <h3>Two-Stage Validation Approach</h3>
+            <p>The estimator was validated using a rigorous two-stage process:</p>
+            <ul>
+                <li><strong>Stage 1 - Laptime Simulation:</strong> Initial validation using Canopy simulation data where true slip angle is known, providing controlled environment for algorithm development</li>
+                <li><strong>Stage 2 - Real Track Data:</strong> Application to actual telemetry data with comprehensive preprocessing and correction strategies to handle real-world sensor imperfections</li>
+            </ul>
+
+            <h2>Results and Performance</h2>
+            
+            <h3>Simulation Validation</h3>
+            <p>Testing with laptime simulation data across multiple circuits (Barcelona, Spa-Francorchamps, Monaco) demonstrated exceptional performance in controlled conditions:</p>
+            <ul>
+                <li><strong>Hybrid Method (Kinematic into Van Zanten):</strong> RMS errors of 0.132°, 0.108°, and 0.374° for Barcelona, Spa, and Monaco respectively</li>
+                <li><strong>Recursive Method (Previous Timestep):</strong> RMS errors of 0.136°, 0.115°, and 0.335° across the same tracks</li>
+                <li>Both methods significantly outperformed baseline approaches, validating the theoretical framework</li>
+                <li>Demonstrated ability to track transient dynamics effectively with minimal drift when signals are clean</li>
+            </ul>
+
+            <h3>Real Track Telemetry</h3>
+            <p>Application to actual racing data revealed the complexity of real-world deployment:</p>
+            <ul>
+                <li><strong>Comprehensive Preprocessing Required:</strong> Raw sensor signals required extensive correction for offsets, drift, noise, and geometric effects</li>
+                <li><strong>Best Performance:</strong> Kinematic into Van Zanten method produced most physically plausible results with realistic slip angle magnitudes</li>
+                <li><strong>Challenges Identified:</strong> Residual drift and directional inconsistencies remain due to absence of direct ground truth for validation</li>
+                <li><strong>Professional Validation:</strong> Results reviewed and validated by Hitech GP engineering team for driver feedback applications</li>
+                <li>Demonstrated that systematic correction strategies can handle real-world sensor imperfections effectively</li>
+            </ul>
+
+            <div class="info-box">
+                <h3>Key Achievement</h3>
+                <p>Successfully developed a deployable sideslip angle estimator for professional F2 and F3 racing that operates using only standard onboard sensors, without requiring expensive external measurement systems or detailed proprietary tyre models. The framework provides interpretable, physics-based estimates suitable for real-time driver feedback and vehicle dynamics analysis.</p>
+            </div>
+
+            <h2>Technical Implementation</h2>
+            <ul>
+                <li><strong>Language:</strong> Python 3.9+</li>
+                <li><strong>Core Libraries:</strong> NumPy (array operations), SciPy (filtering and signal processing), Pandas (data handling), Matplotlib and Bokeh (visualization)</li>
+                <li><strong>Data Sources:</strong> Canopy laptime simulation (CSV export), vehicle data logger telemetry (CSV format)</li>
+                <li><strong>Architecture:</strong> Modular pipeline with separate functions for preprocessing, filtering, offset correction, sensor alignment, and estimation</li>
+                <li><strong>Key Algorithms:</strong> Butterworth low-pass filter, kinematic integration, Van Zanten dynamic formulation, linear regression for offset estimation</li>
+                <li><strong>Performance:</strong> Real-time capable with computational efficiency suitable for telemetry analysis during track sessions</li>
+            </ul>
+
+            <h2>Key Learnings</h2>
+            <ul>
+                <li><strong>Sensor Fusion Complexity:</strong> Combining multiple imperfect sensors requires sophisticated correction strategies beyond simple integration</li>
+                <li><strong>Ground Truth Challenge:</strong> Estimating unmeasurable quantities without direct validation is fundamentally difficult—simulation provides essential baseline</li>
+                <li><strong>Physics vs. AI Trade-off:</strong> Physics-based models offer interpretability and robustness, but require comprehensive understanding of error sources; AI approaches deferred until sufficient training data available</li>
+                <li><strong>Industry Collaboration Value:</strong> Working with professional racing team provided access to real data, validation requirements, and practical deployment constraints</li>
+                <li><strong>Iterative Refinement:</strong> Systematic comparison between corrected signals and simulation benchmarks enabled progressive improvement</li>
+                <li><strong>Preprocessing Importance:</strong> Quality of preprocessing and correction directly determines estimator performance in real-world applications</li>
+            </ul>
+
+            <h2>Future Work</h2>
+            <ul>
+                <li><strong>AI-Based Corrections:</strong> Integration of machine learning layers trained on validated datasets to address residual systematic errors</li>
+                <li><strong>Automated Calibration:</strong> Development of self-tuning algorithms for sensor offset and gain correction</li>
+                <li><strong>Extended Validation:</strong> Testing across wider range of tracks, weather conditions, and vehicle setups</li>
+                <li><strong>Real-Time Deployment:</strong> Implementation in vehicle telemetry system for live feedback during practice and race sessions</li>
+                <li><strong>Tyre Model Integration:</strong> Incorporation of tyre characteristic data when available to improve accuracy at high slip angles</strong>
+                <li><strong>Multi-Vehicle Adaptation:</strong> Framework extension to handle different vehicle configurations and sensor installations</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Jesus Gimeno Baquero — Motorsport Engineer · <a href="https://github.com/jesus-gb3" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/jesusgimenobaquero" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navList.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
