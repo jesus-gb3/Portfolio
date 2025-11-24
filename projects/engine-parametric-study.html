@@ -123,135 +123,114 @@
         </section>
 
         <article class="project-content container">
-            <section class="project-section">
-                <h2>Overview</h2>
-                <p>This project is the author's BEng dissertation performed within the MotoStudent context, focused on a KTM SX‑F 250 single‑cylinder four‑stroke engine. The objective was to build a calibrated 4stsoft model reproducing the measured high‑rpm behaviour and to perform a structured parametric study to inform intake and exhaust design decisions targeted at improving power around 12–13 kRPM for competition use.</p>
-                <p>The work combined measured geometry, lab valve lift checks, literature combustion models (Vibe), and systematic sweeps of ignition timing, valve timing/lift and intake/exhaust diameters to evaluate sensitivity and recommended setups for race deployable configurations.</p>
-            </section>
+            <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); border-left: 4px solid #0b57a4; padding: 20px 24px; margin: 25px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(11, 87, 164, 0.08);">
+                <h3 style="margin-top: 0; color: #0b57a4; font-size: 1.1rem; border: none; padding: 0;">Project Summary</h3>
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; align-items: start;">
+                    <strong style="color: #0b57a4;">Context:</strong>
+                    <span>BEng Dissertation (MotoStudent KTM SX-F 250 engine)</span>
+                    
+                    <strong style="color: #0b57a4;">Software:</strong>
+                    <span>4STSOFT (1D steady-state engine simulation)</span>
+                    
+                    <strong style="color: #0b57a4;">Objective:</strong>
+                    <span>Calibrate engine model and optimize intake/exhaust for 12-13k RPM competition use</span>
+                    
+                    <strong style="color: #0b57a4;">Approach:</strong>
+                    <span>Systematic parametric sweeps of ignition timing, valve timing/lift, intake/exhaust geometry</span>
+                </div>
+            </div>
 
-            <section class="project-section">
-                <h2>Challenge</h2>
-                <p>Limited direct dyno data and partial access to the physical engine meant the model had to be calibrated using available bench measurements, photos and a small set of rotor dyno reference points. The 4stsoft software is steady‑state per rpm point, so transient effects and full 3D flow features are approximated; resonance and ducting interactions are modelled with idealised lumped elements. This combination makes the model sensitive to geometric inputs (port cross sections, manifold lengths) and to combustion parametrisation (Vibe parameters, combustion efficiency).</p>
-                <ul>
-                    <li>Measurement gaps: incomplete port maps and only approximate surface temperatures.</li>
-                    <li>Software limits: steady‑rpm simulations (no full transient), limited duct segmentation.</li>
-                    <li>Uncertainty sources: combustion efficiency, residual gas fraction, and valve seating characteristics.</li>
-                </ul>
-            </section>
+            <h2>Challenge</h2>
+            <div style="background: #fff3cd; padding: 18px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 25px 0;">
+                <strong style="color: #856404; display: block; margin-bottom: 8px; font-size: 1.05rem;">⚠️ Model Calibration Constraints</strong>
+                <p style="margin: 0; font-size: 0.95rem;">Limited dyno data + partial engine access → calibrated using bench measurements, photos, and reference points. Steady-state per-RPM simulation approximates 3D flow and transient effects. Sensitive to geometric inputs (port cross-sections, manifold lengths) and combustion parameters (Vibe, efficiency)</p>
+            </div>
 
-            <section class="project-section">
-                <h2>Methodology</h2>
-                <p>Model building followed an iterative calibration loop: enter best‑known geometry and material/surface temperatures, tune Vibe combustion parameters and ignition timing to match reference torque/peak pressure, then run parametric sweeps changing one variable at a time to quantify sensitivity. Each steady rpm point used multiple cycles (6 cycles) to ensure numerical convergence of averaged outputs.</p>
+            <h2>Methodology</h2>
+            
+            <div style="background: #d1ecf1; padding: 18px; border-radius: 8px; border-left: 4px solid #0dcaf0; margin: 25px 0;">
+                <strong style="color: #055160; display: block; margin-bottom: 8px; font-size: 1.05rem;">🔧 Iterative Calibration Loop</strong>
+                <p style="margin: 0; font-size: 0.95rem;">Enter best-known geometry → tune Vibe combustion + ignition timing to match reference torque/pressure → run parametric sweeps (one variable at time) → quantify sensitivity. 6 cycles per RPM point for convergence</p>
+            </div>
 
-                <table class="data-table">
-                    <thead><tr><td>Parameter</td><td>Value / Notes</td></tr></thead>
-                    <tbody>
-                        <tr><td>Displacement</td><td>249.92 cc</td></tr>
-                        <tr><td>Bore × Stroke</td><td>81 × 48.5 mm</td></tr>
-                        <tr><td>Compression ratio</td><td>14.5 (geometric)</td></tr>
-                        <tr><td>Reference max revs</td><td>14,000 rpm (software sweep limit)</td></tr>
-                        <tr><td>Convergence cycles</td><td>6 cycles per rpm point (steady average)</td></tr>
-                    </tbody>
-                </table>
-
-                <h4>Representative inputs measured / assumed</h4>
-                <table class="data-table">
-                    <thead><tr><td>Item</td><td>Value / Source</td></tr></thead>
-                    <tbody>
-                        <tr><td>Valve diameters</td><td>Measured from engine photos and parts list</td></tr>
-                        <tr><td>Connecting rod length</td><td>From service manual</td></tr>
-                        <tr><td>Port throat diameters</td><td>Measured where possible, otherwise estimated</td></tr>
-                        <tr><td>Surface temps</td><td>Estimated based on steady running assumptions (sensitivity tested)</td></tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section class="project-section">
-                <h2>Key Findings</h2>
-                <p>The parametric study shows that intake geometry (trumpet length/diameter) and valve lift profiles produce the largest shifts in peak torque at high rpm. Combustion efficiency behaves as a near‑global scale factor on torque amplitude but does not shift resonant peaks significantly. Resonant tuning of the intake/exhaust system shifts the rpm of the peak torque and can trade peak torque for a broader usable band.</p>
-
-                <table class="data-table">
-                    <thead><tr><td>Combustion efficiency</td><td>Peak pressure (bar)</td><td>Peak torque (Nm)</td></tr></thead>
-                    <tbody>
-                        <tr><td>75%</td><td>98.9</td><td>23.41</td></tr>
-                        <tr><td>85%</td><td>104.9</td><td>26.98</td></tr>
-                        <tr><td>95%</td><td>114.3</td><td>30.77</td></tr>
-                    </tbody>
-                </table>
-
-                <p>Example sensitivity snapshots (selected):</p>
-                <table class="data-table">
-                    <thead><tr><td>Test</td><td>Delta peak rpm</td><td>Delta peak torque</td></tr></thead>
-                    <tbody>
-                        <tr><td>Increase intake trumpet dia +5mm</td><td>-400 rpm</td><td>+0.8 Nm</td></tr>
-                        <tr><td>Reduce exhaust tailpipe length -30 mm</td><td>+600 rpm</td><td>-0.6 Nm</td></tr>
-                        <tr><td>Valve lift +0.5 mm</td><td>no shift</td><td>+1.2 Nm</td></tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section class="project-section">
-                <h2>Results</h2>
-                <p>After calibration the model reproduces the qualitative high‑rpm torque peak and allows quantifying relative effects of intake/exhaust geometry. Using the model, a theoretical exhaust configuration with a bifurcation and tuned lengths pushes the peak above 12k rpm while keeping acceptable midrange torque.</p>
-
-                <h4>Intake / Exhaust parametric table (excerpt)</h4>
-                <table class="data-table">
-                    <thead><tr><td>Parameter</td><td>Min</td><td>Nominal</td><td>Max</td></tr></thead>
-                    <tbody>
-                        <tr><td>Intake trumpet dia (mm)</td><td>18</td><td>20</td><td>24</td></tr>
-                        <tr><td>Intake length (mm)</td><td>60</td><td>90</td><td>130</td></tr>
-                        <tr><td>Exhaust primary length (mm)</td><td>300</td><td>420</td><td>560</td></tr>
-                    </tbody>
-                </table>
-
-                <p>All results include notes on numerical convergence; points with instability were repeated with higher cycle counts and slightly different initial conditions to check robustness.</p>
-
-                <h4>Model vs Stock — Powercurve Comparison</h4>
-                <p class="muted">Left: measured stock engine curve. Right: extracted model curve.</p>
-                <figure class="pv-compare">
-                    <div class="pv-compare-item">
-                        <img src="assets/engine-actual.png" alt="Measured stock engine powercurve (torque & hp)" />
-                        <figcaption>Measured stock engine (actual)</figcaption>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0;">
+                <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 18px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e0ecf8;">
+                    <strong style="color: #0b57a4; display: block; margin-bottom: 10px;">Engine Specs</strong>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <strong>Displacement:</strong> 249.92 cc<br>
+                        <strong>Bore × Stroke:</strong> 81 × 48.5 mm<br>
+                        <strong>Compression:</strong> 14.5:1<br>
+                        <strong>Max RPM:</strong> 14,000 rpm
                     </div>
-                    <div class="pv-compare-item">
-                        <img src="assets/engine-model.png" alt="Model extracted powercurve (torque & hp)" />
-                        <figcaption>Model output (extracted)</figcaption>
+                </div>
+                <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 18px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e0ecf8;">
+                    <strong style="color: #0b57a4; display: block; margin-bottom: 10px;">Simulation Settings</strong>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <strong>RPM Sweep:</strong> 5k-14k, step 500<br>
+                        <strong>Cycles:</strong> 6 (default), 12 (validation)<br>
+                        <strong>Combustion:</strong> Vibe model<br>
+                        <strong>Convergence:</strong> Steady average
                     </div>
-                </figure>
-            </section>
+                </div>
+            </div>
 
-            <section class="project-section">
-                <h2>Technical Details</h2>
-                <p>Software: 4stsoft (steady‑state per rpm). Simulation strategy: sweeps from 5,000 to 14,000 rpm in 500 rpm increments, with 6 cycles per point as default. For selected sensitivity points cycles were increased to 12 to confirm convergence. Combustion model used: Vibe; parameters (m, a, b) tuned to match measured peak pressures where available.</p>
+            <h2>Key Findings</h2>
 
-                <h4>Representative simulation settings</h4>
-                <table class="data-table">
-                    <thead><tr><td>Setting</td><td>Value</td></tr></thead>
-                    <tbody>
-                        <tr><td>RPM sweep</td><td>5k–14k, step 500 rpm</td></tr>
-                        <tr><td>Cycles per point</td><td>6 (default), 12 (validation)</td></tr>
-                        <tr><td>Combustion model</td><td>Vibe (m/b/a tuned)</td></tr>
-                        <tr><td>Ambient</td><td>Standard test conditions</td></tr>
-                    </tbody>
-                </table>
+            <div style="display: grid; gap: 12px; margin: 25px 0;">
+                <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                    <strong style="color: #155724; display: block; margin-bottom: 6px;">🎯 Intake Geometry = Largest Impact</strong>
+                    <p style="margin: 0; font-size: 0.9rem;">Trumpet length/diameter and valve lift profiles produce largest shifts in peak torque at high RPM. Resonant tuning shifts RPM of peak torque</p>
+                </div>
+                <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                    <strong style="color: #055160; display: block; margin-bottom: 6px;">📊 Combustion Efficiency = Global Scale Factor</strong>
+                    <p style="margin: 0; font-size: 0.9rem;">Acts as amplitude multiplier on torque but doesn't shift resonant peaks. 75% → 23.4 Nm | 85% → 27.0 Nm | 95% → 30.8 Nm peak torque</p>
+                </div>
+                <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                    <strong style="color: #856404; display: block; margin-bottom: 6px;">⚖️ Sensitivity Examples</strong>
+                    <p style="margin: 0; font-size: 0.9rem;">Intake trumpet dia +5mm → -400 RPM, +0.8 Nm | Exhaust length -30mm → +600 RPM, -0.6 Nm | Valve lift +0.5mm → +1.2 Nm (no shift)</p>
+                </div>
+            </div>
 
-                <h4>Port & valve data (measured / estimated)</h4>
-                <table class="data-table">
-                    <thead><tr><td>Item</td><td>Value / Notes</td></tr></thead>
-                    <tbody>
-                        <tr><td>Intake port throat</td><td>20 mm (measured)</td></tr>
-                        <tr><td>Exhaust port throat</td><td>16 mm (measured)</td></tr>
-                        <tr><td>Valve lift (max)</td><td>9.2 mm intake / 8.0 mm exhaust</td></tr>
-                        <tr><td>Valve dwell</td><td>varied 0.5–1.5 ms in sweeps</td></tr>
-                    </tbody>
-                </table>
-            </section>
+            <h2>Model Validation</h2>
 
-            <section class="project-section">
-                <h2>Conclusions</h2>
-                <p>The calibrated model is a useful tool to explore relative effects and inform hardware changes. Key recommendations: prioritise intake trumpet tuning for high rpm, target combustion efficiency improvements (fuel/ignition), and carefully test exhaust geometries that shift resonant peaks. The model limitations (steady‑state assumptions, simplified duct geometry) are documented and further work could include transient CFD or bench dyno validation for candidate configurations.</p>
-                <p>Full dissertation (figures, derivations and extended tables) is available on request.</p>
-            </section>
+            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745; margin: 25px 0;">
+                <strong style="color: #155724; display: block; margin-bottom: 6px;">✅ Calibration Success</strong>
+                <p style="margin: 0; font-size: 0.9rem;">Model reproduces qualitative high-RPM torque peak and quantifies relative effects of intake/exhaust geometry. Theoretical exhaust configuration pushes peak above 12k RPM while maintaining acceptable midrange</p>
+            </div>
+
+            <h3 style="margin-top: 35px; margin-bottom: 20px;">Powercurve Comparison</h3>
+            <figure class="pv-compare" style="margin: 30px 0;">
+                <div class="pv-compare-item">
+                    <img src="assets/engine-actual.png" alt="Measured stock engine powercurve (torque & hp)" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+                    <figcaption style="margin-top: 10px; color: #666;">Measured stock engine (actual dyno data)</figcaption>
+                </div>
+                <div class="pv-compare-item">
+                    <img src="assets/engine-model.png" alt="Model extracted powercurve (torque & hp)" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+                    <figcaption style="margin-top: 10px; color: #666;">Model output (calibrated 4STSOFT)</figcaption>
+                </div>
+            </figure>
+
+            <h2>Recommendations</h2>
+
+            <div style="display: grid; gap: 12px; margin: 25px 0;">
+                <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                    <strong style="color: #155724; display: block; margin-bottom: 6px;">1️⃣ Prioritize Intake Trumpet Tuning</strong>
+                    <p style="margin: 0; font-size: 0.9rem;">Largest impact on high-RPM performance</p>
+                </div>
+                <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                    <strong style="color: #155724; display: block; margin-bottom: 6px;">2️⃣ Target Combustion Efficiency</strong>
+                    <p style="margin: 0; font-size: 0.9rem;">Fuel/ignition improvements act as global performance multiplier</p>
+                </div>
+                <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                    <strong style="color: #155724; display: block; margin-bottom: 6px;">3️⃣ Test Exhaust Geometries</strong>
+                    <p style="margin: 0; font-size: 0.9rem;">Carefully validate configurations that shift resonant peaks</p>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107; margin: 25px 0;">
+                <strong style="color: #856404; display: block; margin-bottom: 6px;">⚠️ Model Limitations</strong>
+                <p style="margin: 0; font-size: 0.9rem;">Steady-state assumptions, simplified duct geometry. Further work: transient CFD or bench dyno validation for candidate configurations</p>
+            </div>
         </article>
 
     </main>

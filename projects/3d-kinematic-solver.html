@@ -52,7 +52,7 @@
             </div>
         </section>
 
-        <article class="project-content container">
+        <article class="project-content container" style="padding-top: 30px;">
             <style>
                 .stats-grid {
                     display: flex;
@@ -189,15 +189,25 @@
                 }
             </style>
 
-            <h2>Overview</h2>
-            <ul>
-                <li><strong>Purpose:</strong> Custom-built 3D kinematic solver developed in Python from scratch to analyze suspension behavior throughout its travel</li>
-                <li><strong>Inputs:</strong> Chassis hardpoints, upright-relative hardpoints, and arm lengths define the geometric constraints</li>
-                <li><strong>Outputs:</strong> Calculates upright position and orientation changes across stipulated wheel travel range</li>
-                <li><strong>Application:</strong> Crucial tool for early-stage suspension design, enabling rapid iteration and kinematic optimization</li>
-                <li><strong>Advantage:</strong> Purpose-built alternative to expensive commercial software (ADAMS, OptimumKinematics) with complete transparency into underlying algorithms</li>
-                <li><strong>Versatility:</strong> Handles arbitrary suspension geometries—from simple double-wishbone to complex multi-link systems</li>
-            </ul>
+            <div class="info-box">
+                <h3>Project Summary</h3>
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; align-items: start;">
+                    <strong style="color: #0b57a4;">Language:</strong>
+                    <span>Python (NumPy, SciPy, Matplotlib)</span>
+                    
+                    <strong style="color: #0b57a4;">Inputs:</strong>
+                    <span>Chassis hardpoints, upright-relative hardpoints, arm lengths</span>
+                    
+                    <strong style="color: #0b57a4;">Outputs:</strong>
+                    <span>Camber gain, toe change (bump steer), scrub radius, wheel path animations</span>
+                    
+                    <strong style="color: #0b57a4;">Purpose:</strong>
+                    <span>Analyze suspension kinematics throughout wheel travel</span>
+                    
+                    <strong style="color: #0b57a4;">Advantage:</strong>
+                    <span>Free alternative to expensive commercial software (ADAMS, OptimumKinematics)</span>
+                </div>
+            </div>
 
             <div style="display: flex; gap: 20px; margin: 30px 0; align-items: stretch;">
                 <div class="stats-grid" style="margin: 0;">
@@ -220,40 +230,7 @@
                 </div>
             </div>
 
-            <div class="info-box">
-                <h3>Why Build a Custom Solver?</h3>
-                <ul>
-                    <li><strong>Rapid Iteration:</strong> Engineers need to quickly evaluate how geometric changes affect kinematic behavior during suspension development</li>
-                    <li><strong>Complete Transparency:</strong> Unlike commercial software, a custom solver provides full insight into the underlying computational methods and algorithms</li>
-                    <li><strong>Design Integration:</strong> Enables seamless integration into automated optimization routines and parametric design workflows</li>
-                    <li><strong>Deep Understanding:</strong> Building from scratch deepens comprehension of the fundamental geometric relationships governing suspension kinematics</li>
-                    <li><strong>Cost Efficiency:</strong> Eliminates expensive licensing fees while providing equivalent analytical capabilities</li>
-                    <li><strong>Extensibility:</strong> Provides a foundation for future enhancements like compliance analysis, kinematic synthesis, or custom metrics</li>
-                </ul>
-            </div>
-
-            <h2>The Challenge</h2>
-            <p>Suspension kinematic analysis is fundamental to vehicle dynamics but presents several computational challenges:</p>
-            <ul>
-                <li><strong>3D Spatial Geometry:</strong> Solving the position and orientation of the upright requires handling complex 3D coordinate transformations and constraint equations</li>
-                <li><strong>Multi-Body Kinematics:</strong> Each suspension link constrains the upright's motion, creating a system of geometric constraints that must be solved simultaneously</li>
-                <li><strong>Computational Efficiency:</strong> For design optimization, the solver must analyze multiple configurations quickly</li>
-                <li><strong>Accuracy Requirements:</strong> Kinematic outputs directly affect vehicle handling characteristics, requiring sub-millimeter precision</li>
-                <li><strong>Visualization:</strong> Understanding suspension behavior requires clear visualization of motion patterns and kinematic curves</li>
-            </ul>
-
-            <h2>The Solution</h2>
-            <p>The solver was developed entirely in Python using fundamental principles of 3D geometry and kinematics:</p>
-            <ul>
-                <li><strong>Input System:</strong> Accepts chassis hardpoints (fixed points on the chassis), upright-relative hardpoints (points defined relative to the wheel center), and link lengths as geometric constraints</li>
-                <li><strong>Constraint Solving:</strong> Implements 3D geometric algorithms to solve for upright position and orientation at each step of wheel travel, satisfying all link length and mounting point constraints</li>
-                <li><strong>Kinematic Analysis:</strong> Calculates critical suspension parameters including camber gain, toe change (bump steer), scrub radius variation, and longitudinal wheel movement</li>
-                <li><strong>Animation Output:</strong> Generates animated visualizations showing suspension geometry evolution through travel range</li>
-                <li><strong>Performance Curves:</strong> Produces plots of kinematic characteristics versus wheel travel for design evaluation</li>
-            </ul>
-
             <h2>Suspension Kinematics Visualization</h2>
-            <p>The following animations demonstrate the suspension's geometric behavior throughout its travel range, showing how hardpoint positions evolve as the wheel moves vertically:</p>
 
             <figure style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 30px 0;">
                 <div style="flex: 1; min-width: 300px; text-align: center;">
@@ -267,48 +244,25 @@
             </figure>
 
             <h2>Kinematic Analysis Results</h2>
-            <p>The solver outputs critical kinematic characteristics that directly influence vehicle handling and tire contact patch behavior:</p>
 
-            <h3>Wheel Path Analysis</h3>
-            <figure style="margin: 30px 0; text-align: center;">
-                <img src="assets/scrub_longitudinal.png" alt="Scrub and longitudinal displacement vs wheel travel" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <figcaption>Scrub (lateral displacement) and longitudinal movement of the contact patch throughout suspension travel</figcaption>
-            </figure>
-            <p>This plot shows how the tire contact patch moves laterally (scrub) and fore-aft (longitudinal) as the suspension compresses and extends. Minimizing scrub reduces tire wear and improves mechanical grip, while longitudinal movement affects anti-dive and anti-squat characteristics.</p>
-
-            <h3>Camber and Toe Analysis</h3>
-            <figure style="margin: 30px 0; text-align: center;">
-                <img src="assets/camber_bumpsteer.png" alt="Camber and toe change vs wheel travel" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <figcaption>Camber gain and toe change (bump steer) characteristics across suspension travel range</figcaption>
-            </figure>
-            <p>This is arguably the most critical plot for suspension design. <strong>Camber gain</strong> determines how the wheel tilts relative to the chassis during suspension compression, directly affecting tire contact patch and cornering performance. <strong>Toe change (bump steer)</strong> indicates unwanted steering input caused by suspension movement, which must be minimized for predictable handling and stability.</p>
-
-            <h2>Technical Implementation</h2>
-            <ul>
-                <li><strong>Language:</strong> Python 3.x</li>
-                <li><strong>Core Libraries:</strong> NumPy for linear algebra operations, SciPy for numerical solving algorithms</li>
-                <li><strong>Visualization:</strong> Matplotlib for static plots and animated GIF generation</li>
-                <li><strong>Algorithm Approach:</strong> Iterative geometric constraint solving using spherical intersection methods to determine upright position, followed by orientation calculation from link attachment vectors</li>
-                <li><strong>Performance:</strong> Full suspension travel analysis (50+ discrete positions) completes in under 1 second on standard hardware</li>
-            </ul>
-
-            <h2>Results and Impact</h2>
-            <ul>
-                <li><strong>Design Tool:</strong> Successfully used for multiple race car suspension design projects, enabling rapid kinematic optimization</li>
-                <li><strong>Speed Advantage:</strong> Reduced suspension analysis time from hours (CAD-based approach) to seconds, facilitating iterative design workflows</li>
-                <li><strong>Accuracy:</strong> Achieved sub-millimeter precision in position calculations and sub-0.1° accuracy in orientation angles</li>
-                <li><strong>Educational Value:</strong> Deepened understanding of 3D kinematics, constraint solving, and suspension design principles</li>
-                <li><strong>Extensibility:</strong> Modular architecture allows easy addition of new kinematic outputs (roll center height, anti-geometry, etc.)</li>
-            </ul>
-
-            <h2>Key Learnings</h2>
-            <ul>
-                <li><strong>Computational Geometry Fundamentals:</strong> Understanding spherical intersections, coordinate transformations, and constraint solving is essential for accurate kinematic analysis</li>
-                <li><strong>Tool Development:</strong> Building specialized tools from scratch often provides better insight and control than using black-box commercial software</li>
-                <li><strong>Validation Strategy:</strong> Cross-referencing results against multiple sources (analytical solutions, CAD measurements, professional software) builds confidence</li>
-                <li><strong>Visualization Importance:</strong> Animated visualizations are crucial for understanding complex 3D motion and identifying geometric issues</li>
-                <li><strong>Performance Optimization:</strong> Efficient algorithms enable rapid iteration, which is critical for design optimization workflows</li>
-            </ul>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0;">
+                <div>
+                    <figure style="margin: 0; text-align: center;">
+                        <img src="assets/camber_bumpsteer.png" alt="Camber and toe change vs wheel travel" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </figure>
+                    <div style="background: #d1ecf1; padding: 12px; border-radius: 6px; border-left: 4px solid #0dcaf0; margin-top: 15px;">
+                        <p style="margin: 0; font-size: 0.85rem;"><strong>Camber gain:</strong> tire tilt in cornering | <strong>Toe change:</strong> unwanted steering (minimize for stability)</p>
+                    </div>
+                </div>
+                <div>
+                    <figure style="margin: 0; text-align: center;">
+                        <img src="assets/scrub_longitudinal.png" alt="Scrub and longitudinal displacement vs wheel travel" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </figure>
+                    <div style="background: #d1ecf1; padding: 12px; border-radius: 6px; border-left: 4px solid #0dcaf0; margin-top: 15px;">
+                        <p style="margin: 0; font-size: 0.85rem;"><strong>Scrub:</strong> lateral tire wear | <strong>Longitudinal:</strong> anti-dive/anti-squat</p>
+                    </div>
+                </div>
+            </div>
         </article>
     </main>
 

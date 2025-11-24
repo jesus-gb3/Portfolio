@@ -109,45 +109,71 @@
             <div class="analysis-section active" data-section="overview">
                 <h2>Project Overview</h2>
 
-                <p>This project demonstrates two complementary approaches to performance optimization in sim racing through systematic telemetry analysis:</p>
-                <ul>
-                    <li><strong>Driver Performance Analysis:</strong> Comparing driving technique across multiple stints with identical setup and conditions</li>
-                    <li><strong>Setup Optimization Analysis:</strong> Evaluating vehicle setup changes with consistent driver inputs</li>
-                </ul>
+                <div class="info-box">
+                    <h4>Project Summary</h4>
+                    <p><strong>Objective:</strong> Performance optimization through systematic telemetry analysis</p>
+                    <p><strong>Vehicle:</strong> Ferrari 296 GT3</p>
+                    <p><strong>Track:</strong> Laguna Seca (9 corners)</p>
+                    <p><strong>Data:</strong> 8 stints (7-8 laps each) from iRacing telemetry API</p>
+                    <p style="margin-bottom: 0;"><strong>Tools:</strong> MoTeC i2 Standard + Python scripts</p>
+                </div>
 
-                <h3>Data Collection</h3>
-                <ul>
-                    <li><strong>Vehicle:</strong> Ferrari 296 GT3</li>
-                    <li><strong>Track:</strong> Laguna Seca</li>
-                    <li><strong>Sessions:</strong> 8 stints totaling 7-8 laps each</li>
-                    <li><strong>Platform:</strong> iRacing simulation</li>
-                    <li><strong>Data Source:</strong> iRacing telemetry API and exported session files</li>
-                </ul>
+                <figure>
+                    <img src="assets/Stint1vs8.png" alt="Lap delta comparison visualization between stint 1 and stint 8">
+                    <figcaption>Visual delta comparison between stint 1 and stint 8, recreated in Python using microsector-based optimal lap analysis</figcaption>
+                </figure>
 
-                <h3>Analysis Tools</h3>
-                <ul>
-                    <li><strong>MoTeC i2 Standard:</strong> Professional-grade telemetry analysis software for visual comparison of data channels, overlay analysis, and detailed trace inspection</li>
-                    <li><strong>Python Scripts:</strong> Custom data processing pipelines for automated lap analysis, statistical comparisons, and batch processing of telemetry data</li>
-                    <li>Combined workflow leveraging MoTeC for detailed visual analysis and Python for programmatic data manipulation and metric extraction</li>
-                </ul>
+                <h3>Two-Part Analysis Approach</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0;">
+                    <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #0b57a4;">
+                        <h4 style="margin-top: 0; color: #0b57a4;">🏎️ Driver Performance Analysis</h4>
+                        <p style="margin: 0; font-size: 0.95rem;"><strong>Controlled:</strong> Fixed vehicle setup</p>
+                        <p style="margin: 8px 0 0 0; font-size: 0.95rem;"><strong>Analyzed:</strong> Driving technique across stints</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #0b57a4;">
+                        <h4 style="margin-top: 0; color: #0b57a4;">🔧 Setup Optimization Analysis</h4>
+                        <p style="margin: 0; font-size: 0.95rem;"><strong>Controlled:</strong> Consistent driver inputs</p>
+                        <p style="margin: 8px 0 0 0; font-size: 0.95rem;"><strong>Analyzed:</strong> Vehicle setup changes</p>
+                    </div>
+                </div>
 
-                <p>The dual-analysis approach isolates two critical variables in racing performance: driver behavior and vehicle setup. By controlling one variable while analyzing the other, this methodology provides actionable insights for both driver development and engineering optimization.</p>
+                <h3>Methodology</h3>
+                
+                <div style="background: #f8fbff; padding: 20px; border-radius: 8px; border-left: 4px solid #4a9eff; margin: 25px 0;">
+                    <p style="margin: 0 0 15px 0; font-size: 1rem;">By controlling one variable while analyzing the other, this dual-analysis approach isolates critical performance factors and provides actionable insights for both driver development and engineering optimization.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                        <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px;">
+                            <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">📊 MoTeC i2 Standard</strong>
+                            <p style="margin: 0; font-size: 0.9rem;">Visual overlay analysis, data channel comparison, detailed trace inspection</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px;">
+                            <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">🐍 Python Scripts</strong>
+                            <p style="margin: 0; font-size: 0.9rem;">Automated lap analysis, statistical comparisons, batch telemetry processing</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Driver Analysis Section -->
             <div class="analysis-section" data-section="driver" style="display: none;">
                 <h2>Driver Performance Analysis</h2>
 
-                <p>Analyzing driving technique variations across multiple stints with identical vehicle setup and track conditions. This analysis isolates driver behavior as the primary variable to identify performance patterns, consistency metrics, and improvement opportunities.</p>
-
-                <p>The comparison below examines performance evolution of the same driver after completing 50 laps of practice. Following systematic analysis of telemetry data and implementation of data-driven technique adjustments, measurable improvements were achieved while maintaining identical vehicle setup and conditions.</p>
-
-                <h3>Methodology</h3>
-                <ul>
-                    <li><strong>Controlled variable:</strong> Fixed vehicle setup</li>
-                    <li><strong>Analyzed variable:</strong> Driver inputs and technique</li>
-                    <li><strong>Tools:</strong> MoTeC i2 for visual overlay analysis</li>
-                </ul>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 25px 0;">
+                    <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e0ecf8;">
+                        <strong style="color: #27ae60; display: block; margin-bottom: 8px;">✓ Controlled Variable</strong>
+                        <p style="margin: 0; font-size: 0.9rem;">Fixed vehicle setup</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e0ecf8;">
+                        <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">🔍 Analyzed Variable</strong>
+                        <p style="margin: 0; font-size: 0.9rem;">Driver inputs and technique</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e0ecf8;">
+                        <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">📡 Tools</strong>
+                        <p style="margin: 0; font-size: 0.9rem;">MoTeC i2 visual overlay</p>
+                    </div>
+                </div>
 
                 <h3>Corner-by-Corner Analysis</h3>
                 
@@ -166,9 +192,22 @@
                     <button class="track-hotspot" data-corner="8" style="position: absolute; top: 57%; left: 27%; width: 30px; height: 30px; border-radius: 50%; background: rgba(74, 158, 255, 0.8); border: 2px solid white; cursor: pointer; transform: translate(-50%, -50%); transition: all 0.3s;" title="Turn 10"></button>
                 </div>
 
-                <div class="info-box" style="margin: 25px 0;">
-                    <h4>Trace Legend</h4>
-                    <p style="margin: 0;">In all telemetry overlays below: <strong>Colored trace = Fastest lap (1:22.964)</strong> | <strong>White trace = Slower lap (1:23.617)</strong> | <strong>Delta: 0.653s improvement (0.78%)</strong></p>
+                <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #27ae60; margin: 25px 0;">
+                    <h4 style="margin-top: 0; color: #27ae60; font-size: 1.1rem;">📊 Trace Legend</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 15px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.3rem; font-weight: 700; color: #27ae60; margin-bottom: 5px;">1:22.964</div>
+                            <div style="font-size: 0.85rem; color: #555;">Colored Trace (Fastest)</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.3rem; font-weight: 700; color: #888; margin-bottom: 5px;">1:23.617</div>
+                            <div style="font-size: 0.85rem; color: #555;">White Trace (Slower)</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.3rem; font-weight: 700; color: #0b57a4; margin-bottom: 5px;">0.653s</div>
+                            <div style="font-size: 0.85rem; color: #555;">Improvement (0.78%)</div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Corner carousel navigation -->
@@ -200,32 +239,24 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Technique:</strong></p>
-                        <ul>
-                            <li>Slower lap (white) brakes <strong>significantly later</strong> and reaches <strong>80% brake pedal position</strong></li>
-                            <li>Faster lap (colored) brakes <strong>earlier but at a slower pace</strong></li>
-                            <li>Earlier, gentler braking allows the faster lap to <strong>carry more speed into the corner</strong> with less abrupt deceleration</li>
-                        </ul>
-                        
-                        <p><strong>Mid-Corner Performance:</strong></p>
-                        <ul>
-                            <li><strong>Better trail braking control</strong> in the faster lap provides <strong>increased rotation</strong>, evident in the yaw rate trace at the cursor position</li>
-                            <li><strong>More rotation occurs under the same steering input</strong> on corner entry, which then allows maintaining a <strong>lower average steering angle throughout the entry phase</strong></li>
-                            <li>Both laps achieve <strong>similar minimum speed</strong>, but the faster lap reaches it <strong>later in the corner</strong>, maintaining momentum longer</li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit Understeer:</strong></p>
-                        <ul>
-                            <li>Both drivers experience <strong>understeer on exit</strong>, requiring them to <strong>ease off the throttle</strong></li>
-                            <li>Understeer confirmed by <strong>increasing steering angle</strong> while <strong>lateral G-force stalls at ~1.5G</strong></li>
-                            <li>Vehicle unable to generate additional lateral grip despite increased steering input</li>
-                        </ul>
-                        
-                        <p><strong>Potential Further Improvement:</strong></p>
-                        <ul>
-                            <li>A hypothetical case combining <strong>later, harder initial braking</strong> with <strong>better regressive braking control</strong> (progressive brake release) could yield additional performance gains</li>
-                            <li>This would optimize both entry speed and mid-corner rotation while maintaining stability</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">🚫 Braking</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap brakes earlier but gentler, carries more speed into corner vs. slower lap's late 80% brake application</p>
+                            </div>
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🔄 Mid-Corner</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Better trail braking = increased rotation with same steering input. Similar minimum speed but reached later</p>
+                            </div>
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 6px; border-left: 4px solid #dc3545;">
+                                <strong style="color: #842029; display: block; margin-bottom: 6px;">⚠️ Exit Issue</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Both laps show understeer on exit (increasing steering, stalled ~1.5G lateral). Throttle lift required</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">💡 Improvement Potential</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Later, harder initial braking + better progressive release could optimize entry speed and rotation</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 2 -->
@@ -238,26 +269,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Strategy Comparison:</strong></p>
-                        <ul>
-                            <li>Slower lap (white) brakes <strong>later and harder</strong>, but retains <strong>less speed on corner entry</strong></li>
-                            <li>Faster lap (colored) uses <strong>brake for longer duration</strong>, translating into a <strong>lower minimum speed</strong> and <strong>slightly faster exit</strong></li>
-                            <li>Both approaches achieve <strong>similar rotation</strong> and <strong>almost identical overall corner speed</strong></li>
-                        </ul>
-                        
-                        <p><strong>Apex Performance:</strong></p>
-                        <ul>
-                            <li>The <strong>lower minimum speed</strong> achieved by the faster lap enables <strong>better rotation at the apex</strong></li>
-                            <li>Enhanced apex rotation directly contributes to the <strong>superior corner exit performance</strong></li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit Technique:</strong></p>
-                        <ul>
-                            <li>Understeer still visible, but faster lap shows <strong>more confident turn exit</strong></li>
-                            <li><strong>Earlier full throttle application</strong> in the faster lap</li>
-                            <li><strong>Earlier return to neutral steering</strong> allows better traction management</li>
-                            <li>Faster lap gains advantage on the following straight with <strong>better acceleration</strong></li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">🚫 Braking Strategy</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap uses longer brake duration → lower minimum speed → slightly faster exit. Both achieve similar rotation</p>
+                            </div>
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🎯 Apex</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Lower minimum speed enables better apex rotation, directly contributing to superior exit performance</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">✓ Exit</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">More confident exit: earlier full throttle + earlier neutral steering = better acceleration on following straight</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 3 -->
@@ -270,28 +295,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking and Turn-In Timing:</strong></p>
-                        <ul>
-                            <li>Both laps show <strong>very similar braking technique</strong> on corner entry</li>
-                            <li>Slower lap (white) shows <strong>braking after turn-in</strong></li>
-                            <li>Faster lap (colored) demonstrates <strong>braking almost simultaneous with turn-in</strong></li>
-                            <li>This timing difference results in <strong>earlier and higher rotation</strong> in the faster lap</li>
-                        </ul>
-                        
-                        <p><strong>Apex Timing and Speed:</strong></p>
-                        <ul>
-                            <li>Faster lap achieves <strong>minimum speed much earlier</strong>, indicating an <strong>earlier apex</strong></li>
-                            <li>Turn 3 is followed by a <strong>relatively long straight</strong>, where the conventional approach would favor a <strong>later apex to maximize exit speed</strong></li>
-                            <li>Despite using an earlier apex strategy, the faster lap demonstrates that <strong>extracting the necessary rotation earlier in corner entry</strong> can overcome the traditional apex placement disadvantage</li>
-                            <li>Enhanced early rotation allows for a <strong>confident corner exit</strong> that still capitalizes on the straight ahead</li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit Performance:</strong></p>
-                        <ul>
-                            <li>Faster lap shows <strong>earlier throttle application</strong> as a result of the earlier braking strategy</li>
-                            <li><strong>Same signs of understeer</strong> present in both laps (stalling lateral G with increasing steering angle)</li>
-                            <li>Despite understeer, the faster lap maintains advantage through better overall corner execution</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">🔄 Turn-In Timing</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap brakes simultaneous with turn-in (vs. after turn-in) → earlier and higher rotation</p>
+                            </div>
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🎯 Earlier Apex Strategy</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Despite long straight ahead, earlier apex works due to extracting necessary rotation early in corner entry</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">✓ Exit Performance</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Earlier throttle application from earlier braking. Understeer present but advantage maintained through better execution</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 4 -->
@@ -304,28 +321,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Technique and Front Axle Saturation:</strong></p>
-                        <ul>
-                            <li>Both laps initiate braking at <strong>almost the same point</strong> with <strong>similar maximum intensity</strong></li>
-                            <li>Faster lap (colored) begins <strong>regressive braking earlier</strong>, resulting in <strong>much increased rotation</strong> at the cursor position</li>
-                            <li><strong>Higher brake pressure</strong> in the slower lap is believed to cause <strong>entry understeer</strong></li>
-                            <li>Critical observation: <strong>similar steering traces but vastly different lateral G and yaw rate</strong> between laps demonstrates how braking affects corner entry behavior</li>
-                            <li>Higher brake pressure at turn-in <strong>saturates the front axle</strong> rather than relieving rear load to achieve the desired trail braking effect</li>
-                        </ul>
-                        
-                        <p><strong>Apex Performance:</strong></p>
-                        <ul>
-                            <li>Following the same trend as previous corners, the <strong>improved braking technique and rotation</strong> enables <strong>much faster corner entry speed</strong></li>
-                            <li>Both laps maintain the <strong>same minimum apex speed</strong>, showing efficiency gain comes from entry phase</li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit Confidence:</strong></p>
-                        <ul>
-                            <li>Slower lap shows driver <strong>hesitation on throttle application timing</strong></li>
-                            <li>Faster lap applies throttle <strong>later but more confidently</strong></li>
-                            <li>Confidence stems from <strong>car already pointing in the correct direction</strong> due to superior rotation</li>
-                            <li>Advantage maintained <strong>despite the same understeering trend</strong> present in the setup</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 6px; border-left: 4px solid #dc3545;">
+                                <strong style="color: #842029; display: block; margin-bottom: 6px;">⚠️ Front Axle Saturation</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Slower lap: higher brake pressure at turn-in saturates front axle causing entry understeer. Similar steering but vastly different G-force/yaw rate</p>
+                            </div>
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🔄 Regressive Braking</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap releases brake earlier → much increased rotation. Same minimum speed but better entry</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">💪 Throttle Confidence</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap applies throttle later but more confidently—car already pointing right direction from superior rotation</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 5 -->
@@ -338,28 +347,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Entry and Driver Error:</strong></p>
-                        <ul>
-                            <li>Faster lap (colored) shows <strong>much slower entry speed</strong> due to <strong>earlier and softer braking</strong></li>
-                            <li>At turn-in (<strong>marked by cursor</strong>, almost identical timing in both laps), faster lap has <strong>approximately half the brake pedal position</strong> and <strong>slower speed</strong></li>
-                            <li>Slower lap (white) exhibits a critical <strong>trail braking mistake</strong></li>
-                            <li><strong>Steering correction required during trail braking phase</strong> in the slower lap</li>
-                            <li>This error <strong>decreases apex speed considerably</strong> and <strong>compromises the following straight's speed</strong></li>
-                        </ul>
-                        
-                        <p><strong>Apex and Early Throttle Application:</strong></p>
-                        <ul>
-                            <li><strong>Early throttle application is crucial</strong> in this corner</li>
-                            <li>Faster lap <strong>benefits significantly from applying throttle early</strong></li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit Imperfection:</strong></p>
-                        <ul>
-                            <li>Faster lap <strong>attacks the curb too harshly</strong> on exit, visible in the <strong>lateral G-force trace</strong></li>
-                            <li>Requires <strong>slight steering and throttle corrections</strong> on corner exit</li>
-                            <li><strong>Neither lap shows a perfect corner</strong> – room for improvement exists in both</li>
-                            <li>However, the <strong>mistake on the slower lap results in much larger time loss</strong> compared to the minor exit correction needed in the faster lap</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 6px; border-left: 4px solid #dc3545;">
+                                <strong style="color: #842029; display: block; margin-bottom: 6px;">❌ Trail Braking Mistake</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Slower lap: braking error requires steering correction during trail braking phase (cursor marks turn-in). Significantly decreases apex speed</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">⚡ Early Throttle Critical</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap benefits significantly from earlier, softer braking enabling early throttle application</p>
+                            </div>
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">⚠️ Curb Attack</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap attacks exit curb too harshly (visible in lateral G), requires slight corrections. Neither lap perfect but slower lap's mistake causes larger time loss</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 6-7 (Corkscrew) -->
@@ -372,28 +373,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Strategy and Gear Selection:</strong></p>
-                        <ul>
-                            <li>Slower lap (white) shows <strong>later and more aggressive braking</strong></li>
-                            <li>After the difference in braking points, the <strong>traces look very similar</strong></li>
-                            <li>The <strong>increased deceleration in the early braking phase</strong> of the slower lap appears unnecessary, as the faster driver <strong>maintains higher speed</strong> with gentler braking</li>
-                            <li><strong>Later braking point appears possible</strong> for the faster driver</li>
-                            <li>Faster lap shows the <strong>last downshift happening much sooner</strong>, optimizing engine braking and gear selection</li>
-                            <li>Slower lap's <strong>downshift occurs too late</strong>, missing optimal braking assistance</li>
-                        </ul>
-                        
-                        <p><strong>Apex Performance Through Direction Changes:</strong></p>
-                        <ul>
-                            <li><strong>Minimum speed through the corners is identical</strong> in both laps</li>
-                            <li>The <strong>steering trace when changing directions looks almost the same</strong>, showing similar technique through the elevation changes</li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit and Acceleration:</strong></p>
-                        <ul>
-                            <li><strong>Earlier throttle application</strong> is the key differentiator in the faster lap</li>
-                            <li>Results in <strong>increased acceleration</strong> out of the Corkscrew</li>
-                            <li>Despite identical minimum speeds, the timing advantage on throttle creates measurable lap time gain</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">⏬ Downshift Timing</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap downshifts much sooner for optimal engine braking. Slower lap's late downshift misses braking assistance</p>
+                            </div>
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🐌 Identical Min Speed</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Both achieve same minimum speed through elevation changes. Similar steering technique through direction changes</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">⚡ Exit Acceleration</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Earlier throttle application creates key advantage. Timing difference on throttle = measurable lap time gain</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 8 -->
@@ -406,28 +399,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Track Characteristics and Challenge:</strong></p>
-                        <ul>
-                            <li>This corner is <strong>all about feel in the front axle and racing line choices</strong></li>
-                            <li>Critical to <strong>maintain speed through the opposite camber section</strong>, which pushes the car wide and causes significant understeer</li>
-                        </ul>
-                        
-                        <p><strong>Racing Line and Entry Strategy:</strong></p>
-                        <ul>
-                            <li>Faster driver (colored) <strong>closes the racing line earlier in corner entry</strong></li>
-                            <li><strong>Similar turn-in point</strong> but with a <strong>more aggressive approach</strong></li>
-                            <li>This strategy allows <strong>staying on the gas for longer</strong> during corner entry</li>
-                            <li>Results in <strong>higher minimum speed</strong> through the apex</li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit and Setup Limitations:</strong></p>
-                        <ul>
-                            <li><strong>Maximum throttle application occurs later</strong> due to <strong>corner exit understeer</strong> at this point</li>
-                            <li>The <strong>G-force trace looks identical on corner exit</strong> between both laps, even as the faster lap's <strong>steering trace is much more aggressive</strong> – a clear sign of understeer</li>
-                            <li><strong>Differences between the two laps are minimal</strong>, indicating driver performance is close to the limit</li>
-                            <li>Performance would likely benefit from a <strong>setup change toward a more oversteering car</strong> to help rotate the vehicle</li>
-                            <li><strong>Increasing car responsiveness is the only way to improve time</strong> in this corner – driver technique is near optimal</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🛣️ Front Axle Feel</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap closes racing line earlier with more aggressive approach → stays on gas longer → higher minimum speed</p>
+                            </div>
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">🌀 Opposite Camber</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Track pushes car wide causing significant understeer. Identical G-force on exit despite more aggressive steering = setup-limited</p>
+                            </div>
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 6px; border-left: 4px solid #dc3545;">
+                                <strong style="color: #842029; display: block; margin-bottom: 6px;">🔧 Setup Needed</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Minimal lap differences—driver near optimal. Would benefit from more oversteering setup to help rotation</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 9 -->
@@ -440,28 +425,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Technique and Banking Utilization:</strong></p>
-                        <ul>
-                            <li>Turn-in point (<strong>marked by cursor</strong>) is <strong>identical</strong> in both laps</li>
-                            <li>Faster lap (colored) uses <strong>later and softer braking</strong>, allowing <strong>much more speed into the corner</strong></li>
-                            <li><strong>Later downshifting</strong> also contributes to carrying more speed into the corner</li>
-                            <li>Faster driver aims to <strong>carry more speed into the apex</strong> and <strong>make use of the banking</strong> this corner has to rotate the car</li>
-                            <li>Slower lap shows <strong>more aggressive first phase of steering</strong>, translating into <strong>more early rotation</strong></li>
-                            <li>Faster driver achieves <strong>more rotation closer to the apex</strong> thanks to <strong>better braking technique</strong></li>
-                        </ul>
-                        
-                        <p><strong>Apex Performance Trade-off:</strong></p>
-                        <ul>
-                            <li>Faster driver achieves a <strong>higher minimum speed</strong> thanks to <strong>added responsiveness close to the apex</strong></li>
-                            <li>However, <strong>struggles to get on the gas early</strong> because of that extra speed carried through the apex</li>
-                        </ul>
-                        
-                        <p><strong>Corner Exit Understeer:</strong></p>
-                        <ul>
-                            <li><strong>Exit understeer visible on both laps</strong>, with <strong>steering increasing while lateral G-forces don't</strong></li>
-                            <li>Understeer is also influenced by the <strong>disappearing banking near the end of the corner</strong></li>
-                            <li>Track geometry change compounds the setup-related understeer tendency</li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">🏁 Banking Utilization</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Faster lap: later, softer braking + later downshift → carries more speed to use banking for rotation. Higher minimum speed from added apex responsiveness</p>
+                            </div>
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">⚖️ Rotation Timing</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Slower lap: more early rotation from aggressive steering. Faster lap: achieves rotation closer to apex via better braking but struggles to get on gas early</p>
+                            </div>
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 6px; border-left: 4px solid #dc3545;">
+                                <strong style="color: #842029; display: block; margin-bottom: 6px;">🌀 Disappearing Banking</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Exit understeer on both laps (steering increases, G-force doesn't). Compounded by banking ending near corner exit</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Turn 10 -->
@@ -474,29 +451,20 @@
                         
                         <h4 style="color: #083761; font-size: 1.1rem; margin-top: 25px; margin-bottom: 12px;">Key Observations:</h4>
                         
-                        <p><strong>Braking Technique Contrast:</strong></p>
-                        <ul>
-                            <li>Slower driver (white) brakes <strong>later and much more aggressively</strong>, decreasing speed too much</li>
-                            <li>The <strong>braking trace on the regressive phase is much less smooth</strong> in the slower lap</li>
-                            <li><strong>Steering is more aggressive</strong> in the slower lap</li>
-                        </ul>
-                        
-                        <p><strong>Corner Shape Strategy and Apex Speed:</strong></p>
-                        <ul>
-                            <li>Slower lap shows a <strong>more V-shaped corner approach</strong></li>
-                            <li>Faster lap (colored) focuses on <strong>maintaining apex speed</strong> with a U-shaped approach</li>
-                            <li>Faster lap achieves <strong>better entry rotation thanks to better trail braking technique</strong></li>
-                            <li>Faster lap achieves <strong>better speed through the corner itself</strong></li>
-                        </ul>
-                        
-                        <p><strong>Exit Strategy Trade-off:</strong></p>
-                        <ul>
-                            <li><strong>Corner exit is better for the slower lap</strong> due to the <strong>smaller minimum speed</strong> (<strong>marked by cursor</strong>)</li>
-                            <li>Lower minimum speed translates into <strong>earlier throttle application and faster exit</strong></li>
-                            <li>This is particularly <strong>beneficial in this corner as it precedes the longest straight of the track</strong></li>
-                            <li>The faster lap's <strong>U-shaped corner aim loses its advantage over the next straight</strong></li>
-                            <li>Critical lesson: <strong>V-shaped approach with lower minimum speed optimizes exit velocity for long straights</strong></li>
-                        </ul>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #d1ecf1; padding: 15px; border-radius: 6px; border-left: 4px solid #0dcaf0;">
+                                <strong style="color: #055160; display: block; margin-bottom: 6px;">🔺 V-Shape vs U-Shape</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Slower lap: V-shaped with lower min speed. Faster lap: U-shaped maintains corner speed with better trail braking</p>
+                            </div>
+                            <div style="background: #d4edda; padding: 15px; border-radius: 6px; border-left: 4px solid #28a745;">
+                                <strong style="color: #155724; display: block; margin-bottom: 6px;">🚀 Exit Velocity</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">Slower lap's lower minimum speed → earlier throttle → better exit. Critical for longest straight ahead</p>
+                            </div>
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404; display: block; margin-bottom: 6px;">💡 Key Lesson</strong>
+                                <p style="margin: 0; font-size: 0.9rem;">V-shaped approach with lower min speed optimizes exit velocity when long straight follows. U-shape advantage lost on next straight</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

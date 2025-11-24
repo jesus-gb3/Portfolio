@@ -162,149 +162,120 @@
                 }
             </style>
 
-            <h2>Overview</h2>
-            <ul>
-                <li><strong>Project Type:</strong> MSc Dissertation in collaboration with Hitech GP racing team</li>
-                <li><strong>Objective:</strong> Develop accurate sideslip angle estimator using only onboard sensors (gyroscope, GPS, accelerometer)</li>
-                <li><strong>Challenge:</strong> Professional racing regulations prohibit direct speed-over-ground measurements</li>
-                <li><strong>Application:</strong> Real-time vehicle dynamics feedback and driver coaching for F2 and F3 single-seater racing</li>
-                <li><strong>Innovation:</strong> Hybrid approach avoiding reliance on detailed tyre models or expensive observer filters</li>
-            </ul>
+            <div class="info-box">
+                <h3>Project Overview</h3>
+                <p><strong>Objective:</strong> Develop accurate sideslip angle estimator for F2 and F3 single-seater racing</p>
+                <p><strong>Collaboration:</strong> Hitech GP racing team (professional FIA Formula 2 & Formula 3)</p>
+                <p><strong>Constraint:</strong> Racing regulations prohibit direct speed-over-ground measurements</p>
+                <p style="margin-bottom: 0;"><strong>Approach:</strong> Physics-based estimation using onboard sensors (gyroscope, GPS, accelerometer)</p>
+            </div>
 
-            <h2>Understanding Sideslip Angle</h2>
+            <h2>What is Sideslip Angle?</h2>
             
-            <p>Vehicle chassis sideslip angle is a <strong>critical parameter in motorsport vehicle dynamics</strong>, directly influencing performance optimization, handling analysis, and driver feedback. The sideslip angle, denoted as <strong>β</strong>, is defined as the angle between the vehicle's longitudinal axis and its actual velocity vector.</p>
+            <p>Sideslip angle (<strong>β</strong>) is the angle between the vehicle's longitudinal axis and its actual velocity vector—the difference between where the car is pointing and where it is actually traveling.</p>
 
             <figure style="text-align: center; margin: 30px 0;">
                 <img src="assets/Sideslip-representation.png" alt="Sideslip angle definition and representation" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
                 <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #555;">Sideslip angle (β) represents the difference between vehicle heading and velocity direction</figcaption>
             </figure>
 
-            <p>Mathematically, sideslip angle is expressed as:</p>
-            
-            <div style="text-align: center; margin: 25px 0; font-size: 1.1rem; padding: 15px; background: #f8fbff; border-radius: 8px;">
-                <strong>β = arctan(v<sub>y</sub> / v<sub>x</sub>)</strong>
-            </div>
-
-            <p>where <strong>v<sub>x</sub></strong> and <strong>v<sub>y</sub></strong> are the longitudinal and lateral velocity components of the vehicle. This represents the difference between where the car is pointing and where it is actually traveling—a result of tyre slip necessary for generating lateral forces during cornering.</p>
-
-            <p>Although typically small in magnitude under normal driving, sideslip angle plays a decisive role in determining <strong>stability, handling balance, and overall vehicle performance</strong>. In motorsport, precise knowledge of β is especially important, as even small deviations can influence lap times and driver confidence.</p>
-
-            <div class="info-box">
-                <h3>Project Context</h3>
-                <p>This work was carried out in collaboration with <strong>Hitech GP</strong>, a professional motorsport team competing in FIA Formula 2 and Formula 3 championships. The estimator framework is intended for deployment in their race vehicles, providing a robust solution that balances interpretability, accuracy, and practical deployability under current technical restrictions.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;">
+                <div style="background: #f8fbff; padding: 20px; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                    <h4 style="margin-top: 0; color: #0b57a4;">Mathematical Definition</h4>
+                    <div style="text-align: center; font-size: 1.1rem; margin: 15px 0;">
+                        <strong>β = arctan(v<sub>y</sub> / v<sub>x</sub>)</strong>
+                    </div>
+                    <p style="margin: 0; font-size: 0.9rem; color: #555;">where v<sub>x</sub> and v<sub>y</sub> are longitudinal and lateral velocity components</p>
+                </div>
+                <div style="background: #f8fbff; padding: 20px; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                    <h4 style="margin-top: 0; color: #0b57a4;">Why It Matters</h4>
+                    <p style="margin: 0; font-size: 0.95rem;">Critical parameter for stability, handling balance, and vehicle performance. Even small deviations influence lap times and driver confidence in professional racing.</p>
+                </div>
             </div>
 
             <h2>The Challenge</h2>
-            <p>Accurate sideslip angle estimation in professional single-seater racing presents several significant challenges:</p>
-            <ul>
-                <li><strong>Regulatory Constraints:</strong> Racing regulations often prohibit direct measurement tools like speed-over-ground sensors, requiring estimation-based approaches</li>
-                <li><strong>Sensor Limitations:</strong> Onboard sensors (gyroscope, accelerometer, GPS) contain noise, drift, bias, and offsets that can severely degrade estimation accuracy</li>
-                <li><strong>No Ground Truth:</strong> Unlike laboratory conditions, real racing environments provide no direct measurement for validation—the true sideslip angle is fundamentally unknown</li>
-                <li><strong>Dynamic Environment:</strong> High-speed cornering, elevation changes, track camber, and aggressive driver inputs create highly transient conditions</li>
-                <li><strong>Sensor Placement:</strong> IMU positioned away from vehicle center of gravity introduces additional rotational contributions to measurements</li>
-                <li><strong>Real-Time Requirements:</strong> System must operate in real-time for driver feedback and telemetry analysis during track sessions</li>
-                <li><strong>Model Limitations:</strong> Traditional methods rely on detailed tyre models and vehicle parameters that are often proprietary or unavailable</li>
-            </ul>
+            
+            <div style="display: grid; gap: 15px; margin: 25px 0;">
+                <div style="background: #fff; padding: 18px; border-radius: 8px; border-left: 4px solid #e74c3c; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <strong style="color: #e74c3c; display: block; margin-bottom: 8px;">⚠️ Sensor Limitations</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Onboard sensors contain noise, drift, and bias that severely degrade estimation accuracy</p>
+                </div>
+                <div style="background: #fff; padding: 18px; border-radius: 8px; border-left: 4px solid #e74c3c; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <strong style="color: #e74c3c; display: block; margin-bottom: 8px;">⚠️ No Ground Truth</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Real racing environments provide no direct measurement for validation—true sideslip angle is unknown</p>
+                </div>
+                <div style="background: #fff; padding: 18px; border-radius: 8px; border-left: 4px solid #e74c3c; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <strong style="color: #e74c3c; display: block; margin-bottom: 8px;">⚠️ Model Constraints</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Traditional methods rely on detailed tyre models and expensive observer filters often impractical for racing</p>
+                </div>
+            </div>
 
             <h2>The Solution</h2>
-            <p>This project developed a <strong>hybrid physics-based estimator</strong> that avoids conventional Kalman or Luenberger observer frameworks, instead using systematic correction strategies and kinematic formulations:</p>
-
-            <h3>Core Estimation Methods</h3>
-            <ul>
-                <li><strong>Basic Kinematic Estimation:</strong> Integration of lateral acceleration and yaw rate to estimate slip angle rate, providing computational efficiency suitable for real-time applications</li>
-                <li><strong>Van Zanten Formulation:</strong> Dynamic model incorporating both lateral and longitudinal accelerations with slip angle feedback for improved tracking during cornering</li>
-                <li><strong>Hybrid Approach:</strong> Combines corrected kinematic output with Van Zanten equation, leveraging strengths of both methods with straight-line reset conditions</li>
-                <li><strong>Recursive Method:</strong> Uses previous timestep slip angle as input, assuming zero initial conditions and recursively estimating throughout the lap</li>
-            </ul>
-
-            <div style="margin: 30px 0; padding: 20px; background: #f8fbff; border-radius: 8px; border-left: 4px solid #4a9eff;">
-                <h4 style="margin-top: 0; color: #083761;">Key Estimation Equations</h4>
-                
-                <p><strong>Basic Kinematic Method:</strong></p>
-                <div style="text-align: center; margin: 15px 0; font-size: 1.05rem;">
-                    β = ∫ (a<sub>y</sub>/v - ψ̇) dt
-                </div>
-                
-                <p><strong>Van Zanten Method:</strong></p>
-                <div style="text-align: center; margin: 15px 0; font-size: 1.05rem;">
-                    β = ∫ ((a<sub>y</sub> cos β - a<sub>x</sub> sin β)/v - ψ̇) dt
-                </div>
-                
-                <p style="margin-bottom: 0; font-size: 0.9rem; color: #555;">where a<sub>x</sub>, a<sub>y</sub> are longitudinal and lateral accelerations, ψ̇ is yaw rate, v is velocity, and β is sideslip angle</p>
-            </div>
-
-            <h3>Comprehensive Signal Preprocessing</h3>
-            <ul>
-                <li><strong>Low-Pass Filtering:</strong> Second-order Butterworth filter (6 Hz cutoff) to suppress high-frequency sensor noise while preserving vehicle dynamics</li>
-                <li><strong>Track Geometry Corrections:</strong> Lookup tables for track camber and computed track pitch from GPS altitude to correct gravitational components</li>
-                <li><strong>Sensor Alignment:</strong> Corrections for roll and pitch misalignment with global reference frame using vehicle orientation angles</li>
-                <li><strong>IMU Location Correction:</strong> Compensates for rotational contributions from sensor offset relative to vehicle center of gravity</li>
-                <li><strong>Offset Correction Methods:</strong> Three approaches tested—steering-based, length-based, and linear fit—to remove systematic sensor bias</li>
-            </ul>
-
-            <h3>Two-Stage Validation Approach</h3>
-            <p>The estimator was validated using a rigorous two-stage process:</p>
-            <ul>
-                <li><strong>Stage 1 - Laptime Simulation:</strong> Initial validation using Canopy simulation data where true slip angle is known, providing controlled environment for algorithm development</li>
-                <li><strong>Stage 2 - Real Track Data:</strong> Application to actual telemetry data with comprehensive preprocessing and correction strategies to handle real-world sensor imperfections</li>
-            </ul>
-
-            <h2>Results and Performance</h2>
             
-            <h3>Simulation Validation</h3>
-            <p>Testing with laptime simulation data across multiple circuits (Barcelona, Spa-Francorchamps, Monaco) demonstrated exceptional performance in controlled conditions:</p>
-            <ul>
-                <li><strong>Hybrid Method (Kinematic into Van Zanten):</strong> RMS errors of 0.132°, 0.108°, and 0.374° for Barcelona, Spa, and Monaco respectively</li>
-                <li><strong>Recursive Method (Previous Timestep):</strong> RMS errors of 0.136°, 0.115°, and 0.335° across the same tracks</li>
-                <li>Both methods significantly outperformed baseline approaches, validating the theoretical framework</li>
-                <li>Demonstrated ability to track transient dynamics effectively with minimal drift when signals are clean</li>
-            </ul>
-
-            <h3>Real Track Telemetry</h3>
-            <p>Application to actual racing data revealed the complexity of real-world deployment:</p>
-            <ul>
-                <li><strong>Comprehensive Preprocessing Required:</strong> Raw sensor signals required extensive correction for offsets, drift, noise, and geometric effects</li>
-                <li><strong>Best Performance:</strong> Kinematic into Van Zanten method produced most physically plausible results with realistic slip angle magnitudes</li>
-                <li><strong>Challenges Identified:</strong> Residual drift and directional inconsistencies remain due to absence of direct ground truth for validation</li>
-                <li><strong>Professional Validation:</strong> Results reviewed and validated by Hitech GP engineering team for driver feedback applications</li>
-                <li>Demonstrated that systematic correction strategies can handle real-world sensor imperfections effectively</li>
-            </ul>
-
-            <div class="info-box">
-                <h3>Key Achievement</h3>
-                <p>Successfully developed a deployable sideslip angle estimator for professional F2 and F3 racing that operates using only standard onboard sensors, without requiring expensive external measurement systems or detailed proprietary tyre models. The framework provides interpretable, physics-based estimates suitable for real-time driver feedback and vehicle dynamics analysis.</p>
+            <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding: 25px; border-radius: 8px; border-left: 4px solid #27ae60; margin: 25px 0;">
+                <h4 style="margin-top: 0; color: #27ae60; font-size: 1.1rem;">✓ Hybrid Physics-Based Estimator</h4>
+                <p style="margin: 0 0 15px 0;">Avoids conventional Kalman or Luenberger observer frameworks, using kinematic integration combined with dynamic formulations</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                    <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px;">
+                        <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">Signal Preprocessing</strong>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                            <li>Low-pass filtering</li>
+                            <li>Track geometry corrections</li>
+                            <li>Sensor alignment</li>
+                            <li>Systematic offset corrections</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px;">
+                        <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">Two-Stage Validation</strong>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                            <li>Stage 1: Simulation data (known truth)</li>
+                            <li>Stage 2: Real track telemetry</li>
+                            <li>Validated by Hitech GP team</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <h2>Technical Implementation</h2>
-            <ul>
-                <li><strong>Language:</strong> Python 3.9+</li>
-                <li><strong>Core Libraries:</strong> NumPy (array operations), SciPy (filtering and signal processing), Pandas (data handling), Matplotlib and Bokeh (visualization)</li>
-                <li><strong>Data Sources:</strong> Canopy laptime simulation (CSV export), vehicle data logger telemetry (CSV format)</li>
-                <li><strong>Architecture:</strong> Modular pipeline with separate functions for preprocessing, filtering, offset correction, sensor alignment, and estimation</li>
-                <li><strong>Key Algorithms:</strong> Butterworth low-pass filter, kinematic integration, Van Zanten dynamic formulation, linear regression for offset estimation</li>
-                <li><strong>Performance:</strong> Real-time capable with computational efficiency suitable for telemetry analysis during track sessions</li>
-            </ul>
+            <h2>Results</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
+                <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #27ae60; margin-bottom: 10px;">&lt; 0.4°</div>
+                    <div style="font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">RMS Error (Simulation)</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #0b57a4; margin-bottom: 10px;">✓</div>
+                    <div style="font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">Real Track Validation</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #0b57a4; margin-bottom: 10px;">✓</div>
+                    <div style="font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.5px;">Hitech GP Approved</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.05rem; color: #555; margin: 30px 0;">Successfully handled sensor imperfections in real-world conditions. Framework provides interpretable, physics-based estimates suitable for real-time vehicle dynamics analysis and driver feedback.</p>
 
             <h2>Key Learnings</h2>
-            <ul>
-                <li><strong>Sensor Fusion Complexity:</strong> Combining multiple imperfect sensors requires sophisticated correction strategies beyond simple integration</li>
-                <li><strong>Ground Truth Challenge:</strong> Estimating unmeasurable quantities without direct validation is fundamentally difficult—simulation provides essential baseline</li>
-                <li><strong>Physics vs. AI Trade-off:</strong> Physics-based models offer interpretability and robustness, but require comprehensive understanding of error sources; AI approaches deferred until sufficient training data available</li>
-                <li><strong>Industry Collaboration Value:</strong> Working with professional racing team provided access to real data, validation requirements, and practical deployment constraints</li>
-                <li><strong>Iterative Refinement:</strong> Systematic comparison between corrected signals and simulation benchmarks enabled progressive improvement</li>
-                <li><strong>Preprocessing Importance:</strong> Quality of preprocessing and correction directly determines estimator performance in real-world applications</li>
-            </ul>
-
-            <h2>Future Work</h2>
-            <ul>
-                <li><strong>AI-Based Corrections:</strong> Integration of machine learning layers trained on validated datasets to address residual systematic errors</li>
-                <li><strong>Automated Calibration:</strong> Development of self-tuning algorithms for sensor offset and gain correction</li>
-                <li><strong>Extended Validation:</strong> Testing across wider range of tracks, weather conditions, and vehicle setups</li>
-                <li><strong>Real-Time Deployment:</strong> Implementation in vehicle telemetry system for live feedback during practice and race sessions</li>
-                <li><strong>Tyre Model Integration:</strong> Incorporation of tyre characteristic data when available to improve accuracy at high slip angles</strong>
-                <li><strong>Multi-Vehicle Adaptation:</strong> Framework extension to handle different vehicle configurations and sensor installations</li>
-            </ul>
+            
+            <div style="display: grid; gap: 15px; margin: 25px 0;">
+                <div style="background: #f8fbff; padding: 18px; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                    <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">🔧 Sensor Fusion</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Combining multiple imperfect sensors requires sophisticated correction strategies beyond simple integration</p>
+                </div>
+                <div style="background: #f8fbff; padding: 18px; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                    <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">🎯 Ground Truth Challenge</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Estimating unmeasurable quantities without direct validation is fundamentally challenging—simulation provides essential baseline</p>
+                </div>
+                <div style="background: #f8fbff; padding: 18px; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                    <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">🧠 Physics-Based Models</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Offer interpretability and robustness, but require comprehensive understanding of error sources</p>
+                </div>
+                <div style="background: #f8fbff; padding: 18px; border-radius: 8px; border-left: 4px solid #4a9eff;">
+                    <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">📊 Preprocessing Matters</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Quality of signal preprocessing directly determines estimator performance in real-world applications</p>
+                </div>
+            </div>
         </article>
     </main>
 
