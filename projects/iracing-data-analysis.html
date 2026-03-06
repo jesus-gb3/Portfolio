@@ -95,65 +95,79 @@
 
             <div class="info-box">
                 <h4>Project Context</h4>
-                <p style="margin: 0;">Personal development project analyzing telemetry data from 8 stints (7-8 laps each) of Ferrari 296 GT3 at Laguna Seca in iRacing. Two-part analysis: driver performance comparison with consistent setup, and setup optimization analysis with consistent driving. Data analyzed using MoTeC i2 Standard and custom Python scripts.</p>
+                <p style="margin: 0;">Personal development project focused on a custom telemetry analysis tool for iRacing data from Ferrari 296 GT3 stints at Laguna Seca. The tool processes MoTeC i2 CSV exports, supports interactive multi-lap visual analysis, and automates corner-level performance comparison. It is developed in Python with an interface for day-to-day engineering workflows.</p>
             </div>
 
             <!-- Navigation tabs -->
             <div style="display: flex; gap: 10px; margin: 30px 0; border-bottom: 2px solid rgba(74,158,255,0.2);">
-                <button class="analysis-tab active" data-section="overview" style="background: transparent; border: none; padding: 12px 20px; color: #4a9eff; font-weight: 600; cursor: pointer; border-bottom: 3px solid #4a9eff; transition: all 0.3s;">Overview</button>
+                <button class="analysis-tab active" data-section="tool" style="background: transparent; border: none; padding: 12px 20px; color: #4a9eff; font-weight: 600; cursor: pointer; border-bottom: 3px solid #4a9eff; transition: all 0.3s;">Analysis Tool</button>
                 <button class="analysis-tab" data-section="driver" style="background: transparent; border: none; padding: 12px 20px; color: var(--muted); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s;">Driver Analysis</button>
-                <button class="analysis-tab" data-section="setup" style="background: transparent; border: none; padding: 12px 20px; color: var(--muted); font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s;">Setup Analysis</button>
             </div>
 
-            <!-- Overview Section -->
-            <div class="analysis-section active" data-section="overview">
-                <h2>Project Overview</h2>
+            <!-- Analysis Tool Section -->
+            <div class="analysis-section active" data-section="tool">
+                <h2>Telemetry Analysis Tool</h2>
 
                 <div class="info-box">
-                    <h4>Project Summary</h4>
-                    <p><strong>Objective:</strong> Performance optimization through systematic telemetry analysis</p>
-                    <p><strong>Vehicle:</strong> Ferrari 296 GT3</p>
-                    <p><strong>Track:</strong> Laguna Seca (9 corners)</p>
-                    <p><strong>Data:</strong> 8 stints (7-8 laps each) from iRacing telemetry API</p>
-                    <p style="margin-bottom: 0;"><strong>Tools:</strong> MoTeC i2 Standard + Python scripts</p>
+                    <h4>Main Feature</h4>
+                    <p><strong>Objective:</strong> Turn raw MoTeC i2 telemetry exports into actionable performance insights through a dedicated analysis interface</p>
+                    <p><strong>Input Data:</strong> CSV files exported from MoTeC i2</p>
+                    <p style="margin-bottom: 0;"><strong>Implementation:</strong> Python + custom graphical interface</p>
                 </div>
 
-                <figure>
-                    <img src="assets/Stint1vs8.png" alt="Lap delta comparison visualization between stint 1 and stint 8">
-                    <figcaption>Visual delta comparison between stint 1 and stint 8, recreated in Python using microsector-based optimal lap analysis</figcaption>
-                </figure>
-
-                <h3>Two-Part Analysis Approach</h3>
-                
+                <h3>Core Capabilities</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0;">
                     <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #0b57a4;">
-                        <h4 style="margin-top: 0; color: #0b57a4;">🏎️ Driver Performance Analysis</h4>
-                        <p style="margin: 0; font-size: 0.95rem;"><strong>Controlled:</strong> Fixed vehicle setup</p>
-                        <p style="margin: 8px 0 0 0; font-size: 0.95rem;"><strong>Analyzed:</strong> Driving technique across stints</p>
+                        <h4 style="margin-top: 0; color: #0b57a4;">Data Ingestion and Plotting</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Reads MoTeC i2 CSV exports and creates interactive plots for rapid telemetry review.</p>
                     </div>
                     <div style="background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #0b57a4;">
-                        <h4 style="margin-top: 0; color: #0b57a4;">🔧 Setup Optimization Analysis</h4>
-                        <p style="margin: 0; font-size: 0.95rem;"><strong>Controlled:</strong> Consistent driver inputs</p>
-                        <p style="margin: 8px 0 0 0; font-size: 0.95rem;"><strong>Analyzed:</strong> Vehicle setup changes</p>
+                        <h4 style="margin-top: 0; color: #0b57a4;">Corner-Level Intelligence</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Detects track corners automatically and extracts comparable entry, apex, and exit performance indicators.</p>
                     </div>
                 </div>
 
-                <h3>Methodology</h3>
-                
-                <div style="background: #f8fbff; padding: 20px; border-radius: 8px; border-left: 4px solid #4a9eff; margin: 25px 0;">
-                    <p style="margin: 0 0 15px 0; font-size: 1rem;">By controlling one variable while analyzing the other, this dual-analysis approach isolates critical performance factors and provides actionable insights for both driver development and engineering optimization.</p>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
-                        <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px;">
-                            <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">📊 MoTeC i2 Standard</strong>
-                            <p style="margin: 0; font-size: 0.9rem;">Visual overlay analysis, data channel comparison, detailed trace inspection</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px;">
-                            <strong style="color: #0b57a4; display: block; margin-bottom: 8px;">🐍 Python Scripts</strong>
-                            <p style="margin: 0; font-size: 0.9rem;">Automated lap analysis, statistical comparisons, batch telemetry processing</p>
-                        </div>
-                    </div>
-                </div>
+                <h3>General Multi-Parameter Plotting</h3>
+                <p>The interface reads CSV channels directly and overlays up to five parameters at once across selected laps to speed up first-pass telemetry review.</p>
+                <figure>
+                    <img src="assets/analysisTool_generalPlot.png" alt="General plotting interface showing multiple telemetry parameters across laps">
+                    <figcaption>Interface for plotting up to five telemetry channels simultaneously over one or multiple laps.</figcaption>
+                </figure>
+
+                <h3>Cross-File Lap Comparison</h3>
+                <p>This mode compares laps from different files in a single view using up to three parameters, making stint-to-stint or session-to-session checks immediate.</p>
+                <figure>
+                    <img src="assets/analysisTool_comparisonPlot.png" alt="Comparison plot for different laps and files using multiple parameters">
+                    <figcaption>Direct comparison view for up to three parameters across selected laps and telemetry files.</figcaption>
+                </figure>
+
+                <h3>Two-Parameter Scatter Analysis</h3>
+                <p>Scatter charts reveal relationships between two selected channels for one or multiple laps, useful for spotting trends and consistency patterns.</p>
+                <figure>
+                    <img src="assets/analysisTool_scatterChart.png" alt="Scatter chart comparing two telemetry parameters for lap analysis">
+                    <figcaption>Scatter mode for exploring parameter relationships and identifying driving trends.</figcaption>
+                </figure>
+
+                <h3>Automatic Corner Identification</h3>
+                <p>The tool detects corners automatically and extracts key values per corner, turning full-lap telemetry into structured corner-level data.</p>
+                <figure>
+                    <img src="assets/analysisTool_idCorners.png" alt="Tool output automatically identifying corners and extracting telemetry metrics">
+                    <figcaption>Automated corner detection and extraction of key metrics for each section of the track.</figcaption>
+                </figure>
+
+                <h3>Corner Time Gain and Loss Comparison</h3>
+                <p>With the extracted corner dataset, this view quantifies where time is gained or lost so improvement priorities are clear by corner.</p>
+                <figure>
+                    <img src="assets/analysisTool_cornerComparison.png" alt="Corner comparison results showing time gains and losses">
+                    <figcaption>Corner-by-corner comparison highlighting where time is gained or lost between laps or stints.</figcaption>
+                </figure>
+
+                <h3>Optimal Lap Generation</h3>
+                <p>The final module builds an optimal lap from best microsectors for a chosen stint length and compares it against another stint benchmark.</p>
+                <figure>
+                    <img src="assets/analysisTool_optimalLap.png" alt="Optimal lap generation and comparison based on microsector analysis">
+                    <figcaption>Microsector-based optimal lap generation for a stint with benchmark comparison against another stint.</figcaption>
+                </figure>
             </div>
 
             <!-- Driver Analysis Section -->
@@ -467,24 +481,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Setup Analysis Section -->
-            <div class="analysis-section" data-section="setup" style="display: none;">
-                <h2>Setup Optimization Analysis</h2>
-
-                <p>Evaluating the impact of vehicle setup changes with consistent driver performance. This analysis isolates setup variables to quantify their effect on lap times, handling balance, and overall vehicle behavior.</p>
-
-                <h3>Methodology</h3>
-                <ul>
-                    <li>Controlled variable: Consistent driving inputs and technique</li>
-                    <li>Analyzed variable: Vehicle setup parameters (suspension, aerodynamics, differential)</li>
-                    <li>Key metrics: Lap time deltas, corner speed changes, stability indicators, tire performance</li>
-                    <li><strong>MoTeC i2:</strong> Direct comparison of identical corner entries with different setups, suspension travel and damping analysis, tire temperature distribution patterns</li>
-                    <li><strong>Python:</strong> Quantitative setup change correlation with lap time improvements, automated detection of setup-sensitive corners, statistical validation of setup effects</li>
-                </ul>
-
-                <p><em>Detailed setup analysis results to be added...</em></p>
             </div>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
